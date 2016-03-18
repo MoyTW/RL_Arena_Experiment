@@ -2,10 +2,11 @@ import math
 
 
 class GameObject(object):
-    def __init__(self, x, y, name, blocks=False, fighter=None, ai=None, item=None, equipment=None):
+    def __init__(self, x, y, name, faction=None, blocks=False, fighter=None, ai=None, item=None, equipment=None):
         self.x = x
         self.y = y
         self.name = name
+        self.faction = faction
         self.blocks = blocks
 
         self.fighter = fighter
@@ -37,7 +38,6 @@ class GameObject(object):
         new_x = self.x + dx
         new_y = self.y + dy
         if not level_map.is_blocked(new_x, new_y):
-            print('moved from ' + self.x + ',' + self.y + ' to ' + new_x + ',' + new_y)
             self.x += dx
             self.y += dy
 

@@ -19,9 +19,12 @@ class Renderer:
         # TODO: This is pretty hacky!
         i = 1
         for o in level._all_objects:
-            self._level_console.draw_char(o.x, o.y, i, fg=[255, 0, 0])
+            if o.faction == '1':  # TODO: Better faction implementation!
+                color = [255, 0, 0]
+            else:
+                color = [0, 0, 255]
+            self._level_console.draw_char(o.x, o.y, i, color)
             i += 1
-            print(o.name)
 
         con.blit(self._level_console)
 
