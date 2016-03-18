@@ -16,6 +16,13 @@ class Renderer:
                 else:
                     self._level_console.draw_rect(x, y, 1, 1, None, bg=[0, 15, 7])
 
+        # TODO: This is pretty hacky!
+        i = 1
+        for o in level._all_objects:
+            self._level_console.draw_char(o.x, o.y, i, fg=[255, 0, 0])
+            i += 1
+            print(o.name)
+
         con.blit(self._level_console)
 
     def render_all(self, level):

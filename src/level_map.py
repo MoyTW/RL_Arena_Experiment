@@ -1,4 +1,5 @@
 import random
+from src.entities import GameObject, Fighter
 
 
 class LevelTile:
@@ -16,6 +17,8 @@ class LevelMap:
     def __init__(self, width, height):
         self.width = width
         self.height = height
+        self._all_objects = []
+
         self._map = self._gen_map()
 
     def _gen_map(self):
@@ -30,7 +33,21 @@ class LevelMap:
             _map[x][y].blocks = True
             _map[x][y].blocks_sight = True
 
+        # Generate a couple of test monsters
+        for _ in range(3):
+            x = random.randint(0, self.width - 1)
+            y = random.randint(0, self.height - 1)
+            fighter_component = Fighter(hp=10, defense=0, power=0, xp=30, base_speed=100)
+            monster = GameObject(x, y, 'test monster', blocks=True, fighter=fighter_component)
+            self.add_object(monster)
+
         return _map
+
+    def add_object(self, game_object):
+        self._all_objects.append(game_object)
+
+    def remove_object(self, game_object):
+        self._all_objects.remove(game_object)
 
     # Allow by-index access
     def __getitem__(self, index):
