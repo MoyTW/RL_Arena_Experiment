@@ -1,8 +1,8 @@
 import tdl
 import time
 from src.tdl_constants import *
-from src.level_map import LevelMap
 from src.render import Renderer
+import src.parser as parser
 
 main_width = 80
 main_height = 60
@@ -11,7 +11,7 @@ level_height = 50
 
 main_console = tdl.init(main_width, main_height, 'TDL Test')
 
-level = LevelMap(80, 50)
+level = parser.parse_level('../resources/test_level.json')
 renderer = Renderer(main_console, level_width, level_height)
 renderer.render_all(level=level)
 
