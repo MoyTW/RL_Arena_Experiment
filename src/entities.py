@@ -1,8 +1,10 @@
 import math
+import uuid
 
 
 class GameObject(object):
     def __init__(self, x, y, name, faction=None, blocks=False, fighter=None, ai=None, item=None, equipment=None):
+        self.id = uuid.uuid4()
         self.x = x
         self.y = y
         self.name = name
@@ -40,7 +42,6 @@ class GameObject(object):
         if not level_map.is_blocked(new_x, new_y):
             self.x += dx
             self.y += dy
-
             return True
         else:
             return False
