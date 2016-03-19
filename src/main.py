@@ -1,4 +1,5 @@
 import tdl
+import time
 from src.tdl_constants import *
 from src.level_map import LevelMap
 from src.render import Renderer
@@ -16,6 +17,15 @@ renderer.render_all(level=level)
 
 close_window = False
 while not close_window:
+    time.sleep(1)
+
     for e in tdl.event.get():
         if e.type == TDL_KEY_DOWN:
             close_window = True
+
+    renderer.clear(level=level)
+
+    for o in level._all_objects:
+        o.ai.take_turn()
+
+    renderer.render_all(level=level)

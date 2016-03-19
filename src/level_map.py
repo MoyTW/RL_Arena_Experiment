@@ -1,5 +1,6 @@
 import random
 from src.entities import GameObject, Fighter
+from src.ais import TestMonster
 
 
 class LevelTile:
@@ -38,14 +39,18 @@ class LevelMap:
             x = random.randint(0, self.width - 1)
             y = random.randint(0, self.height - 1)
             fighter_component = Fighter(hp=10, defense=0, power=1, xp=30, base_speed=100)
-            monster = GameObject(x, y, 'test monster', faction='1', blocks=True, fighter=fighter_component)
+            ai_component = TestMonster(self)
+            monster = GameObject(x, y, 'test monster', faction='1', blocks=True, fighter=fighter_component,
+                                 ai=ai_component)
             self.add_object(monster)
 
         for _ in range(3):
             x = random.randint(0, self.width - 1)
             y = random.randint(0, self.height - 1)
             fighter_component = Fighter(hp=10, defense=0, power=1, xp=30, base_speed=100)
-            monster = GameObject(x, y, 'test monster', faction='2', blocks=True, fighter=fighter_component)
+            ai_component = TestMonster(self)
+            monster = GameObject(x, y, 'test monster', faction='2', blocks=True, fighter=fighter_component,
+                                 ai=ai_component)
             self.add_object(monster)
 
         return _map
@@ -55,6 +60,20 @@ class LevelMap:
 
     def remove_object(self, game_object):
         self._all_objects.remove(game_object)
+
+    def get_objects_inside_faction(self, faction):
+        return [o for o in self._all_objects if o.faction == faction]
+
+    def get_objects_outside_faction(self, faction):
+        return [o for o in self._all_objects if o.faction is not None and o.faction != faction]
+
+    def is_blocked(self, x, y):
+        if self._map[x][y].blocks:
+            return True
+        for o in self._all_objects:
+            if o.x == x and o.y == y:
+                return True
+        return False
 
     # Allow by-index access
     def __getitem__(self, index):

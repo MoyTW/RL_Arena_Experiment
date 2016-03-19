@@ -45,14 +45,14 @@ class GameObject(object):
         else:
             return False
 
-    def move_towards(self, target_x, target_y, game_map, objects):
+    def move_towards(self, target_x, target_y, game_map):
         dx = target_x - self.x
         dy = target_y - self.y
         distance = math.sqrt(dx ** 2 + dy ** 2)
 
         dx = int(round(dx / distance))
         dy = int(round(dy / distance))
-        return self.move(dx, dy, game_map, objects)
+        return self.move(dx, dy, game_map)
 
 #    def path_towards(self, target_x, target_y, game_map, objects, fov_map):
 #        path = libtcod.path_new_using_map(fov_map)

@@ -31,3 +31,7 @@ class Renderer:
     def render_all(self, level):
         self._render_level(self.main_console, level)
         tdl.flush()
+
+    def clear(self, level):
+        for o in level._all_objects:
+            self._level_console.draw_char(o.x, o.y, ' ')
