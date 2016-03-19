@@ -38,7 +38,8 @@ class LevelMap:
         for _ in range(3):
             x = random.randint(0, self.width - 1)
             y = random.randint(0, self.height - 1)
-            fighter_component = Fighter(hp=10, defense=0, power=1, xp=30, base_speed=100)
+            fighter_component = Fighter(hp=10, defense=0, power=1, xp=30, base_speed=100,
+                                        death_function=self.remove_object)
             ai_component = TestMonster(self)
             monster = GameObject(x, y, 'test monster', faction='1', blocks=True, fighter=fighter_component,
                                  ai=ai_component)
@@ -47,7 +48,8 @@ class LevelMap:
         for _ in range(3):
             x = random.randint(0, self.width - 1)
             y = random.randint(0, self.height - 1)
-            fighter_component = Fighter(hp=10, defense=0, power=1, xp=30, base_speed=100)
+            fighter_component = Fighter(hp=10, defense=0, power=1, xp=30, base_speed=100,
+                                        death_function=self.remove_object)
             ai_component = TestMonster(self)
             monster = GameObject(x, y, 'test monster', faction='2', blocks=True, fighter=fighter_component,
                                  ai=ai_component)

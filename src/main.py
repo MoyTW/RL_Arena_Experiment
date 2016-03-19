@@ -17,7 +17,7 @@ renderer.render_all(level=level)
 
 close_window = False
 while not close_window:
-    time.sleep(1)
+    time.sleep(.1)
 
     for e in tdl.event.get():
         if e.type == TDL_KEY_DOWN:
