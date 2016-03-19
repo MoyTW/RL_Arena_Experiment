@@ -11,7 +11,7 @@ def parse_level(file):
         def decode_fn(d: dict):
             if d.get('class', None) == 'tile':
                 return LevelTile(blocks=d['blocks'], blocks_sight=d['blocks_sight'])
-            elif 'id' in d:
+            elif 'oid' in d:
                 # Generate the AI
                 if 'ai' in d:
                     ai_component = TestMonster(level)
@@ -26,8 +26,8 @@ def parse_level(file):
                 else:
                     fighter_component = None
 
-                game_object = GameObject(d['x'], d['y'], name=d['name'], faction=d['faction'], blocks=True,
-                                         fighter=fighter_component, ai=ai_component)
+                game_object = GameObject(d['oid'], d['x'], d['y'], name=d['name'], faction=d['faction'],
+                                         blocks=True, fighter=fighter_component, ai=ai_component)
                 return game_object
 
             else:

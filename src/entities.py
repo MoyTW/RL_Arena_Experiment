@@ -1,10 +1,10 @@
 import math
-import uuid
 
 
 class GameObject(object):
-    def __init__(self, x, y, name, faction=None, blocks=False, fighter=None, ai=None, item=None, equipment=None):
-        self.id = uuid.uuid4()
+    def __init__(self, oid, x, y, name, faction=None, blocks=False, fighter=None, ai=None, item=None,
+                 equipment=None):
+        self.oid = oid
         self.x = x
         self.y = y
         self.name = name
