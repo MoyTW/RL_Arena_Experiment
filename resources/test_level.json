@@ -20164,95 +20164,107 @@
         ]
     ],
     "all_objects": [
-    {
-        "oid": "2348adb9-43f2-419a-8fca-9fd8966714a5",
-        "x": 11,
-        "y": 11,
-        "name": "beluga",
-        "faction": "1",
-        "fighter": {
-            "hp": 10,
-            "defense": 0,
-            "power": 1,
-            "xp": 30,
-            "base_speed": 100
+        {
+            "oid": "2348adb9-43f2-419a-8fca-9fd8966714a5",
+            "x": 11,
+            "y": 11,
+            "name": "beluga",
+            "faction": "1",
+            "fighter": {
+                "hp": 10,
+                "defense": 0,
+                "power": 1,
+                "xp": 30,
+                "base_speed": 100
+            },
+            "ai": "TestMonster"
         },
-        "ai": "TestMonster"
-    },
-    {
-        "oid": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
-        "x": 25,
-        "y": 9,
-        "name": "beluga",
-        "faction": "1",
-        "fighter": {
-            "hp": 10,
-            "defense": 0,
-            "power": 1,
-            "xp": 30,
-            "base_speed": 100
+        {
+            "oid": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
+            "x": 25,
+            "y": 9,
+            "name": "beluga",
+            "faction": "1",
+            "fighter": {
+                "hp": 10,
+                "defense": 0,
+                "power": 1,
+                "xp": 30,
+                "base_speed": 100
+            },
+            "ai": "TestMonster"
         },
-        "ai": "TestMonster"
-    },
-    {
-        "oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
-        "x": 3,
-        "y": 13,
-        "name": "beluga",
-        "faction": "1",
-        "fighter": {
-            "hp": 10,
-            "defense": 0,
-            "power": 1,
-            "xp": 30,
-            "base_speed": 100
+        {
+            "oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
+            "x": 3,
+            "y": 13,
+            "name": "beluga",
+            "faction": "1",
+            "fighter": {
+                "hp": 10,
+                "defense": 0,
+                "power": 1,
+                "xp": 30,
+                "base_speed": 100
+            },
+            "ai": "TestMonster"
         },
-        "ai": "TestMonster"
-    },
-    {
-        "oid": "6acb0783-403f-4288-98a7-582d0416608a",
-        "x": 49,
-        "y": 48,
-        "faction": "2",
-        "name": "beluga",
-        "fighter": {
-            "hp": 10,
-            "defense": 0,
-            "power": 1,
-            "xp": 30,
-            "base_speed": 100
+        {
+            "oid": "6acb0783-403f-4288-98a7-582d0416608a",
+            "x": 49,
+            "y": 48,
+            "faction": "2",
+            "name": "beluga",
+            "fighter": {
+                "hp": 10,
+                "defense": 0,
+                "power": 1,
+                "xp": 30,
+                "base_speed": 100
+            },
+            "ai": "TestMonster"
         },
-        "ai": "TestMonster"
-    },
-    {
-        "oid": "187544a8-7e08-476d-9330-7ec5632c46f8",
-        "x": 39,
-        "y": 49,
-        "name": "beluga",
-        "faction": "2",
-        "fighter": {
-            "hp": 10,
-            "defense": 0,
-            "power": 1,
-            "xp": 30,
-            "base_speed": 100
+        {
+            "oid": "187544a8-7e08-476d-9330-7ec5632c46f8",
+            "x": 39,
+            "y": 49,
+            "name": "beluga",
+            "faction": "2",
+            "fighter": {
+                "hp": 10,
+                "defense": 0,
+                "power": 1,
+                "xp": 30,
+                "base_speed": 100
+            },
+            "ai": "TestMonster"
         },
-        "ai": "TestMonster"
-    },
-    {
-        "oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-        "x": 21,
-        "y": 25,
-        "name": "beluga",
-        "faction": "2",
-        "fighter": {
-            "hp": 10,
-            "defense": 0,
-            "power": 1,
-            "xp": 30,
-            "base_speed": 100
-        },
-        "ai": "TestMonster"
-    }
-]
+        {
+            "oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+            "x": 21,
+            "y": 25,
+            "name": "beluga",
+            "faction": "2",
+            "fighter": {
+                "hp": 10,
+                "defense": 0,
+                "power": 1,
+                "xp": 30,
+                "base_speed": 100
+            },
+            "ai": "TestMonster",
+            "inventory": {
+                "max_size": 10,
+                "carried_items": [
+                    {
+                        "oid": "0b0c25b8-f0e8-474c-a622-2b83076c7574",
+                        "name": "test item",
+                        "item": {
+                            "class": "TestItem"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
 }
