@@ -1,3 +1,6 @@
+import tdl
+
+
 class LevelTile:
     def __init__(self, blocks=False, blocks_sight=None):
         self.blocks = blocks
@@ -47,6 +50,16 @@ class LevelMap:
             if o.x == x and o.y == y:
                 return True
         return False
+
+    def has_los(self, x0, y0, x1, y1):
+        # The TDL Bresenham includes the origin point, necessitating the pop
+        line = tdl.map.bresenham(x0, y0, x1, y1)
+        line.pop(0)
+
+        for (x, y) in line:
+            if self.is_blocked(x, y):
+                return False
+        return True
 
     # Allow by-index access
     def __getitem__(self, index):
