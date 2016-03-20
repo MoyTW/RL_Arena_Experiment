@@ -134,14 +134,17 @@ class Fighter:
         return damage
 
     def take_damage(self, damage):
+        owner = self.owner
+
         if damage > 0:
             self.hp -= damage
-            self.owner.log.log_take_damage(self.owner.oid, damage)
+            owner.log.log_take_damage(owner.oid, damage)
 
         if self.hp <= 0:
+            owner.log.log_destruction(owner.oid, owner.x, owner.y)
             function = self.death_function
             if function is not None:
-                function(self.owner)
+                function(owner)
 
     def heal(self, amount):
         self.hp += amount

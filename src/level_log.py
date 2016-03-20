@@ -36,5 +36,13 @@ class LevelLog:
             "damage": damage
         })
 
+    def log_destruction(self, oid, x, y):
+        self._log.append({
+            EVENT_TYPE: OBJECT_DESTRUCTION_EVENT,
+            OBJ_ID: oid,
+            OBJ_X: x,
+            OBJ_Y: y
+        })
+
     def to_json_string(self):
         return json.dumps(self._log)

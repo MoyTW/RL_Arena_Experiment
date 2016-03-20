@@ -12,6 +12,7 @@ level_height = 50
 main_console = tdl.init(main_width, main_height, 'TDL Test')
 
 (level, log) = parser.parse_level('../resources/test_level.json')
+
 for _ in range(100):
     for o in level._all_objects:
         o.ai.take_turn()
@@ -25,11 +26,5 @@ print(log.to_json_string())
 renderer = Renderer(main_console, level_width, level_height)
 renderer.render_all(level=scratch_level)
 
-close_window = False
-while not close_window:
-    for le in log._log:
-        renderer.render_event(level=scratch_level, event=le)
-
-    for e in tdl.event.get():
-            if e.type == TDL_KEY_DOWN:
-                close_window = True
+for le in log._log:
+    renderer.render_event(level=scratch_level, event=le)

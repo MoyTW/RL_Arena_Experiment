@@ -6,6 +6,8 @@ OBJ_Y = 'y'
 
 BEGIN_TURN_EVENT = 'begin turn'
 
+OBJECT_DESTRUCTION_EVENT = 'object destruction'
+
 MOVEMENT_EVENT = 'movement'
 MOVEMENT_PREV_X = 'previous x'
 MOVEMENT_PREV_Y = 'previous y'

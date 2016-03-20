@@ -51,6 +51,9 @@ class Renderer:
 
             self._level_console.draw_char(event[OBJ_X], event[OBJ_Y], o.faction, fg=color)
 
+        elif event[EVENT_TYPE] == OBJECT_DESTRUCTION_EVENT:
+            self._level_console.draw_char(event[OBJ_X], event[OBJ_Y], ' ', bg=[0, 15, 7])
+
         # Render
         self.main_console.blit(self._level_console)
         tdl.flush()
