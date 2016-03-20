@@ -3,7 +3,7 @@ from src.level_map import LevelTile, LevelMap
 from src.ais import TestMonster
 from src.entities import GameObject, Fighter
 from src.level_log import LevelLog
-from src.items import Inventory, TestItem
+from src.items import Inventory, TestItem, ThrowingItem
 
 def parse_level(file):
     with open(file, 'r') as f:
@@ -39,9 +39,13 @@ def parse_level(file):
                     inventory_component = None
 
                 if 'item' in d:
-                    item = d['item']
+                    item = d['item']  # type: dict
                     if item['class'] == 'TestItem':
-                        item_component = TestItem()
+                        item.pop('class')
+                        item_component = TestItem(**item)
+                    elif item['class'] == 'ThrowingItem':
+                        item.pop('class')
+                        item_component = ThrowingItem(**item)
                     else:
                         item_component = None
                 else:

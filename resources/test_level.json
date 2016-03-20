@@ -20262,6 +20262,15 @@
                         "item": {
                             "class": "TestItem"
                         }
+                    },
+                    {
+                        "oid": "59681866-5195-4f9d-9372-a4a49dc32636",
+                        "name": "test throwing item",
+                        "item": {
+                            "class": "ThrowingItem",
+                            "item_power": 4,
+                            "item_range": 3
+                        }
                     }
                 ]
             }
