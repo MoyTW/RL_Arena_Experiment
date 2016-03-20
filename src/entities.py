@@ -3,8 +3,8 @@ from src.level_log import LevelLog
 
 
 class GameObject(object):
-    def __init__(self, oid, log: LevelLog, x, y, name, faction=None, blocks=False, fighter=None, ai=None, item=None,
-                 equipment=None):
+    def __init__(self, oid, log: LevelLog, x, y, name, faction=None, blocks=False, inventory=None, fighter=None,
+                 ai=None, item=None, equipment=None):
         self.oid = oid
         self.log = log
         self.x = x
@@ -12,6 +12,7 @@ class GameObject(object):
         self.name = name
         self.faction = faction
         self.blocks = blocks
+        self.inventory = inventory
 
         self.fighter = fighter
         if self.fighter:
