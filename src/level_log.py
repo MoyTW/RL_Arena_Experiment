@@ -1,11 +1,5 @@
 import json
-
-EVENT_TYPE = 'event_type'
-
-BEGIN_TURN = 'begin turn'
-MOVEMENT_EVENT = 'movement'
-ATTACK_EVENT = 'attack'
-TAKE_DAMAGE_EVENT = 'take damage'
+from src.constants import *
 
 
 class LevelLog:
@@ -13,14 +7,19 @@ class LevelLog:
         self._log = []
 
     def log_begin_turn(self, oid):
-        self._log.append({BEGIN_TURN: oid})
-
-    def log_movement(self, oid, x, y):
         self._log.append({
-            "event_type": MOVEMENT_EVENT,
-            "object_id": oid,
-            "x": x,
-            "y": y
+            EVENT_TYPE: BEGIN_TURN_EVENT,
+            OBJ_ID: oid
+        })
+
+    def log_movement(self, oid, x0, y0, x1, y1):
+        self._log.append({
+            EVENT_TYPE: MOVEMENT_EVENT,
+            OBJ_ID: oid,
+            MOVEMENT_PREV_X: x0,
+            MOVEMENT_PREV_Y: y0,
+            OBJ_X: x1,
+            OBJ_Y: y1
         })
 
     def log_attack(self, attacker_oid, defender_oid):

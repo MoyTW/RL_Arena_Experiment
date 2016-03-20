@@ -39,12 +39,14 @@ class GameObject(object):
         :param level_map: the level
         :return: True if movement was successful, False if not
         """
+        old_x = self.x
+        old_y = self.y
         new_x = self.x + dx
         new_y = self.y + dy
         if not level_map.is_blocked(new_x, new_y):
             self.x += dx
             self.y += dy
-            self.log.log_movement(self.oid, self.x, self.y)
+            self.log.log_movement(self.oid, old_x, old_y, new_x, new_y)
             return True
         else:
             return False

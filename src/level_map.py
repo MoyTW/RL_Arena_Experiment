@@ -24,6 +24,10 @@ class LevelMap:
             self._map = level_tiles
             self._map_set = True
 
+    def get_object_by_id(self, oid):
+        matching = [o for o in self._all_objects if o.oid == oid]
+        return matching[0]
+
     def add_object(self, game_object):
         self._all_objects.append(game_object)
 

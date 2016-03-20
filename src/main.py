@@ -12,22 +12,24 @@ level_height = 50
 main_console = tdl.init(main_width, main_height, 'TDL Test')
 
 (level, log) = parser.parse_level('../resources/test_level.json')
-renderer = Renderer(main_console, level_width, level_height)
-renderer.render_all(level=level)
-
-close_window = False
-while not close_window:
-    time.sleep(.1)
-
-    for e in tdl.event.get():
-        if e.type == TDL_KEY_DOWN:
-            close_window = True
-
-    renderer.clear(level=level)
-
+for _ in range(100):
     for o in level._all_objects:
         o.ai.take_turn()
 
-    renderer.render_all(level=level)
-
 print(log.to_json_string())
+
+# This is not very elegant, but the level used for doing the calculations is destructive, so we need to get a fresh
+# from-json copy for rendering.
+(scratch_level, _) = parser.parse_level('../resources/test_level.json')
+
+renderer = Renderer(main_console, level_width, level_height)
+renderer.render_all(level=scratch_level)
+
+close_window = False
+while not close_window:
+    for le in log._log:
+        renderer.render_event(level=scratch_level, event=le)
+
+    for e in tdl.event.get():
+            if e.type == TDL_KEY_DOWN:
+                close_window = True

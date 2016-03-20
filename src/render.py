@@ -1,4 +1,5 @@
 import tdl
+from src.constants import *
 
 
 class Renderer:
@@ -35,3 +36,21 @@ class Renderer:
     def clear(self, level):
         for o in level._all_objects:
             self._level_console.draw_char(o.x, o.y, ' ')
+
+    def render_event(self, level, event):
+        if event[EVENT_TYPE] == MOVEMENT_EVENT:
+            # Clear previous location
+            self._level_console.draw_char(event[MOVEMENT_PREV_X], event[MOVEMENT_PREV_Y], ' ', bg=[0, 15, 7])
+
+            # Retrieve faction and color
+            o = level.get_object_by_id(event[OBJ_ID])
+            if o.faction == '1':  # TODO: Better faction implementation!
+                color = [255, 0, 0]
+            else:
+                color = [0, 0, 255]
+
+            self._level_console.draw_char(event[OBJ_X], event[OBJ_Y], o.faction, fg=color)
+
+        # Render
+        self.main_console.blit(self._level_console)
+        tdl.flush()
