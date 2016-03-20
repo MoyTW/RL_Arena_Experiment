@@ -6,6 +6,20 @@ class LevelLog:
     def __init__(self):
         self._log = []
 
+    def log_begin_item_use(self, oid, user_oid, target):
+        self._log.append({
+            EVENT_TYPE: BEGIN_ITEM_USE,
+            OBJ_ID: oid,
+            USER_ID: user_oid,
+            TARGET: target
+        })
+
+    def log_end_item_use(self, oid):
+        self._log.append({
+            EVENT_TYPE: END_ITEM_USE,
+            OBJ_ID: oid
+        })
+
     def log_begin_turn(self, oid):
         self._log.append({
             EVENT_TYPE: BEGIN_TURN_EVENT,

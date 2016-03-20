@@ -6,6 +6,11 @@ OBJ_Y = 'y'
 
 BEGIN_TURN_EVENT = 'begin turn'
 
+BEGIN_ITEM_USE = 'begin item use'
+USER_ID = 'user id'
+TARGET = 'target'
+END_ITEM_USE = 'end item use'
+
 OBJECT_DESTRUCTION_EVENT = 'object destruction'
 
 MOVEMENT_EVENT = 'movement'
