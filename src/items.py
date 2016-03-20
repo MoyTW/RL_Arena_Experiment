@@ -31,6 +31,9 @@ class Item:
     def _use(self, user, target, level_map):
         raise NotImplementedError()
 
+    def can_use(self, user: GameObject, target: GameObject, level_map):
+        raise NotImplementedError()
+
     def use(self, user: GameObject, target: GameObject, level_map):
         """
         Use the item on the target.
@@ -52,6 +55,9 @@ class TestItem(Item):
     def _use(self, user: GameObject, target: GameObject, level_map):
         target.fighter.heal(10)
 
+    def can_use(self, user: GameObject, target: GameObject, level_map):
+        return False
+
 
 class ThrowingItem(Item):
     def __init__(self, item_type, item_power, item_range):
@@ -60,14 +66,20 @@ class ThrowingItem(Item):
         self.item_range = item_range
 
     def _use(self, user: GameObject, target: GameObject, level_map: LevelMap):
-        target_range = user.distance_to(target)
+        if not self.can_use(user, target, level_map):
+            return False
 
-        if target_range < self.item_range:
-            pass
-        elif not level_map.has_los(user.x, user.y, target.x, target.y):
-            pass
-        else:
-            target.fighter.take_damage(self.item_power)  # TODO: Add a is_direct parameter to this function call!
+        target.fighter.take_damage(self.item_power)  # TODO: Add a is_direct parameter to this function call!
 
         # Throwing items are always consumed on use
         return True
+
+    def can_use(self, user: GameObject, target: GameObject, level_map):
+        target_range = user.distance_to(target)
+
+        if target_range > self.item_range:
+            return False
+        elif not level_map.has_los(user.x, user.y, target.x, target.y):
+            return False
+        else:
+            return True
