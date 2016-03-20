@@ -19,3 +19,7 @@ MOVEMENT_PREV_Y = 'previous y'
 
 ATTACK_EVENT = 'attack'
 TAKE_DAMAGE_EVENT = 'take damage'
+
+# Item constants
+ITEM_TEST = 'test'
+ITEM_THROWING = 'throwing'

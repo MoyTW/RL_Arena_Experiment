@@ -4,6 +4,7 @@ from src.ais import TestMonster
 from src.entities import GameObject, Fighter
 from src.level_log import LevelLog
 from src.items import Inventory, TestItem, ThrowingItem
+from src.constants import *
 
 def parse_level(file):
     with open(file, 'r') as f:
@@ -40,11 +41,9 @@ def parse_level(file):
 
                 if 'item' in d:
                     item = d['item']  # type: dict
-                    if item['class'] == 'TestItem':
-                        item.pop('class')
+                    if item['item_type'] == ITEM_TEST:
                         item_component = TestItem(**item)
-                    elif item['class'] == 'ThrowingItem':
-                        item.pop('class')
+                    elif item['item_type'] == ITEM_THROWING:
                         item_component = ThrowingItem(**item)
                     else:
                         item_component = None

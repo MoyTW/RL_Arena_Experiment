@@ -24,6 +24,10 @@ class Inventory:
 
 
 class Item:
+    def __init__(self, item_type):
+        self.owner = None
+        self.item_type = item_type
+
     def _use(self, user, target, level_map):
         raise NotImplementedError()
 
@@ -42,13 +46,16 @@ class Item:
 
 
 class TestItem(Item):
+    def __init__(self, item_type):
+        super().__init__(item_type=item_type)
+
     def _use(self, user: GameObject, target: GameObject, level_map):
         target.fighter.heal(10)
 
 
 class ThrowingItem(Item):
-    def __init__(self, item_power, item_range):
-        self.owner = None
+    def __init__(self, item_type, item_power, item_range):
+        super().__init__(item_type=item_type)
         self.item_power = item_power
         self.item_range = item_range
 
