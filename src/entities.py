@@ -1,10 +1,12 @@
 import math
+from src.level_log import LevelLog
 
 
 class GameObject(object):
-    def __init__(self, oid, x, y, name, faction=None, blocks=False, fighter=None, ai=None, item=None,
+    def __init__(self, oid, log: LevelLog, x, y, name, faction=None, blocks=False, fighter=None, ai=None, item=None,
                  equipment=None):
         self.oid = oid
+        self.log = log
         self.x = x
         self.y = y
         self.name = name
@@ -42,6 +44,7 @@ class GameObject(object):
         if not level_map.is_blocked(new_x, new_y):
             self.x += dx
             self.y += dy
+            self.log.log_movement(self.oid, self.x, self.y)
             return True
         else:
             return False
@@ -122,6 +125,7 @@ class Fighter:
         self._time_until_turn = self.speed
 
     def attack(self, target):
+        self.owner.log.log_attack(self.owner.oid, target.oid)
         damage = self.power - target.fighter.defense
         if damage > 0:
             target.fighter.take_damage(damage)
@@ -130,6 +134,7 @@ class Fighter:
     def take_damage(self, damage):
         if damage > 0:
             self.hp -= damage
+            self.owner.log.log_take_damage(self.owner.oid, damage)
 
         if self.hp <= 0:
             function = self.death_function

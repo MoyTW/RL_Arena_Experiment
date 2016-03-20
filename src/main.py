@@ -11,7 +11,7 @@ level_height = 50
 
 main_console = tdl.init(main_width, main_height, 'TDL Test')
 
-level = parser.parse_level('../resources/test_level.json')
+(level, log) = parser.parse_level('../resources/test_level.json')
 renderer = Renderer(main_console, level_width, level_height)
 renderer.render_all(level=level)
 
@@ -29,3 +29,5 @@ while not close_window:
         o.ai.take_turn()
 
     renderer.render_all(level=level)
+
+print(log.to_json_string())

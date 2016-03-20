@@ -4,11 +4,15 @@ class MonsterAI(object):
         self.level = level
 
     def take_turn(self):
+        self.owner.log.log_begin_turn(self.owner.oid)
+        self._take_turn()
+
+    def _take_turn(self):
         raise NotImplementedError('Subclass this before usage please.')
 
 
 class TestMonster(MonsterAI):
-    def take_turn(self):
+    def _take_turn(self):
         enemies = self.level.get_objects_outside_faction(self.owner.faction)
         if len(enemies) > 0:
             distances = {self.owner.distance_to(e): e for e in enemies}

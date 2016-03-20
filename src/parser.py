@@ -2,11 +2,13 @@ import json
 from src.level_map import LevelTile, LevelMap
 from src.ais import TestMonster
 from src.entities import GameObject, Fighter
+from src.level_log import LevelLog
 
 
 def parse_level(file):
     with open(file, 'r') as f:
         level = LevelMap()
+        log = LevelLog()
 
         def decode_fn(d: dict):
             if d.get('class', None) == 'tile':
@@ -26,7 +28,7 @@ def parse_level(file):
                 else:
                     fighter_component = None
 
-                game_object = GameObject(d['oid'], d['x'], d['y'], name=d['name'], faction=d['faction'],
+                game_object = GameObject(d['oid'], log, d['x'], d['y'], name=d['name'], faction=d['faction'],
                                          blocks=True, fighter=fighter_component, ai=ai_component)
                 return game_object
 
@@ -40,4 +42,4 @@ def parse_level(file):
         for obj in parsed['all_objects']:
             level.add_object(obj)
         level.finalize()
-        return level
+        return level, log
