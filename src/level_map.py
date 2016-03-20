@@ -52,9 +52,10 @@ class LevelMap:
         return False
 
     def has_los(self, x0, y0, x1, y1):
-        # The TDL Bresenham includes the origin point, necessitating the pop
+        # The TDL Bresenham includes the origin point and end points, necessitating the pop
         line = tdl.map.bresenham(x0, y0, x1, y1)
         line.pop(0)
+        line.pop()
 
         for (x, y) in line:
             if self.is_blocked(x, y):
