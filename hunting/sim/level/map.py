@@ -1,4 +1,5 @@
 import tdl
+from hunting.sim.level.log import LevelLog
 
 
 class LevelTile:
@@ -14,6 +15,7 @@ class LevelTile:
 
 class LevelMap:
     def __init__(self):
+        self.log = LevelLog()
         self.width = None
         self.height = None
         self._all_objects = []

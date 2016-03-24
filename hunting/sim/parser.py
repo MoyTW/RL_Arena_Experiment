@@ -6,13 +6,12 @@ from hunting.sim.ais import TestMonster
 from hunting.sim.constants import *
 from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.items import Inventory, TestItem, ThrowingItem
-from hunting.sim.level.log import LevelLog
 
 
 def parse_level(file):
     with open(file, 'r') as f:
         level = LevelMap()
-        log = LevelLog()
+        log = level.log
 
         def decode_fn(d: dict):
             if d.get('class', None) == 'tile':
@@ -68,4 +67,4 @@ def parse_level(file):
         for obj in parsed['all_objects']:
             level.add_object(obj)
         level.finalize()
-        return level, log
+        return level
