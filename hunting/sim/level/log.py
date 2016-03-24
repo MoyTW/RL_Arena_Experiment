@@ -7,6 +7,10 @@ class LevelLog:
     def __init__(self):
         self._log = []
 
+    @property
+    def events(self):
+        return self._log
+
     def log_begin_item_use(self, oid, user_oid, target):
         self._log.append({
             EVENT_TYPE: BEGIN_ITEM_USE,

@@ -39,6 +39,9 @@ class LevelMap:
     def remove_object(self, game_object):
         self._all_objects.remove(game_object)
 
+    def get_factions(self):
+        return set([o.faction for o in self._all_objects])
+
     def get_objects_inside_faction(self, faction):
         return [o for o in self._all_objects if o.faction == faction]
 
