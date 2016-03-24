@@ -1,5 +1,6 @@
 import tdl
-from hunting.sim.level.log import LevelLog
+
+from hunting.level.log import LevelLog
 
 
 class LevelTile:

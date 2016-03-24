@@ -1,4 +1,4 @@
-from hunting.sim.level.map import LevelMap
+from hunting.level.map import LevelMap
 
 
 def run_level(level: LevelMap):

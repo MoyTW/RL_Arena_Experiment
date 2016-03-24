@@ -2,9 +2,9 @@ import uuid
 
 import tdl
 
-import hunting.sim.parser as parser
+import hunting.level.parser as parser
 from hunting.display.render import Renderer
-from hunting.sim.level.runner import run_level
+from hunting.level.runner import run_level
 
 print(uuid.uuid4())
 

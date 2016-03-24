@@ -1,5 +1,5 @@
+from hunting.level.map import LevelMap
 from hunting.sim.entities import GameObject
-from hunting.sim.level.map import LevelMap
 
 
 class Inventory:
