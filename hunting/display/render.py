@@ -1,5 +1,6 @@
 import tdl
-from src.constants import *
+
+from hunting.sim.constants import *
 
 
 class Renderer:

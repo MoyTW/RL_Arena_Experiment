@@ -1,10 +1,13 @@
 import json
-from src.level_map import LevelTile, LevelMap
-from src.ais import TestMonster
-from src.entities import GameObject, Fighter
-from src.level_log import LevelLog
-from src.items import Inventory, TestItem, ThrowingItem
-from src.constants import *
+
+from hunting.sim.level.map import LevelTile, LevelMap
+
+from hunting.sim.ais import TestMonster
+from hunting.sim.constants import *
+from hunting.sim.entities import GameObject, Fighter
+from hunting.sim.items import Inventory, TestItem, ThrowingItem
+from hunting.sim.level.log import LevelLog
+
 
 def parse_level(file):
     with open(file, 'r') as f:

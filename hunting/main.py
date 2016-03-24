@@ -1,8 +1,11 @@
+import uuid
+
 import tdl
-import time
-from src.tdl_constants import *
-from src.render import Renderer
-import src.parser as parser
+
+import hunting.sim.parser as parser
+from hunting.display.render import Renderer
+
+print(uuid.uuid4())
 
 main_width = 80
 main_height = 60
@@ -11,7 +14,7 @@ level_height = 50
 
 main_console = tdl.init(main_width, main_height, 'TDL Test')
 
-(level, log) = parser.parse_level('../resources/test_level.json')
+(level, log) = parser.parse_level('resources/test_level.json')
 
 for _ in range(100):
     for o in level._all_objects:
@@ -21,7 +24,7 @@ print(log.to_json_string())
 
 # This is not very elegant, but the level used for doing the calculations is destructive, so we need to get a fresh
 # from-json copy for rendering.
-(scratch_level, _) = parser.parse_level('../resources/test_level.json')
+(scratch_level, _) = parser.parse_level('resources/test_level.json')
 
 renderer = Renderer(main_console, level_width, level_height)
 renderer.render_all(level=scratch_level)

@@ -1,5 +1,6 @@
 import math
-from src.level_log import LevelLog
+
+from hunting.sim.level.log import LevelLog
 
 
 class GameObject(object):

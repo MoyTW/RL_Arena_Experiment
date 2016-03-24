@@ -1,6 +1,3 @@
-from src.constants import *
-
-
 class MonsterAI(object):
     def __init__(self, level):
         self.owner = None
