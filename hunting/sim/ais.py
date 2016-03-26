@@ -14,6 +14,7 @@ class MonsterAI(object):
 
 class TestMonster(MonsterAI):
     def _take_turn(self):
+        #print('taking turn')
 
         enemies = self.level.get_objects_outside_faction(self.owner.faction)
 
@@ -32,9 +33,11 @@ class TestMonster(MonsterAI):
 
             # Attack if adjacent
             if closest_distance <= 1.5:
+                #print('attacking')
                 self.owner.fighter.attack(closest_enemy)
             # Throw if you have a throwing item
             if len(throwing_items) > 0:
                 throwing_items[0].item.use(self.owner, closest_enemy, self.level)
             else:
+                #print('moving')
                 self.owner.move_towards(closest_enemy.x, closest_enemy.y, self.level)
