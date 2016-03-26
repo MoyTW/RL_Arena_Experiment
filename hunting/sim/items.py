@@ -23,14 +23,19 @@ class Inventory:
     def get_usable_items(self):
         return [i for i in self._items if i.item is not None]
 
+    def remove_item(self, item):
+        self._items.remove(item)
+
     def __len__(self):
         return len(self._items)
 
 
 class Item:
-    def __init__(self, item_type):
+    def __init__(self, item_type, max_uses=1):
         self.owner = None
         self.item_type = item_type
+        self.remaining_uses = max_uses
+        self.max_uses = max_uses
 
     def _use(self, user, target, level_map):
         raise NotImplementedError()
@@ -40,15 +45,19 @@ class Item:
 
     def use(self, user: GameObject, target: GameObject, level_map):
         """
-        Use the item on the target.
+        Use the item on the target. Reduces the number of remaining usages by 1, and if it reaches 0, removes the item
+        from the user's inventory.
         :param target: The target, usually a GameObject
         :param user : The entity using the item; distinct from owner, which is the GameObject the item is composed into
         :param level_map: The level map state
-        :return: True if the item is been consumed, False if it has not
         """
         owner = self.owner  # type: GameObject
         owner.log.log_begin_item_use(owner.oid, user.oid, target.oid)
         self._use(user, target, level_map)
+        if self.max_uses:
+            self.remaining_uses -= 1
+            if self.remaining_uses < 1:
+                user.inventory.remove_item(owner)
         owner.log.log_end_item_use(owner.oid)
 
 
