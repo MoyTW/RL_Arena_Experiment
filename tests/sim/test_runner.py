@@ -1,10 +1,12 @@
 import unittest
-
+import hunting.resources as resources
 from hunting.constants import *
 from hunting.level.map import LevelMap, LevelTile
 from hunting.sim.ais import TestMonster
 from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.runner import run_level
+import hunting.level.parser as parser
+import json
 
 
 class TestRunner(unittest.TestCase):
@@ -27,3 +29,11 @@ class TestRunner(unittest.TestCase):
 
         self.assertEqual([BEGIN_TURN_EVENT, ATTACK_EVENT, TAKE_DAMAGE_EVENT, OBJECT_DESTRUCTION_EVENT, END_TURN_EVENT],
                          event_types)
+
+    # This is not a unit test! However I'm not sure where to put it. So here it is.
+    def test_level_json(self):
+        level = parser.parse_level(resources.test_level_json)
+        run_level(level)
+
+        with open(resources.test_level_log_json, 'r') as f:
+            self.assertEqual(level.log.events, json.load(f))
