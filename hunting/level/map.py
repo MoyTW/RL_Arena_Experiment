@@ -30,6 +30,23 @@ class LevelMap:
             self._map = level_tiles
             self._map_set = True
 
+    def pass_time(self, time):
+        fighters = [o for o in self._all_objects if o.fighter is not None]
+        for o in fighters:
+            o.fighter.pass_time(time)
+
+    def get_time_to_next_event(self):
+        fighters = [o.fighter.time_until_turn for o in self._all_objects if o.fighter is not None]
+        return min(fighters)
+
+    def pass_time_to_next_event(self):
+        time = self.get_time_to_next_event()
+        self.pass_time(time)
+
+    def get_objects_moving_now(self):
+        fighters = [o for o in self._all_objects if o.fighter is not None and o.fighter.time_until_turn <= 0]
+        return fighters
+
     def get_object_by_id(self, oid):
         matching = [o for o in self._all_objects if o.oid == oid]
         return matching[0]
