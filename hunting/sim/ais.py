@@ -6,6 +6,7 @@ class MonsterAI(object):
     def take_turn(self):
         self.owner.log.log_begin_turn(self.owner.oid)
         self._take_turn()
+        self.owner.log.log_end_turn(self.owner.oid)
 
     def _take_turn(self):
         raise NotImplementedError('Subclass this before usage please.')

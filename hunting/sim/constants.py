@@ -5,6 +5,7 @@ OBJ_X = 'x'
 OBJ_Y = 'y'
 
 BEGIN_TURN_EVENT = 'begin turn'
+END_TURN_EVENT = 'end turn'
 
 BEGIN_ITEM_USE = 'begin item use'
 USER_ID = 'user id'

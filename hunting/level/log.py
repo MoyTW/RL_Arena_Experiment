@@ -31,6 +31,12 @@ class LevelLog:
             OBJ_ID: oid
         })
 
+    def log_end_turn(self, oid):
+        self._log.append({
+            EVENT_TYPE: END_TURN_EVENT,
+            OBJ_ID: oid
+        })
+
     def log_movement(self, oid, x0, y0, x1, y1):
         self._log.append({
             EVENT_TYPE: MOVEMENT_EVENT,
