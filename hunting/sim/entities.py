@@ -85,6 +85,7 @@ class Fighter:
         self.base_defense = defense
         self.base_power = power
         self.xp = xp
+        self._base_speed = None  # TODO: Figure out if this is the standard method of using properties!
         self.base_speed = base_speed
         self._time_until_turn = self.base_speed
         self.death_function = death_function
@@ -104,6 +105,16 @@ class Fighter:
     def power(self):
         buffs = sum(buff[0] for buff in self._power_buffs)
         return self.base_power + buffs
+
+    @property
+    def base_speed(self):
+        return self._base_speed
+
+    @base_speed.setter
+    def base_speed(self, base_speed):
+        if base_speed < 1:
+            raise ValueError('Base speed must be positive!')
+        self._base_speed = base_speed
 
     @property
     def speed(self):

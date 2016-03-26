@@ -1,6 +1,5 @@
 # TODO (not ordered in priority or effort)
 ## General
-* Restore speed system
 * Pathfinding
 * Damage ranges
 * Accuracy
@@ -20,3 +19,6 @@
 * Defender
 * Trapper
 * Skirmisher
+
+## Completed
+* Restore speed system
