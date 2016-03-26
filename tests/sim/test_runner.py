@@ -2,14 +2,24 @@ import unittest
 import hunting.resources as resources
 from hunting.constants import *
 from hunting.level.map import LevelMap, LevelTile
-from hunting.sim.ais import TestMonster
+from hunting.sim.ais import TestMonster, DummyAI
 from hunting.sim.entities import GameObject, Fighter
-from hunting.sim.runner import run_level
+from hunting.sim.runner import run_level, run_turn
 import hunting.level.parser as parser
 import json
 
 
 class TestRunner(unittest.TestCase):
+    def test_speed_system(self):
+        level = LevelMap()
+        level.add_object(GameObject('1', level.log, 0, 0, 'slow', fighter=Fighter(1, 1, 1, 1, base_speed=30),
+                                    ai=DummyAI(level)))
+        level.add_object(GameObject('2', level.log, 0, 0, 'fast', fighter=Fighter(1, 1, 1, 1), ai=DummyAI(level)))
+        for _ in range(4):
+            run_turn(level)
+        start_events = [e[OBJ_ID] for e in level.log.events if e[EVENT_TYPE] == BEGIN_TURN_EVENT]
+        self.assertEqual(['1', '1', '1', '2'], start_events)
+
     def test_ends_if_one_faction(self):
         level = LevelMap()
         level.add_object(GameObject('1', level.log, 0, 0, 'test', faction='1'))
