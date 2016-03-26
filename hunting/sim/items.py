@@ -1,9 +1,10 @@
 from hunting.level.map import LevelMap
 from hunting.sim.entities import GameObject
+from hunting.constants import ITEM_THROWING
 
 
 class Inventory:
-    def __init__(self, max_size, carried_items):
+    def __init__(self, max_size, carried_items=[]):
         self.max_size = max_size
         self._items = []
         for i in carried_items:
@@ -21,6 +22,9 @@ class Inventory:
 
     def get_usable_items(self):
         return [i for i in self._items if i.item is not None]
+
+    def __len__(self):
+        return len(self._items)
 
 
 class Item:
@@ -60,7 +64,10 @@ class TestItem(Item):
 
 
 class ThrowingItem(Item):
-    def __init__(self, item_type, item_power, item_range):
+    def __init__(self, item_power, item_range, item_type=ITEM_THROWING):
+        if item_type != ITEM_THROWING:  # TODO: Very awkward! Maybe wrap in factory function?
+            raise ValueError('ThrowingItem was passed a bad item_type!')
+
         super().__init__(item_type=item_type)
         self.item_power = item_power
         self.item_range = item_range
