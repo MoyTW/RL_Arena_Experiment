@@ -1,6 +1,6 @@
 import json
 
-from hunting.sim.constants import *
+from hunting.constants import *
 
 
 class LevelLog:

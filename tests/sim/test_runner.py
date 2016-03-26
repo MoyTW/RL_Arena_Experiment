@@ -1,10 +1,10 @@
 import unittest
 
+from hunting.constants import *
 from hunting.level.map import LevelMap, LevelTile
-from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.ais import TestMonster
+from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.runner import run_level
-from hunting.sim.constants import *
 
 
 class TestRunner(unittest.TestCase):

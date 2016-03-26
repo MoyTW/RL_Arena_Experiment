@@ -1,8 +1,8 @@
 import json
 
+from hunting.constants import *
 from hunting.level.map import LevelTile, LevelMap
 from hunting.sim.ais import TestMonster
-from hunting.sim.constants import *
 from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.items import Inventory, TestItem, ThrowingItem
 
