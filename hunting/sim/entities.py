@@ -6,7 +6,7 @@ from hunting.constants import *
 
 class GameObject(object):
     def __init__(self, oid, log: LevelLog, x, y, name, faction=None, blocks=False, inventory=None, fighter=None,
-                 ai=None, item=None, equipment=None):
+                 ai=None, item=None):
         self.oid = oid
         self.log = log
         self.x = x
@@ -27,12 +27,6 @@ class GameObject(object):
         self.item = item
         if self.item:
             self.item.owner = self
-
-        self.equipment = equipment
-        if self.equipment:
-            self.equipment.owner = self
-            if not self.item:
-                raise ValueError('Cannot construct with an Item and Equipment! Use Equipment only!')
 
     def move(self, dx, dy, level_map):
         """
