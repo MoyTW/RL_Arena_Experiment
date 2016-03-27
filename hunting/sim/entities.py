@@ -93,6 +93,8 @@ class Fighter:
         self._power_buffs = []
         self._speed_buffs = []
 
+        self.destroyed = False
+
     @property
     def max_hp(self):
         return self.base_max_hp
@@ -154,6 +156,7 @@ class Fighter:
             owner.log.log_take_damage(owner.oid, damage)
 
         if self.hp <= 0:
+            self.destroyed = True
             owner.log.log_destruction(owner.oid, owner.x, owner.y)
             function = self.death_function
             if function is not None:
