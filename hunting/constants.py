@@ -1,3 +1,4 @@
+# Event constants
 EVENT_TYPE = 'event type'
 
 OBJ_ID = 'id'
@@ -24,3 +25,11 @@ TAKE_DAMAGE_EVENT = 'take damage'
 # Item constants
 ITEM_TEST = 'test'
 ITEM_THROWING = 'throwing'
+
+# Property constants
+PROPERTY_POWER = 'power'
+PROPERTY_DEFENSE = 'defense'
+PROPERTY_SPEED = 'speed'
+
+# Effect constants
+EFFECT_TYPE_PROPERTY = 'property effect'

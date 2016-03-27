@@ -1,6 +1,7 @@
 import math
 
 from hunting.level.log import LevelLog
+from hunting.constants import *
 
 
 class GameObject(object):
@@ -78,20 +79,56 @@ class GameObject(object):
         return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
 
 
+class Effect:
+    """ Effects are anything which changes the state of the fighter, but which at some future point might be rolled
+    back. This category includes but is not limited to buffs, debuffs, and equipment bonuses. """
+    def __init__(self, effect_type, timer=None):
+        self.effect_type = effect_type
+        self.timer = timer
+
+
+class PropertyEffect(Effect):
+    def __init__(self, property_type, timer=None):
+        super().__init__(effect_type=EFFECT_TYPE_PROPERTY, timer=timer)
+        self.property_type = property_type
+        raise NotImplementedError()
+
+
+class ChangeableProperty:
+    """ Represents a property which can be changed by temporary means. """
+    def __init__(self, property_type, base, effect_list, min_value=None, max_value=None):
+        self.property_type = property_type
+        self.base = base
+        self.effect_list = effect_list
+        self.min_value = min_value
+        self.max_value = max_value
+
+    @property
+    def value(self):
+        bonus = sum([e for e in self.effect_list if e.property_type == self.property_type])
+        val = self.base + bonus
+        if self.min_value is not None and val < self.min_value:
+            return self.min_value
+        elif self.max_value is not None and val > self.max_value:
+            return self.max_value
+        else:
+            return val
+
+
 class Fighter:
     def __init__(self, hp, defense, power, xp, base_speed=100, death_function=None, inventory=None):
+        self.effect_list = []
         self.base_max_hp = hp
         self.hp = hp
-        self.base_defense = defense
-        self.base_power = power
+
+        self._defense = ChangeableProperty(PROPERTY_DEFENSE, defense, self.effect_list)
+        self._power = ChangeableProperty(PROPERTY_POWER, power, self.effect_list, min_value=0)
+        self._speed = ChangeableProperty(PROPERTY_SPEED, base_speed, self.effect_list, min_value=1)
+
         self.xp = xp
-        self._base_speed = None  # TODO: Figure out if this is the standard method of using properties!
-        self.base_speed = base_speed
-        self._time_until_turn = self.base_speed
+        self._time_until_turn = self.speed
         self.death_function = death_function
         self.inventory = inventory
-        self._power_buffs = []
-        self._speed_buffs = []
 
         self.destroyed = False
 
@@ -101,27 +138,15 @@ class Fighter:
 
     @property
     def defense(self):
-        return self.base_defense
+        return self._defense.value
 
     @property
     def power(self):
-        buffs = sum(buff[0] for buff in self._power_buffs)
-        return self.base_power + buffs
-
-    @property
-    def base_speed(self):
-        return self._base_speed
-
-    @base_speed.setter
-    def base_speed(self, base_speed):
-        if base_speed < 1:
-            raise ValueError('Base speed must be positive!')
-        self._base_speed = base_speed
+        return self._power.value
 
     @property
     def speed(self):
-        buffs = sum(buff[0] for buff in self._speed_buffs)
-        return self.base_speed - buffs
+        return self._speed.value
 
     @property
     def time_until_turn(self):
@@ -129,14 +154,6 @@ class Fighter:
 
     def pass_time(self, time):
         self._time_until_turn -= time
-        for buff in self._power_buffs:
-            buff[1] -= time
-            if buff[1] < 0:
-                self._power_buffs.remove(buff)
-        for buff in self._speed_buffs:
-            buff[1] -= time
-            if buff[1] < 0:
-                self._speed_buffs.remove(buff)
 
     def end_turn(self):
         self._time_until_turn = self.speed
@@ -167,8 +184,5 @@ class Fighter:
         if self.hp > self.max_hp:
             self.hp = self.max_hp
 
-    def apply_power_buff(self, amount, time):
-        self._power_buffs.append([amount, time])
-
-    def apply_speed_buff(self, amount, time):
-        self._speed_buffs.append([amount, time])
+    def add_effect(self, effect):
+        raise NotImplementedError()
