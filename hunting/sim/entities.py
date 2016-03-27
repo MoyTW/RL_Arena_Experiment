@@ -88,10 +88,10 @@ class Effect:
 
 
 class PropertyEffect(Effect):
-    def __init__(self, property_type, timer=None):
+    def __init__(self, property_type, value, timer=None):
         super().__init__(effect_type=EFFECT_TYPE_PROPERTY, timer=timer)
         self.property_type = property_type
-        raise NotImplementedError()
+        self.value = value
 
 
 class ChangeableProperty:
@@ -105,7 +105,7 @@ class ChangeableProperty:
 
     @property
     def value(self):
-        bonus = sum([e for e in self.effect_list if e.property_type == self.property_type])
+        bonus = sum([e.value for e in self.effect_list if e.property_type == self.property_type])
         val = self.base + bonus
         if self.min_value is not None and val < self.min_value:
             return self.min_value
@@ -185,4 +185,7 @@ class Fighter:
             self.hp = self.max_hp
 
     def add_effect(self, effect):
-        raise NotImplementedError()
+        self.effect_list.append(effect)
+
+    def remove_effect(self, effect):
+        self.effect_list.remove(effect)
