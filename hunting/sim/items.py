@@ -89,9 +89,13 @@ class Equipment(Item):
         if self.can_equip(target):
             self.is_equipped = True
             target.fighter.equipment_slots[self.slot] = self.owner
+            for effect in self.effects:
+                target.fighter.add_effect(effect)
         elif self.can_dequip(target):
             self.is_equipped = False
             target.fighter.equipment_slots[self.slot] = None
+            for effect in self.effects:
+                target.fighter.remove_effect(effect)
 
 
 class TestItem(Item):
