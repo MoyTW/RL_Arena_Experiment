@@ -39,6 +39,11 @@ class TestEquipment(unittest.TestCase):
     def test_applies_effects(self):
         self.sword.item.use(self.slot_object, self.slot_object, self.level)
         self.assertEqual(self.slot_object.fighter.power, 20)
+        self.assertEqual(len(self.slot_object.fighter.effect_list), 1)
+
+        self.sword.item.use(self.slot_object, self.slot_object, self.level)
+        self.assertEqual(self.slot_object.fighter.power, 10)
+        self.assertEqual(len(self.slot_object.fighter.effect_list), 0)
 
 
 class TestThrowingItem(unittest.TestCase):
