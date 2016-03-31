@@ -25,6 +25,7 @@ TAKE_DAMAGE_EVENT = 'take damage'
 # Item constants
 ITEM_TEST = 'test'
 ITEM_THROWING = 'throwing'
+ITEM_EQUIPMENT = 'equipment'
 
 # Property constants
 PROPERTY_POWER = 'power'
