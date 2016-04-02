@@ -82,8 +82,11 @@ class Effect:
 
 
 class PropertyEffect(Effect):
-    def __init__(self, property_type, value, timer=None):
-        super().__init__(effect_type=EFFECT_TYPE_PROPERTY, timer=timer)
+    def __init__(self, property_type, value, timer=None, effect_type=EFFECT_TYPE_PROPERTY):
+        if effect_type != EFFECT_TYPE_PROPERTY:  # TODO: Very awkward! Validate input by schema to prevent?
+            raise ValueError()
+
+        super().__init__(effect_type=effect_type, timer=timer)
         self.property_type = property_type
         self.value = value
 

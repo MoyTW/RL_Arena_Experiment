@@ -23,6 +23,9 @@ class Inventory:
     def get_usable_items(self):
         return [i for i in self._items if i.item is not None]
 
+    def get_equipment_items(self):
+        return [i for i in self._items if i.item.item_type == ITEM_EQUIPMENT]
+
     def remove_item(self, item):
         self._items.remove(item)
 

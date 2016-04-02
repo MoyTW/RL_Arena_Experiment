@@ -27,6 +27,10 @@ ITEM_TEST = 'test'
 ITEM_THROWING = 'throwing'
 ITEM_EQUIPMENT = 'equipment'
 
+# Slot constants
+SLOT_RIGHT_HAND = 'right hand'
+SLOT_LEFT_HAND = 'left hand'
+
 # Property constants
 PROPERTY_POWER = 'power'
 PROPERTY_DEFENSE = 'defense'
