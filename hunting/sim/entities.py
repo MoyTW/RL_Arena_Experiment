@@ -115,7 +115,7 @@ class ChangeableProperty:
 
 class Fighter:
     def __init__(self, hp, defense, power, xp, accuracy=0, dodge=0, base_speed=100, death_function=None, inventory=None,
-                 equipment_slots=[]):
+                 equipment_slots=None):
         self.owner = None
 
         self.effect_list = []
@@ -132,7 +132,10 @@ class Fighter:
         self._time_until_turn = self.speed
         self.death_function = death_function
         self.inventory = inventory
-        self.equipment_slots = {slot: None for slot in equipment_slots}
+        if equipment_slots is not None:
+            self.equipment_slots = {slot: None for slot in equipment_slots}
+        else:
+            self.equipment_slots = []
 
         self.destroyed = False
 
