@@ -113,7 +113,7 @@ class ChangeableProperty:
 
 
 class Fighter:
-    def __init__(self, hp, defense, power, xp, base_speed=100, death_function=None, inventory=None,
+    def __init__(self, hp, defense, power, xp, accuracy=0, dodge=0, base_speed=100, death_function=None, inventory=None,
                  equipment_slots=[]):
         self.owner = None
 
@@ -124,6 +124,8 @@ class Fighter:
         self._defense = ChangeableProperty(PROPERTY_DEFENSE, defense, self.effect_list)
         self._power = ChangeableProperty(PROPERTY_POWER, power, self.effect_list, min_value=0)
         self._speed = ChangeableProperty(PROPERTY_SPEED, base_speed, self.effect_list, min_value=1)
+        self._accuracy = ChangeableProperty(PROPERTY_ACCURACY, accuracy, self.effect_list)
+        self._dodge = ChangeableProperty(PROPERTY_DODGE, dodge, self.effect_list)
 
         self.xp = xp
         self._time_until_turn = self.speed
@@ -144,6 +146,14 @@ class Fighter:
     @property
     def power(self):
         return self._power.value
+
+    @property
+    def accuracy(self):
+        return self._accuracy.value
+
+    @property
+    def dodge(self):
+        return self._dodge.value
 
     @property
     def speed(self):

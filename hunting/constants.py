@@ -41,6 +41,13 @@ SLOT_LEFT_HAND = 'left hand'
 PROPERTY_POWER = 'power'
 PROPERTY_DEFENSE = 'defense'
 PROPERTY_SPEED = 'speed'
+PROPERTY_ACCURACY = 'accuracy'
+PROPERTY_DODGE = 'dodge'
+
+# Accuracy constants (using PoE's values for a placeholder)
+HIT_MISS_MAX = 15
+HIT_GRAZE_MAX = 50
+HIT_HIT_MAX = 100
 
 # Effect constants
 EFFECT_TYPE_PROPERTY = 'property effect'
