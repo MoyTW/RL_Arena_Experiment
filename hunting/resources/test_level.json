@@ -20250,7 +20250,8 @@
                 "defense": 0,
                 "power": 1,
                 "xp": 30,
-                "base_speed": 100
+                "base_speed": 100,
+                "equipment_slots": ["right hand", "left hand"]
             },
             "ai": "TestMonster",
             "inventory": {
@@ -20270,6 +20271,27 @@
                             "item_type": "throwing",
                             "item_power": 10,
                             "item_range": 7
+                        }
+                    },
+                    {
+                        "oid": "8da550cb-6afb-4ab4-b70e-656b0c0bcc39",
+                        "name": "spiky shield",
+                        "item": {
+                            "item_type": "equipment",
+                            "slot": "left hand",
+                            "is_equipped": true,
+                            "effects": [
+                                {
+                                    "effect_type": "property effect",
+                                    "property_type": "power",
+                                    "value": 5
+                                },
+                                {
+                                    "effect_type": "property effect",
+                                    "property_type": "defense",
+                                    "value": 2
+                                }
+                            ]
                         }
                     }
                 ]
