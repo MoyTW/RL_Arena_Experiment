@@ -115,6 +115,8 @@ class ChangeableProperty:
 class Fighter:
     def __init__(self, hp, defense, power, xp, base_speed=100, death_function=None, inventory=None,
                  equipment_slots=[]):
+        self.owner = None
+
         self.effect_list = []
         self.base_max_hp = hp
         self.hp = hp
@@ -185,6 +187,8 @@ class Fighter:
 
     def add_effect(self, effect):
         self.effect_list.append(effect)
+        self.owner.log.log_apply_effect(self.owner.oid, effect)
 
     def remove_effect(self, effect):
         self.effect_list.remove(effect)
+        self.owner.log.log_remove_effect(self.owner.oid, effect)

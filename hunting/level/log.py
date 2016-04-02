@@ -61,6 +61,27 @@ class LevelLog:
             "damage": damage
         })
 
+    def log_change_effect(self, event_type, oid, effect):
+        msg = {
+            EVENT_TYPE: event_type,
+            OBJ_ID: oid,
+            EFFECT_TYPE: effect.effect_type
+        }
+        if effect.effect_type == EFFECT_TYPE_PROPERTY:
+            msg.update({
+                PROPERTY_TYPE: effect.property_type,
+                VALUE: effect.value
+            })
+            self._log.append(msg)
+        else:
+            raise ValueError("Don't know how to log non-property effects!")
+
+    def log_apply_effect(self, oid, effect):
+        self.log_change_effect(APPLY_EFFECT_EVENT, oid, effect)
+
+    def log_remove_effect(self, oid, effect):
+        self.log_change_effect(REMOVE_EFFECT_EVENT, oid, effect)
+
     def log_destruction(self, oid, x, y):
         self._log.append({
             EVENT_TYPE: OBJECT_DESTRUCTION_EVENT,
