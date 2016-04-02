@@ -2,13 +2,12 @@
 ## General
 * Pathfinding
 * Damage ranges
+* Damage types (slash, pierce, bludgeon, fire)
+* Wounds
 * Accuracy
 * AoE items
-* Armor
-* Weapons
 * Ranged combat
 * Traps
-* Buffs
 * Usable skills
 * Allow fleeing from battle
 * Return final status of entities after exit
@@ -22,3 +21,5 @@
 
 ## Completed
 * Restore speed system
+* Stat Buffs
+* Stat-enhancing equipment (Armor & Weapons)
