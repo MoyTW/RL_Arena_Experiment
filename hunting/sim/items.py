@@ -125,7 +125,7 @@ class ThrowingItem(Item):
         if not self.can_use(user, target, level_map):
             return False
 
-        target.fighter.take_damage(self.item_power)  # TODO: Add a is_direct parameter to this function call!
+        target.fighter.receive_attack(self.item_power)
 
         # Throwing items are always consumed on use
         return True

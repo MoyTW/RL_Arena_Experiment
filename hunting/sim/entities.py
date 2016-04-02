@@ -159,14 +159,15 @@ class Fighter:
     def end_turn(self):
         self._time_until_turn = self.speed
 
-    def attack(self, target):
+    def attack(self, target: GameObject):
         self.owner.log.log_attack(self.owner.oid, target.oid)
-        damage = self.power - target.fighter.defense
-        if damage > 0:
-            target.fighter.take_damage(damage)
-        return damage
+        return target.fighter.receive_attack(damage=self.power)
 
-    def take_damage(self, damage):
+    def receive_attack(self, damage):
+        received_damage = damage - self.defense
+        return self._take_damage(received_damage)
+
+    def _take_damage(self, damage):
         owner = self.owner
 
         if damage > 0:

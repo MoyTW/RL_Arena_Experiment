@@ -8,7 +8,6 @@ class TestPropertyEffect(unittest.TestCase):
         self.fighter = Fighter(100, 100, 100, 0, base_speed=100)
         self.obj = GameObject('1', LevelLog(), None, None, 'test', fighter=self.fighter)
 
-
     def test_add_remove_power(self):
         power_buff = PropertyEffect(PROPERTY_POWER, value=100)
 
