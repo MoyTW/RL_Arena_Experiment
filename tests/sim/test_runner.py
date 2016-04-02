@@ -7,6 +7,7 @@ from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.runner import run_level, run_turn
 import hunting.level.parser as parser
 import json
+import unittest.mock as mock
 
 
 class TestRunner(unittest.TestCase):
@@ -27,7 +28,8 @@ class TestRunner(unittest.TestCase):
 
         self.assertTrue(len(log.events) == 0)
 
-    def test_runs_test_combat(self):
+    @mock.patch('random.randint', return_value=75)
+    def test_runs_test_combat(self, _):
         level = LevelMap()
         level.set_map([[LevelTile()], [LevelTile()]])
         for x in [0, 1]:
@@ -41,7 +43,8 @@ class TestRunner(unittest.TestCase):
                          event_types)
 
     # This is not a unit test! However I'm not sure where to put it. So here it is.
-    def test_level_json(self):
+    @mock.patch('random.randint', return_value=75)
+    def test_level_json(self, _):
         level = parser.parse_level(resources.test_level_json)
         run_level(level)
 
