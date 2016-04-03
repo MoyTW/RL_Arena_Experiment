@@ -5,6 +5,7 @@ OBJ_ID = 'object id'
 OBJ_X = 'x'
 OBJ_Y = 'y'
 VALUE = 'value'
+D100_RESULT = 'd100 result'
 
 BEGIN_TURN_EVENT = 'begin turn'
 END_TURN_EVENT = 'end turn'
@@ -21,6 +22,12 @@ MOVEMENT_PREV_X = 'previous x'
 MOVEMENT_PREV_Y = 'previous y'
 
 ATTACK_EVENT = 'attack'
+ATTACK_ATTACKER_ID = 'attacker oid'
+ATTACK_DEFENDER_ID = 'defender oid'
+ATTACK_BASE_ACCURACY = 'accuracy'
+ATTACK_DODGE = 'dodge'
+ATTACK_BASE_DAMAGE = 'base damage'
+
 TAKE_DAMAGE_EVENT = 'take damage'
 
 APPLY_EFFECT_EVENT = 'apply effect'

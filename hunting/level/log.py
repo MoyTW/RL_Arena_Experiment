@@ -47,11 +47,15 @@ class LevelLog:
             OBJ_Y: y1
         })
 
-    def log_attack(self, attacker_oid, defender_oid):
+    def log_attack(self, attacker_oid, defender_oid, base_accuracy, accuracy_roll, dodge, base_damage):
         self._log.append({
             EVENT_TYPE: ATTACK_EVENT,
-            "attacker_object_id": attacker_oid,
-            "defender_object_id": defender_oid
+            ATTACK_ATTACKER_ID: attacker_oid,
+            ATTACK_DEFENDER_ID: defender_oid,
+            ATTACK_BASE_ACCURACY: base_accuracy,
+            D100_RESULT: accuracy_roll,
+            ATTACK_DODGE: dodge,
+            ATTACK_BASE_DAMAGE: base_damage
         })
 
     def log_take_damage(self, oid, damage):

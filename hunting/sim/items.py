@@ -125,7 +125,7 @@ class ThrowingItem(Item):
         if not self.can_use(user, target, level_map):
             return False
 
-        target.fighter.receive_attack(accuracy=0, damage=self.item_power)  # TODO: Add accuracy to items!
+        target.fighter.receive_attack(user.oid, accuracy=0, damage=self.item_power)  # TODO: Add accuracy to items!
 
         # Throwing items are always consumed on use
         return True

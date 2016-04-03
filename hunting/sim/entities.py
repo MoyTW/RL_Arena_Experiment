@@ -174,13 +174,13 @@ class Fighter:
         self._time_until_turn = self.speed
 
     def attack(self, target: GameObject):
-        self.owner.log.log_attack(self.owner.oid, target.oid)
-        return target.fighter.receive_attack(self.accuracy, self.power)
+        return target.fighter.receive_attack(self.owner.oid, self.accuracy, self.power)
 
-    def receive_attack(self, accuracy, damage):
-        final_accuracy = utils.d100() + accuracy - self.dodge
+    def receive_attack(self, attacker_oid, accuracy, damage):
+        roll = utils.d100()
+        final_accuracy = roll + accuracy - self.dodge
         if final_accuracy <= HIT_MISS_MAX:
-            final_attack_damage = None
+            final_attack_damage = 0
         elif final_accuracy <= HIT_GRAZE_MAX:
             final_attack_damage = int(damage / 2)
         elif final_accuracy <= HIT_HIT_MAX:
@@ -188,12 +188,11 @@ class Fighter:
         else:
             final_attack_damage = int(damage * 1.5)
 
-        # TODO: Log hits/misses!
-        if final_attack_damage is not None:
-            received_damage = final_attack_damage - self.defense
-            return self._take_damage(received_damage)
-        else:
-            return 0
+        received_damage = final_attack_damage - self.defense
+        self.owner.log.log_attack(attacker_oid, self.owner.oid, base_accuracy=accuracy, accuracy_roll=roll,
+                                  dodge=self.dodge, base_damage=damage)
+
+        return self._take_damage(received_damage)
 
     def _take_damage(self, damage):
         owner = self.owner

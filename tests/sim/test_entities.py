@@ -46,24 +46,24 @@ class TestFighter(unittest.TestCase):
     def test_receive_attack(self, rand_fn):
         # Misses
         rand_fn.return_value = 13
-        self.dodger.receive_attack(0, 10)
+        self.dodger.receive_attack('', 0, 10)
         self.assertEqual(self.dodger.hp, 100)
 
         # Grazes
         rand_fn.return_value = 40
-        self.dodger.receive_attack(0, 11)
+        self.dodger.receive_attack('', 0, 11)
         self.assertEqual(self.dodger.hp, 95)
         self.dodger.hp = 100
 
         # Hits
         rand_fn.return_value = 57
-        self.dodger.receive_attack(0, 11)
+        self.dodger.receive_attack('', 0, 11)
         self.assertEqual(self.dodger.hp, 89)
         self.dodger.hp = 100
 
         # Crits
         rand_fn.return_value = 130
-        self.dodger.receive_attack(0, 10)
+        self.dodger.receive_attack('', 0, 10)
         self.assertEqual(self.dodger.hp, 85)
         self.dodger.hp = 100
 
