@@ -3,6 +3,7 @@ from hunting.level.map import LevelMap, LevelTile
 from hunting.sim.entities import GameObject, Fighter, PropertyEffect
 from hunting.sim.items import Equipment, ThrowingItem, Inventory
 from hunting.constants import *
+import unittest.mock as mock
 
 
 class TestEquipment(unittest.TestCase):
@@ -68,7 +69,8 @@ class TestThrowingItem(unittest.TestCase):
         self.throwing.item.use(self.user, self.target, self.level)
         self.assertEqual(0, len(self.inventory))
 
-    def test_does_damage(self):
+    @mock.patch('random.randint', return_value=75)
+    def test_does_damage(self, _):
         self.throwing.item.use(self.user, self.target, self.level)
         self.assertEqual(8999, self.target.fighter.hp)
 
