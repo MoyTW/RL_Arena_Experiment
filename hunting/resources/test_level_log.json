@@ -1,19 +1,19 @@
 [{
-	"user id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"event type": "begin item use",
-	"target": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-	"object id": "8da550cb-6afb-4ab4-b70e-656b0c0bcc39"
+	"object id": "8da550cb-6afb-4ab4-b70e-656b0c0bcc39",
+	"user id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"target": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
-	"effect type": "property effect",
 	"event type": "apply effect",
-	"value": 5,
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"value": 5,
+	"effect type": "property effect",
 	"property type": "power"
 }, {
-	"effect type": "property effect",
 	"event type": "apply effect",
-	"value": 2,
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"value": 2,
+	"effect type": "property effect",
 	"property type": "defense"
 }, {
 	"event type": "end item use",
@@ -24,10 +24,10 @@
 }, {
 	"event type": "movement",
 	"x": 12,
-	"previous x": 11,
 	"previous y": 11,
+	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5",
 	"y": 12,
-	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
+	"previous x": 11
 }, {
 	"event type": "end turn",
 	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
@@ -37,10 +37,10 @@
 }, {
 	"event type": "movement",
 	"x": 25,
-	"previous x": 25,
 	"previous y": 9,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 10,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 25
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -50,10 +50,10 @@
 }, {
 	"event type": "movement",
 	"x": 4,
-	"previous x": 3,
 	"previous y": 13,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 14,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 3
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -63,10 +63,10 @@
 }, {
 	"event type": "movement",
 	"x": 48,
-	"previous x": 49,
 	"previous y": 48,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 47,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 49
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -76,10 +76,10 @@
 }, {
 	"event type": "movement",
 	"x": 39,
-	"previous x": 39,
 	"previous y": 49,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 48,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -89,10 +89,10 @@
 }, {
 	"event type": "movement",
 	"x": 21,
-	"previous x": 21,
 	"previous y": 25,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 24,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 21
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -102,10 +102,10 @@
 }, {
 	"event type": "movement",
 	"x": 13,
-	"previous x": 12,
 	"previous y": 12,
+	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5",
 	"y": 13,
-	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
+	"previous x": 12
 }, {
 	"event type": "end turn",
 	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
@@ -115,10 +115,10 @@
 }, {
 	"event type": "movement",
 	"x": 25,
-	"previous x": 25,
 	"previous y": 10,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 11,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 25
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -128,10 +128,10 @@
 }, {
 	"event type": "movement",
 	"x": 5,
-	"previous x": 4,
 	"previous y": 14,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 4
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -141,10 +141,10 @@
 }, {
 	"event type": "movement",
 	"x": 47,
-	"previous x": 48,
 	"previous y": 47,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 46,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 48
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -154,10 +154,10 @@
 }, {
 	"event type": "movement",
 	"x": 39,
-	"previous x": 39,
 	"previous y": 48,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 47,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -167,10 +167,10 @@
 }, {
 	"event type": "movement",
 	"x": 21,
-	"previous x": 21,
 	"previous y": 24,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 23,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 21
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -180,10 +180,10 @@
 }, {
 	"event type": "movement",
 	"x": 14,
-	"previous x": 13,
 	"previous y": 13,
+	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5",
 	"y": 14,
-	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
+	"previous x": 13
 }, {
 	"event type": "end turn",
 	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
@@ -193,10 +193,10 @@
 }, {
 	"event type": "movement",
 	"x": 25,
-	"previous x": 25,
 	"previous y": 11,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 12,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 25
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -206,10 +206,10 @@
 }, {
 	"event type": "movement",
 	"x": 6,
-	"previous x": 5,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 5
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -219,10 +219,10 @@
 }, {
 	"event type": "movement",
 	"x": 46,
-	"previous x": 47,
 	"previous y": 46,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 45,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 47
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -232,10 +232,10 @@
 }, {
 	"event type": "movement",
 	"x": 39,
-	"previous x": 39,
 	"previous y": 47,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 46,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -245,10 +245,10 @@
 }, {
 	"event type": "movement",
 	"x": 20,
-	"previous x": 21,
 	"previous y": 23,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 22,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 21
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -258,10 +258,10 @@
 }, {
 	"event type": "movement",
 	"x": 15,
-	"previous x": 14,
 	"previous y": 14,
+	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5",
 	"y": 15,
-	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
+	"previous x": 14
 }, {
 	"event type": "end turn",
 	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
@@ -271,10 +271,10 @@
 }, {
 	"event type": "movement",
 	"x": 25,
-	"previous x": 25,
 	"previous y": 12,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 13,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 25
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -284,10 +284,10 @@
 }, {
 	"event type": "movement",
 	"x": 7,
-	"previous x": 6,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 6
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -297,10 +297,10 @@
 }, {
 	"event type": "movement",
 	"x": 45,
-	"previous x": 46,
 	"previous y": 45,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 44,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 46
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -310,10 +310,10 @@
 }, {
 	"event type": "movement",
 	"x": 39,
-	"previous x": 39,
 	"previous y": 46,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 45,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -323,10 +323,10 @@
 }, {
 	"event type": "movement",
 	"x": 19,
-	"previous x": 20,
 	"previous y": 22,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 21,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 20
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -336,10 +336,10 @@
 }, {
 	"event type": "movement",
 	"x": 16,
-	"previous x": 15,
 	"previous y": 15,
+	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5",
 	"y": 16,
-	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
+	"previous x": 15
 }, {
 	"event type": "end turn",
 	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
@@ -349,10 +349,10 @@
 }, {
 	"event type": "movement",
 	"x": 24,
-	"previous x": 25,
 	"previous y": 13,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 14,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 25
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -362,10 +362,10 @@
 }, {
 	"event type": "movement",
 	"x": 8,
-	"previous x": 7,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 7
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -375,10 +375,10 @@
 }, {
 	"event type": "movement",
 	"x": 44,
-	"previous x": 45,
 	"previous y": 44,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 43,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 45
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -388,10 +388,10 @@
 }, {
 	"event type": "movement",
 	"x": 39,
-	"previous x": 39,
 	"previous y": 45,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 44,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -399,19 +399,27 @@
 	"event type": "begin turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
-	"user id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"event type": "begin item use",
-	"target": "2348adb9-43f2-419a-8fca-9fd8966714a5",
-	"object id": "59681866-5195-4f9d-9372-a4a49dc32636"
+	"object id": "59681866-5195-4f9d-9372-a4a49dc32636",
+	"user id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"target": "2348adb9-43f2-419a-8fca-9fd8966714a5"
+}, {
+	"event type": "attack",
+	"d100 result": 75,
+	"base damage": 10,
+	"accuracy": 0,
+	"defender oid": "2348adb9-43f2-419a-8fca-9fd8966714a5",
+	"dodge": 0,
+	"attacker oid": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "take damage",
 	"object_id": "2348adb9-43f2-419a-8fca-9fd8966714a5",
 	"damage": 10
 }, {
 	"event type": "object destruction",
-	"x": 16,
+	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5",
 	"y": 16,
-	"object id": "2348adb9-43f2-419a-8fca-9fd8966714a5"
+	"x": 16
 }, {
 	"event type": "end item use",
 	"object id": "59681866-5195-4f9d-9372-a4a49dc32636"
@@ -424,10 +432,10 @@
 }, {
 	"event type": "movement",
 	"x": 23,
-	"previous x": 24,
 	"previous y": 14,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 15,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 24
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -437,10 +445,10 @@
 }, {
 	"event type": "movement",
 	"x": 9,
-	"previous x": 8,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 8
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -450,10 +458,10 @@
 }, {
 	"event type": "movement",
 	"x": 43,
-	"previous x": 44,
 	"previous y": 43,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 42,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 44
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -463,10 +471,10 @@
 }, {
 	"event type": "movement",
 	"x": 39,
-	"previous x": 39,
 	"previous y": 44,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 43,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -476,10 +484,10 @@
 }, {
 	"event type": "movement",
 	"x": 20,
-	"previous x": 19,
 	"previous y": 21,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 20,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 19
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -489,10 +497,10 @@
 }, {
 	"event type": "movement",
 	"x": 22,
-	"previous x": 23,
 	"previous y": 15,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 16,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 23
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -502,10 +510,10 @@
 }, {
 	"event type": "movement",
 	"x": 10,
-	"previous x": 9,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 9
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -515,10 +523,10 @@
 }, {
 	"event type": "movement",
 	"x": 42,
-	"previous x": 43,
 	"previous y": 42,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 41,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 43
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -528,10 +536,10 @@
 }, {
 	"event type": "movement",
 	"x": 38,
-	"previous x": 39,
 	"previous y": 43,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 42,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -541,10 +549,10 @@
 }, {
 	"event type": "movement",
 	"x": 20,
-	"previous x": 20,
 	"previous y": 20,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 19,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 20
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -554,10 +562,10 @@
 }, {
 	"event type": "movement",
 	"x": 21,
-	"previous x": 22,
 	"previous y": 16,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 17,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"previous x": 22
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -567,10 +575,10 @@
 }, {
 	"event type": "movement",
 	"x": 11,
-	"previous x": 10,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 10
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -580,10 +588,10 @@
 }, {
 	"event type": "movement",
 	"x": 41,
-	"previous x": 42,
 	"previous y": 41,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 40,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 42
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -593,10 +601,10 @@
 }, {
 	"event type": "movement",
 	"x": 37,
-	"previous x": 38,
 	"previous y": 42,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 41,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 38
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -606,10 +614,10 @@
 }, {
 	"event type": "movement",
 	"x": 20,
-	"previous x": 20,
 	"previous y": 19,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 18,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 20
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -618,8 +626,12 @@
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
-	"defender_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"d100 result": 75,
+	"base damage": 1,
+	"accuracy": 0,
+	"defender oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"dodge": 0,
+	"attacker oid": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -629,10 +641,10 @@
 }, {
 	"event type": "movement",
 	"x": 12,
-	"previous x": 11,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 11
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -642,10 +654,10 @@
 }, {
 	"event type": "movement",
 	"x": 40,
-	"previous x": 41,
 	"previous y": 40,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 39,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 41
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -655,10 +667,10 @@
 }, {
 	"event type": "movement",
 	"x": 36,
-	"previous x": 37,
 	"previous y": 41,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 40,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 37
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -667,8 +679,12 @@
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-	"defender_object_id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"d100 result": 75,
+	"base damage": 6,
+	"accuracy": 0,
+	"defender oid": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
+	"dodge": 0,
+	"attacker oid": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "take damage",
 	"object_id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
@@ -681,8 +697,12 @@
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
-	"defender_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"d100 result": 75,
+	"base damage": 1,
+	"accuracy": 0,
+	"defender oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"dodge": 0,
+	"attacker oid": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
 }, {
 	"event type": "end turn",
 	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
@@ -692,10 +712,10 @@
 }, {
 	"event type": "movement",
 	"x": 13,
-	"previous x": 12,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 12
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -705,10 +725,10 @@
 }, {
 	"event type": "movement",
 	"x": 39,
-	"previous x": 40,
 	"previous y": 39,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 38,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 40
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -718,10 +738,10 @@
 }, {
 	"event type": "movement",
 	"x": 35,
-	"previous x": 36,
 	"previous y": 40,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 39,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 36
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -730,17 +750,21 @@
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-	"defender_object_id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"d100 result": 75,
+	"base damage": 6,
+	"accuracy": 0,
+	"defender oid": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
+	"dodge": 0,
+	"attacker oid": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "take damage",
 	"object_id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"damage": 6
 }, {
 	"event type": "object destruction",
-	"x": 21,
+	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
 	"y": 17,
-	"object id": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a"
+	"x": 21
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -750,10 +774,10 @@
 }, {
 	"event type": "movement",
 	"x": 14,
-	"previous x": 13,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 15,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 13
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -763,10 +787,10 @@
 }, {
 	"event type": "movement",
 	"x": 38,
-	"previous x": 39,
 	"previous y": 38,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 37,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 39
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -776,10 +800,10 @@
 }, {
 	"event type": "movement",
 	"x": 34,
-	"previous x": 35,
 	"previous y": 39,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 38,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 35
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -789,10 +813,10 @@
 }, {
 	"event type": "movement",
 	"x": 19,
-	"previous x": 20,
 	"previous y": 18,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 18,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 20
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -802,10 +826,10 @@
 }, {
 	"event type": "movement",
 	"x": 15,
-	"previous x": 14,
 	"previous y": 15,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 16,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 14
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -815,10 +839,10 @@
 }, {
 	"event type": "movement",
 	"x": 37,
-	"previous x": 38,
 	"previous y": 37,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 36,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 38
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -828,10 +852,10 @@
 }, {
 	"event type": "movement",
 	"x": 33,
-	"previous x": 34,
 	"previous y": 38,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 37,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 34
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -841,10 +865,10 @@
 }, {
 	"event type": "movement",
 	"x": 18,
-	"previous x": 19,
 	"previous y": 18,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 18,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 19
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -854,10 +878,10 @@
 }, {
 	"event type": "movement",
 	"x": 16,
-	"previous x": 15,
 	"previous y": 16,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 17,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"previous x": 15
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -867,10 +891,10 @@
 }, {
 	"event type": "movement",
 	"x": 36,
-	"previous x": 37,
 	"previous y": 36,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 35,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 37
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -880,10 +904,10 @@
 }, {
 	"event type": "movement",
 	"x": 32,
-	"previous x": 33,
 	"previous y": 37,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 36,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 33
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -893,10 +917,10 @@
 }, {
 	"event type": "movement",
 	"x": 17,
-	"previous x": 18,
 	"previous y": 18,
+	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
 	"y": 18,
-	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"previous x": 18
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
@@ -905,8 +929,12 @@
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
-	"defender_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"d100 result": 75,
+	"base damage": 1,
+	"accuracy": 0,
+	"defender oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"dodge": 0,
+	"attacker oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -916,10 +944,10 @@
 }, {
 	"event type": "movement",
 	"x": 35,
-	"previous x": 36,
 	"previous y": 35,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 34,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 36
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -929,10 +957,10 @@
 }, {
 	"event type": "movement",
 	"x": 31,
-	"previous x": 32,
 	"previous y": 36,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 35,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 32
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -941,8 +969,12 @@
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-	"defender_object_id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"d100 result": 75,
+	"base damage": 6,
+	"accuracy": 0,
+	"defender oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
+	"dodge": 0,
+	"attacker oid": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "take damage",
 	"object_id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
@@ -955,8 +987,12 @@
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
-	"defender_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
+	"d100 result": 75,
+	"base damage": 1,
+	"accuracy": 0,
+	"defender oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+	"dodge": 0,
+	"attacker oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
 }, {
 	"event type": "end turn",
 	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
@@ -966,10 +1002,10 @@
 }, {
 	"event type": "movement",
 	"x": 34,
-	"previous x": 35,
 	"previous y": 34,
+	"object id": "6acb0783-403f-4288-98a7-582d0416608a",
 	"y": 33,
-	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
+	"previous x": 35
 }, {
 	"event type": "end turn",
 	"object id": "6acb0783-403f-4288-98a7-582d0416608a"
@@ -979,10 +1015,10 @@
 }, {
 	"event type": "movement",
 	"x": 30,
-	"previous x": 31,
 	"previous y": 35,
+	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8",
 	"y": 34,
-	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
+	"previous x": 31
 }, {
 	"event type": "end turn",
 	"object id": "187544a8-7e08-476d-9330-7ec5632c46f8"
@@ -991,17 +1027,21 @@
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "attack",
-	"attacker_object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-	"defender_object_id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"d100 result": 75,
+	"base damage": 6,
+	"accuracy": 0,
+	"defender oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
+	"dodge": 0,
+	"attacker oid": "675bfccb-2e37-4019-85b1-31bf770da1b4"
 }, {
 	"event type": "take damage",
 	"object_id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"damage": 6
 }, {
 	"event type": "object destruction",
-	"x": 16,
+	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
 	"y": 17,
-	"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	"x": 16
 }, {
 	"event type": "end turn",
 	"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4"
