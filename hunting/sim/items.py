@@ -113,19 +113,20 @@ class TestItem(Item):
 
 
 class ThrowingItem(Item):
-    def __init__(self, item_power, item_range, item_type=ITEM_THROWING):
+    def __init__(self, item_power, item_range, item_accuracy=0, item_type=ITEM_THROWING):
         if item_type != ITEM_THROWING:  # TODO: Very awkward! Maybe wrap in factory function?
             raise ValueError('ThrowingItem was passed a bad item_type!')
 
         super().__init__(item_type=item_type)
         self.item_power = item_power
         self.item_range = item_range
+        self.item_accuracy = item_accuracy
 
     def _use(self, user: GameObject, target: GameObject, level_map: LevelMap):
         if not self.can_use(user, target, level_map):
             return False
 
-        target.fighter.receive_attack(user.oid, accuracy=0, damage=self.item_power)  # TODO: Add accuracy to items!
+        target.fighter.receive_attack(user.oid, user.fighter.accuracy + self.item_accuracy, damage=self.item_power)
 
         # Throwing items are always consumed on use
         return True
