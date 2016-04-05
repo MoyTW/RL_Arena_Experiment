@@ -1,6 +1,7 @@
 import unittest
 from hunting.level.map import LevelMap, LevelTile
-from hunting.sim.entities import GameObject, Fighter, PropertyEffect
+from hunting.sim.effects import PropertyEffect
+from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.items import Equipment, ThrowingItem, Inventory
 from hunting.constants import *
 import unittest.mock as mock
