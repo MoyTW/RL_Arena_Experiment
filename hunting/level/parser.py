@@ -77,6 +77,8 @@ def parse_level(file):
         level.width = parsed['width']
         level.height = parsed['height']
         level.set_map(parsed['map'])
+        for faction, faction_info in parsed['factions'].items():
+            level.add_faction(faction, faction_info)
         for obj in parsed['all_objects']:
             level.add_object(obj)
         level.finalize()

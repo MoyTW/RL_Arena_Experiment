@@ -10,7 +10,6 @@ def run_turn(level: LevelMap):
 
 
 def run_level(level: LevelMap):
-    while len(level.get_factions()) > 1:
+    factions = level.get_factions()
+    while all(c > 0 for c in [len(level.get_objects_inside_faction(f)) for f in factions]):
         run_turn(level)
-
-    return level.log

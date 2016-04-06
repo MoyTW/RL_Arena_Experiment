@@ -22,6 +22,7 @@ class LevelMap:
         self._all_objects = []
         self._map_set = False
         self._map = None
+        self._factions = {}
 
     def set_map(self, level_tiles):
         if self._map_set:
@@ -51,14 +52,23 @@ class LevelMap:
         matching = [o for o in self._all_objects if o.oid == oid]
         return matching[0]
 
+    def add_faction(self, faction, faction_info):
+        self._factions[faction] = faction_info
+
     def add_object(self, game_object):
+        if game_object.faction not in self.get_factions():
+            raise ValueError('Unknown faction!', game_object.faction)
+
         self._all_objects.append(game_object)
 
     def remove_object(self, game_object):
         self._all_objects.remove(game_object)
 
     def get_factions(self):
-        return set([o.faction for o in self._all_objects])
+        return self._factions.keys()
+
+    def get_faction_info(self, faction):
+        return self._factions[faction]
 
     def get_objects_inside_faction(self, faction):
         return [o for o in self._all_objects if o.faction == faction]

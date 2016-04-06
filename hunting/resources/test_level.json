@@ -20163,6 +20163,10 @@
             }
         ]
     ],
+    "factions": {
+        "1": {"save": false},
+        "2": {"save": true}
+    },
     "all_objects": [
         {
             "oid": "2348adb9-43f2-419a-8fca-9fd8966714a5",
