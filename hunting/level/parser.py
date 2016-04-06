@@ -14,9 +14,7 @@ def parse_level(file):
         log = level.log
 
         def decode_fn(d: dict):
-            if d.get('class', None) == 'tile':
-                return LevelTile(blocks=d['blocks'], blocks_sight=d['blocks_sight'])
-            elif 'effect_type' in d:
+            if 'effect_type' in d:
                 if d['effect_type'] == EFFECT_TYPE_PROPERTY:
                     return PropertyEffect(**d)
             elif 'oid' in d:
@@ -74,12 +72,21 @@ def parse_level(file):
                 return d
 
         parsed = json.load(f, object_hook=decode_fn)
+
+        # Map info
         level.width = parsed['width']
         level.height = parsed['height']
-        level.set_map(parsed['map'])
+        processed_map = [[LevelTile(t[0], t[1]) for t in r] for r in parsed['map']]
+        level.set_map(processed_map)
+
+        # Faction info
         for faction, faction_info in parsed['factions'].items():
             level.add_faction(faction, faction_info)
+
+        # Object info
         for obj in parsed['all_objects']:
             level.add_object(obj)
+
+        # Complete
         level.finalize()
         return level
