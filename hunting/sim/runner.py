@@ -9,7 +9,11 @@ def run_turn(level: LevelMap):
             o.ai.take_turn()
 
 
+def continue_run(level: LevelMap):
+    counts = [len(level.get_objects_inside_faction(f)) for f in level.get_factions()]
+    return len(counts) > 1 and all(c > 0 for c in counts)
+
+
 def run_level(level: LevelMap):
-    factions = level.get_factions()
-    while all(c > 0 for c in [len(level.get_objects_inside_faction(f)) for f in factions]):
+    while continue_run(level):
         run_turn(level)

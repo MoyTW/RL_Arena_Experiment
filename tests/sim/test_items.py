@@ -51,6 +51,7 @@ class TestEquipment(unittest.TestCase):
 class TestThrowingItem(unittest.TestCase):
     def setUp(self):
         self.level = LevelMap()
+        self.level.add_faction('0', {})
         self.level.set_map([[LevelTile()] for _ in range(0, 5)])
 
         self.throwing_item = ThrowingItem(1000, 10)

@@ -65,7 +65,7 @@ class LevelMap:
         self._all_objects.remove(game_object)
 
     def get_factions(self):
-        return self._factions.keys()
+        return set(self._factions.keys())
 
     def get_faction_info(self, faction):
         return self._factions[faction]
