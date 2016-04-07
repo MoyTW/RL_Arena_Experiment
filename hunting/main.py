@@ -17,9 +17,9 @@ main_console = tdl.init(main_width, main_height, 'TDL Test')
 
 level = parser.parse_level('resources/test_level.json')
 
-log = run_level(level)
+run_level(level)
 
-print(log.to_json_string())
+print(level.log.to_json_string())
 
 # This is not very elegant, but the level used for doing the calculations is destructive, so we need to get a fresh
 # from-json copy for rendering.
@@ -28,5 +28,5 @@ scratch_level = parser.parse_level('resources/test_level.json')
 renderer = Renderer(main_console, level_width, level_height)
 renderer.render_all(level=scratch_level)
 
-for event in log.events:
+for event in level.log.events:
     renderer.render_event(level=scratch_level, event=event)

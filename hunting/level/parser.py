@@ -76,7 +76,7 @@ def parse_level(file):
         # Map info
         level.width = parsed['width']
         level.height = parsed['height']
-        processed_map = [[LevelTile(t[0], t[1]) for t in r] for r in parsed['map']]
+        processed_map = [[LevelTile(bool(t[0]), bool(t[1])) for t in r] for r in parsed['map']]
         level.set_map(processed_map)
 
         # Faction info
