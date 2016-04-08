@@ -81,11 +81,10 @@ def parse_level(file):
 
         # Faction info
         for faction, faction_info in parsed['factions'].items():
+            faction_objects = faction_info.pop('objects')
             level.add_faction(faction, faction_info)
-
-        # Object info
-        for obj in parsed['all_objects']:
-            level.add_object(obj)
+            for obj in faction_objects:
+                level.add_object(obj)
 
         # Complete
         level.finalize()
