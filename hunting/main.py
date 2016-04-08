@@ -3,6 +3,7 @@ import uuid
 import tdl
 
 import hunting.level.parser as parser
+import hunting.level.encoder as encoder
 from hunting.display.render import Renderer
 from hunting.sim.runner import run_level
 
@@ -30,3 +31,5 @@ renderer.render_all(level=scratch_level)
 
 for event in level.log.events:
     renderer.render_event(level=scratch_level, event=event)
+
+print(encoder.encode_level(level))
