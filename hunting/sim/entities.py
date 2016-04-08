@@ -1,7 +1,7 @@
 import math
 
 from hunting.level.log import LevelLog
-from hunting.constants import *
+import hunting.constants as c
 import hunting.utils as utils
 
 
@@ -104,11 +104,11 @@ class Fighter:
         self.base_max_hp = hp
         self.hp = hp
 
-        self._defense = ChangeableProperty(PROPERTY_DEFENSE, defense, self.effect_list)
-        self._power = ChangeableProperty(PROPERTY_POWER, power, self.effect_list, min_value=0)
-        self._speed = ChangeableProperty(PROPERTY_SPEED, base_speed, self.effect_list, min_value=1)
-        self._accuracy = ChangeableProperty(PROPERTY_ACCURACY, accuracy, self.effect_list)
-        self._dodge = ChangeableProperty(PROPERTY_DODGE, dodge, self.effect_list)
+        self._defense = ChangeableProperty(c.PROPERTY_DEFENSE, defense, self.effect_list)
+        self._power = ChangeableProperty(c.PROPERTY_POWER, power, self.effect_list, min_value=0)
+        self._speed = ChangeableProperty(c.PROPERTY_SPEED, base_speed, self.effect_list, min_value=1)
+        self._accuracy = ChangeableProperty(c.PROPERTY_ACCURACY, accuracy, self.effect_list)
+        self._dodge = ChangeableProperty(c.PROPERTY_DODGE, dodge, self.effect_list)
 
         self.xp = xp
         self._time_until_turn = self.speed
@@ -161,11 +161,11 @@ class Fighter:
     def receive_attack(self, attacker_oid, accuracy, damage):
         roll = utils.d100()
         final_accuracy = roll + accuracy - self.dodge
-        if final_accuracy <= HIT_MISS_MAX:
+        if final_accuracy <= c.HIT_MISS_MAX:
             final_attack_damage = 0
-        elif final_accuracy <= HIT_GRAZE_MAX:
+        elif final_accuracy <= c.HIT_GRAZE_MAX:
             final_attack_damage = int(damage / 2)
-        elif final_accuracy <= HIT_HIT_MAX:
+        elif final_accuracy <= c.HIT_HIT_MAX:
             final_attack_damage = damage
         else:
             final_attack_damage = int(damage * 1.5)

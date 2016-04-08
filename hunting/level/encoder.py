@@ -1,6 +1,5 @@
 import json
-from hunting.sim.entities import *
-from hunting.sim.items import Inventory
+import hunting.sim.entities as entities
 
 
 class GameObjectEncoder(json.JSONEncoder):
@@ -8,14 +7,14 @@ class GameObjectEncoder(json.JSONEncoder):
         d = o.__dict__
         d.pop('owner', None)
 
-        if isinstance(o, GameObject):
+        if isinstance(o, entities.GameObject):
             d.pop('log', None)
             d.pop('ai', None)
             return d
-        elif isinstance(o, Fighter):
+        elif isinstance(o, entities.Fighter):
             d.pop('death_function')
             return d
-        elif isinstance(o, ChangeableProperty):
+        elif isinstance(o, entities.ChangeableProperty):
             return {k: o.__dict__[k] for k in ['property_type', 'base']}
         else:
             return d
