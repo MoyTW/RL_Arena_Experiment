@@ -1,5 +1,6 @@
 import http.server
 import threading
+import socket
 
 import tdl
 import hunting.level.parser as parser
@@ -10,6 +11,14 @@ import hunting.resources as resources
 
 
 UTF_8 = 'utf-8'
+
+
+def get_random_open_port():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(('', 0))
+    port = s.getsockname()[1]
+    s.close()
+    return port
 
 
 def shutdown_server_from_new_thread(server):
@@ -96,8 +105,12 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
             self.what()
 
 
+def new_server(port):
+    return http.server.HTTPServer(("", port), HelloWorldHandler)
+
+
 def start_server(port=8888):
     print('starting on port', port)
-    httpd = http.server.HTTPServer(("", port), HelloWorldHandler)
+    httpd = new_server(port)
     httpd.serve_forever()
     print('server shut down')
