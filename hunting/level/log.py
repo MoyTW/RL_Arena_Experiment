@@ -94,5 +94,10 @@ class LevelLog:
             OBJ_Y: y
         })
 
-    def to_json_string(self):
-        return json.dumps(self._log)
+    def to_json_string(self, pretty=True):
+        if pretty is True:
+            indent = 2
+        else:
+            indent = None
+
+        return json.dumps(self._log, indent=indent)
