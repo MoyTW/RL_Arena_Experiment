@@ -6,6 +6,7 @@ import hunting.level.parser as parser
 import hunting.level.encoder as encoder
 from hunting.display.render import Renderer
 import hunting.sim.runner as runner
+import hunting.resources as resources
 
 
 UTF_8 = 'utf-8'
@@ -63,6 +64,23 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
         self.send_response(200)
         self.wfile.write(bytes(encoder.encode_level(level), UTF_8))
 
+    def run_file(self, file_path):
+        full_path = resources.get_full_path(file_path)
+        if full_path is not None:
+            try:
+                level = parser.parse_level(full_path)
+                runner.run_level(level)
+
+                self.send_response(200)
+                self.wfile.write(bytes(encoder.encode_level(level), UTF_8))
+            except ValueError as err:
+                self.send_response(500)
+                self.wfile.write(bytes('Error: {0}'.format(err), UTF_8))
+        else:
+            self.send_response(400)
+            self.wfile.write(bytes('No such file!', UTF_8))
+
+
     def do_GET(self):
         if self.path == '/goodbye':
             self.goodbye()
@@ -72,6 +90,8 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
             self.test_json()
         elif self.path == '/test_vis':
             self.test_vis()
+        elif self.path.startswith('/run/'):
+            self.run_file(self.path[5:])
         else:
             self.what()
 
