@@ -32,23 +32,24 @@ def shutdown_server_from_new_thread(server):
 class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
     def hello_world(self):
         self.send_response(200)
-        self.wfile.write(bytes('Hello World!', UTF_8))
+        self.send_header('content-type', 'text/plain')
+        self.end_headers()
+
+        payload = bytes('Hello World!', UTF_8)
+        self.wfile.write(payload)
 
     def goodbye(self):
         self.send_response(200)
+        self.end_headers()
+
         self.wfile.write(bytes('Shutting down!\n', UTF_8))
         shutdown_server_from_new_thread(self.server)
 
     def what(self):
         self.send_response(200)
+        self.end_headers()
+
         self.wfile.write(bytes("I don't know what that is!", UTF_8))
-
-    def test_json(self):
-        level = parser.parse_level('resources/test_level.json')
-        runner.run_level(level)
-
-        self.send_response(200)
-        self.wfile.write(bytes(level.log.to_json_string()))
 
     def test_vis(self):
         level = parser.parse_level('resources/test_level.json')
@@ -71,6 +72,7 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
         main_console.__del__()  # Crude, but this whole thing is crude.
 
         self.send_response(200)
+        self.end_headers()
         self.wfile.write(bytes(encoder.encode_level(level), UTF_8))
 
     def run_file(self, file_path):
@@ -81,12 +83,22 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
                 runner.run_level(level)
 
                 self.send_response(200)
+                self.send_header('content-type', 'application/json')
+                self.end_headers()
+
                 self.wfile.write(bytes(encoder.encode_level(level), UTF_8))
+
             except ValueError as err:
                 self.send_response(500)
+                self.send_header('content-type', 'text/plain')
+                self.end_headers()
+
                 self.wfile.write(bytes('Error: {0}'.format(err), UTF_8))
         else:
-            self.send_response(400)
+            self.send_response(404)
+            self.send_header('content-type', 'text/plain')
+            self.end_headers()
+
             self.wfile.write(bytes('No such file!', UTF_8))
 
 
@@ -95,8 +107,6 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
             self.goodbye()
         elif self.path == '/hello':
             self.hello_world()
-        elif self.path == '/test_json':
-            self.test_json()
         elif self.path == '/test_vis':
             self.test_vis()
         elif self.path.startswith('/run/'):
