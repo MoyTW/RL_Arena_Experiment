@@ -1,5 +1,6 @@
 import sys
 import http.server
+import threading
 import socketserver
 import uuid
 
@@ -37,7 +38,13 @@ from hunting.sim.runner import run_level
 
 PORT = 8888
 
-serve = True
+
+def shutdown_server_from_new_thread(server):
+    def kill_server():
+        server.shutdown()
+
+    killer = threading.Thread(target=kill_server)
+    killer.start()
 
 
 class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
@@ -47,10 +54,9 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
 
     def goodbye(self):
         self.send_response(200)
-        self.wfile.write(bytes('Shutting down!', 'utf-8'))
-        print('shutting down')
-        global serve
-        serve = False  # TODO: lol, subclass the server and add this
+        self.wfile.write(bytes('Shutting down!\n', 'utf-8'))
+        self.end_headers()
+        shutdown_server_from_new_thread(self.server)
 
     def do_GET(self):
         if self.path == '/goodbye':
@@ -64,5 +70,5 @@ Handler = HelloWorldHandler
 httpd = http.server.HTTPServer(("", PORT), Handler)
 
 print('starting on port', PORT)
-while serve:  # TODO: subclass server for this
-    httpd.handle_request()
+httpd.serve_forever()
+print('server shut down')
