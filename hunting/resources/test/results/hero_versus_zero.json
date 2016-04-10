@@ -1,0 +1,64 @@
+{
+	"factions": {
+		"heroes": {
+			"save": true,
+			"objects": [{
+				"oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
+				"x": 0,
+				"y": 0,
+				"name": "hero",
+				"faction": "heroes",
+				"fighter": {
+					"hp": 9999,
+					"defense": 9999,
+					"power": 9999,
+					"xp": 30,
+					"base_speed": 1
+				},
+				"ai": "TestMonster"
+			}]
+		},
+		"zeroes": {
+			"save": false,
+			"objects": [{
+				"oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+				"x": 1,
+				"y": 1,
+				"name": "zero",
+				"faction": "zeroes",
+				"fighter": {
+					"hp": 1,
+					"defense": 0,
+					"power": 1,
+					"xp": 0,
+					"base_speed": 100
+				},
+				"ai": "TestMonster"
+			}]
+		}
+	},
+	"log": [{
+		"event type": "begin turn",
+		"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	}, {
+		"dodge": 0,
+		"event type": "attack",
+		"accuracy": 0,
+		"attacker oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
+		"defender oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+		"d100 result": 62,
+		"base damage": 9999
+	}, {
+		"event type": "take damage",
+		"object_id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+		"damage": 9999
+	}, {
+		"y": 1,
+		"event type": "object destruction",
+		"object id": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+		"x": 1
+	}, {
+		"event type": "end turn",
+		"object id": "f7159cd7-6ccf-433c-a594-813e66bc2c91"
+	}]
+}
