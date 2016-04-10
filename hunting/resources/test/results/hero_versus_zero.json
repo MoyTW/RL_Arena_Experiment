@@ -17,24 +17,6 @@
 				},
 				"ai": "TestMonster"
 			}]
-		},
-		"zeroes": {
-			"save": false,
-			"objects": [{
-				"oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-				"x": 1,
-				"y": 1,
-				"name": "zero",
-				"faction": "zeroes",
-				"fighter": {
-					"hp": 1,
-					"defense": 0,
-					"power": 1,
-					"xp": 0,
-					"base_speed": 100
-				},
-				"ai": "TestMonster"
-			}]
 		}
 	},
 	"log": [{
