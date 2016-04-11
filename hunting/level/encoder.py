@@ -21,6 +21,13 @@ class GameObjectEncoder(json.JSONEncoder):
 
 
 def encode_level(level):
-    save_factions = [f for f in level.get_factions() if level.get_faction_info(f)['save'] is True]
-    factions_to_objects = {f: level.get_objects_inside_faction(f) for f in save_factions}
-    return json.dumps(factions_to_objects, cls=GameObjectEncoder, indent=2)
+    save_factions = {f: level.get_faction_info(f) for f in level.get_factions()
+                     if level.get_faction_info(f)['save'] is True}
+
+    for f in save_factions:
+        save_factions[f]['objects'] = level.get_objects_inside_faction(f)
+
+    output = {'log': level.log.events,
+              'factions': save_factions}
+
+    return json.dumps(output, cls=GameObjectEncoder, indent=2)
