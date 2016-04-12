@@ -20,7 +20,7 @@
             "defense": 9999,
             "power": 9999,
             "xp": 30,
-            "base_speed": 1
+            "speed": 1
           },
           "ai": "TestMonster"
         }
@@ -40,7 +40,7 @@
             "defense": 0,
             "power": 1,
             "xp": 0,
-            "base_speed": 100
+            "speed": 100
           },
           "ai": "TestMonster"
         }

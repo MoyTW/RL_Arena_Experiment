@@ -98,7 +98,7 @@
             "defense": 0,
             "power": 1,
             "xp": 30,
-            "base_speed": 100
+            "speed": 100
           },
           "ai": "TestMonster"
         },
@@ -113,7 +113,7 @@
             "defense": 0,
             "power": 1,
             "xp": 30,
-            "base_speed": 100
+            "speed": 100
           },
           "ai": "TestMonster"
         },
@@ -128,7 +128,7 @@
             "defense": 0,
             "power": 1,
             "xp": 30,
-            "base_speed": 100
+            "speed": 100
           },
           "ai": "TestMonster"
         }
@@ -148,7 +148,7 @@
             "defense": 0,
             "power": 1,
             "xp": 30,
-            "base_speed": 100
+            "speed": 100
           },
           "ai": "TestMonster"
         },
@@ -163,7 +163,7 @@
             "defense": 0,
             "power": 1,
             "xp": 30,
-            "base_speed": 100
+            "speed": 100
           },
           "ai": "TestMonster"
         },
@@ -178,7 +178,7 @@
             "defense": 0,
             "power": 1,
             "xp": 30,
-            "base_speed": 100,
+            "speed": 100,
             "equipment_slots": ["right hand", "left hand"]
           },
           "ai": "TestMonster",

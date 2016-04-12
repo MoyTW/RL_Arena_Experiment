@@ -96,7 +96,7 @@ class ChangeableProperty:
 
 
 class Fighter:
-    def __init__(self, hp, defense, power, xp, accuracy=0, dodge=0, base_speed=100, death_function=None, inventory=None,
+    def __init__(self, hp, defense, power, xp, accuracy=0, dodge=0, speed=100, death_function=None, inventory=None,
                  equipment_slots=None):
         self.owner = None
 
@@ -106,7 +106,7 @@ class Fighter:
 
         self._defense = ChangeableProperty(c.PROPERTY_DEFENSE, defense, self.effect_list)
         self._power = ChangeableProperty(c.PROPERTY_POWER, power, self.effect_list, min_value=0)
-        self._speed = ChangeableProperty(c.PROPERTY_SPEED, base_speed, self.effect_list, min_value=1)
+        self._speed = ChangeableProperty(c.PROPERTY_SPEED, speed, self.effect_list, min_value=1)
         self._accuracy = ChangeableProperty(c.PROPERTY_ACCURACY, accuracy, self.effect_list)
         self._dodge = ChangeableProperty(c.PROPERTY_DODGE, dodge, self.effect_list)
 
