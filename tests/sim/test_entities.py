@@ -6,7 +6,7 @@ from hunting.level.log import LevelLog
 
 class TestFighter(unittest.TestCase):
     def setUp(self):
-        self.dodger = Fighter(hp=100, defense=0, power=0, xp=0, dodge=0)
+        self.dodger = Fighter(max_hp=100, defense=0, power=0, xp=0, dodge=0)
         GameObject('1', LevelLog(), None, None, 'test', fighter=self.dodger)
 
     @mock.patch('random.randint')

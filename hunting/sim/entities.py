@@ -96,13 +96,17 @@ class ChangeableProperty:
 
 
 class Fighter:
-    def __init__(self, hp, defense, power, xp, accuracy=0, dodge=0, speed=100, death_function=None, inventory=None,
-                 equipment_slots=None):
+    def __init__(self, max_hp, defense, power, xp, accuracy=0, dodge=0, speed=100, death_function=None, inventory=None,
+                 equipment_slots=None, hp=None):
         self.owner = None
 
         self.effect_list = []
-        self.base_max_hp = hp
-        self.hp = hp
+
+        self._max_hp = ChangeableProperty(c.PROPERTY_MAX_HP, max_hp, self.effect_list)
+        if hp is None:
+            self.hp = max_hp
+        else:
+            self.hp = hp
 
         self._defense = ChangeableProperty(c.PROPERTY_DEFENSE, defense, self.effect_list)
         self._power = ChangeableProperty(c.PROPERTY_POWER, power, self.effect_list, min_value=0)
@@ -123,7 +127,7 @@ class Fighter:
 
     @property
     def max_hp(self):
-        return self.base_max_hp
+        return self._max_hp.value
 
     @property
     def defense(self):

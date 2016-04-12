@@ -36,7 +36,7 @@ class TestRunner(unittest.TestCase):
         level.set_map([[LevelTile()], [LevelTile()]])
         for x in [0, 1]:
             o = GameObject(x, level.log, x, 0, 'test', faction=x, ai=TestMonster(level),
-                           fighter=Fighter(hp=1, defense=0, power=1, xp=0, death_function=level.remove_object))
+                           fighter=Fighter(max_hp=1, defense=0, power=1, xp=0, death_function=level.remove_object))
             level.add_faction(x, {})
             level.add_object(o)
         run_level(level)

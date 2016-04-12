@@ -59,12 +59,12 @@ class TestThrowingItem(unittest.TestCase):
         self.inventory = Inventory(10, [self.throwing])
 
         self.target = GameObject('0', self.level.log, 0, 0, 'test', faction='0',
-                                 fighter=Fighter(hp=9999, defense=0, power=0, xp=0,
+                                 fighter=Fighter(max_hp=9999, defense=0, power=0, xp=0,
                                                  death_function=self.level.remove_object))
         self.level.add_object(self.target)
 
         self.user = GameObject('0', self.level.log, 4, 0, 'test', faction='1', inventory=self.inventory,
-                               fighter=Fighter(hp=9999, defense=0, power=0, xp=0,
+                               fighter=Fighter(max_hp=9999, defense=0, power=0, xp=0,
                                                death_function=self.level.remove_object))
 
     def test_is_consumed_on_use(self):
