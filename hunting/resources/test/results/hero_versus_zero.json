@@ -12,6 +12,7 @@
 	  "max_hp": 9999,
           "hp": 9999,
 	  "defense": 9999,
+          "dodge": 0,
           "accuracy": 0,
 	  "power": 9999,
 	  "xp": 30,

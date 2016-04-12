@@ -2,6 +2,13 @@ import json
 import hunting.sim.entities as entities
 
 
+def remove_none_keys(d: dict):
+    """ Mutates a dictionary to remove keys which map to None """
+    empties = [k for k in d if d[k] is None]
+    for e in empties:
+        d.pop(e)
+
+
 class GameObjectEncoder(json.JSONEncoder):
     def default(self, o):
         d = o.__dict__
@@ -9,10 +16,30 @@ class GameObjectEncoder(json.JSONEncoder):
 
         if isinstance(o, entities.GameObject):
             d.pop('log', None)
-            d.pop('ai', None)
+            # TODO: Clunky and awkard; don't really want to rely on *class names* of all things. Should be a mapping!
+            if d['ai'] is not None:
+                d['ai'] = o.ai.__class__.__name__
+            d.pop('blocks', None)
+            remove_none_keys(d)
+
             return d
         elif isinstance(o, entities.Fighter):
             d.pop('death_function')
+            d.pop('_time_until_turn')
+            d.pop('destroyed')
+
+            if len(d['equipment_slots']) == 0:
+                d.pop('equipment_slots')
+            if len(d['effect_list']) == 0:
+                d.pop('effect_list')
+
+            changeables = [[k, v.__dict__] for k, v in d.items() if isinstance(v, entities.ChangeableProperty)]
+            for dict_key, changable_dict in changeables:
+                d.pop(dict_key)
+                d[changable_dict['property_type']] = changable_dict['base']
+
+            remove_none_keys(d)
+
             return d
         elif isinstance(o, entities.ChangeableProperty):
             return {k: o.__dict__[k] for k in ['property_type', 'base']}

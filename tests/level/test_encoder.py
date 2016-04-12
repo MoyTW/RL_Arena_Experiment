@@ -1,4 +1,5 @@
 import unittest
+import unittest.mock as mock
 import json
 
 import hunting.level.parser as parser
@@ -13,5 +14,7 @@ class TestEncoder(unittest.TestCase):
         encoded = encoder.encode_level(level)
         decoded = utils.sort_dicts(json.loads(encoded))
         with open(resources.get_full_path('test/results/hero_versus_zero.json')) as f:
-            expected = utils.sort_dicts(json.load(f))
+            loaded = json.load(f)
+            loaded['log'] = []
+            expected = utils.sort_dicts(loaded)
         self.assertEqual(expected, decoded)
