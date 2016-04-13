@@ -5,6 +5,7 @@ import json
 import hunting.server as server
 import hunting.resources as resources
 import hunting.utils as utils
+import unittest.mock as mock
 
 
 class TestRunEndpoint(unittest.TestCase):
@@ -37,7 +38,8 @@ class TestRunEndpoint(unittest.TestCase):
         r500 = requests.get(self.url('run/test/deformed.json'))
         self.assertEqual(r500.status_code, 500)
 
-    def test_run_contents_simple(self):
+    @mock.patch('random.randint', return_value=62)
+    def test_run_contents_simple(self, _):
         response = requests.get(self.url('run/test/hero_versus_zero.json'))
         parsed_response = utils.sort_dicts(response.json())
         with open(resources.get_full_path('test/results/hero_versus_zero.json')) as f:
