@@ -197,6 +197,18 @@ class Fighter:
 
         return self._take_damage(received_damage)
 
+    def remove_stamina(self, stamina):
+        # TODO: Log removal
+        self._stamina -= stamina
+        if self._stamina < 0:
+            raise ValueError('Cannot remove stamina, would take below 0!')
+
+    def restore_stamina(self, stamina):
+        # TODO: Log addition
+        self._stamina += stamina
+        if self._stamina > self.max_stamina:
+            self._stamina = self.max_stamina
+
     def _take_damage(self, damage):
         owner = self.owner
 
