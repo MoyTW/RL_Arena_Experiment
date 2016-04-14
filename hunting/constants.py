@@ -46,6 +46,7 @@ SLOT_LEFT_HAND = 'left hand'
 
 # Property constants
 PROPERTY_MAX_HP = 'max_hp'
+PROPERTY_MAX_STAMINA = 'max_stamina'
 PROPERTY_POWER = 'power'
 PROPERTY_DEFENSE = 'defense'
 PROPERTY_SPEED = 'speed'

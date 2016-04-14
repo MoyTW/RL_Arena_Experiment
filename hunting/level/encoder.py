@@ -38,6 +38,11 @@ class GameObjectEncoder(json.JSONEncoder):
                 d.pop(dict_key)
                 d[changable_dict['property_type']] = changable_dict['base']
 
+            hp = d.pop('_hp')
+            d['hp'] = hp
+            stamina = d.pop('_stamina')
+            d['stamina'] = stamina
+
             remove_none_keys(d)
 
             return d

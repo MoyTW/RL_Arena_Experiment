@@ -14,9 +14,9 @@ class TestRunner(unittest.TestCase):
     def test_speed_system(self):
         level = LevelMap()
         level.add_faction(None, {})
-        level.add_object(GameObject('1', level.log, 0, 0, 'slow', fighter=Fighter(1, 1, 1, 1, speed=30),
+        level.add_object(GameObject('1', level.log, 0, 0, 'slow', fighter=Fighter(1, 1, 1, 1, 1, speed=30),
                                     ai=DummyAI(level)))
-        level.add_object(GameObject('2', level.log, 0, 0, 'fast', fighter=Fighter(1, 1, 1, 1), ai=DummyAI(level)))
+        level.add_object(GameObject('2', level.log, 0, 0, 'fast', fighter=Fighter(1, 1, 1, 1, 1), ai=DummyAI(level)))
         for _ in range(4):
             run_turn(level)
         start_events = [e[OBJ_ID] for e in level.log.events if e[EVENT_TYPE] == BEGIN_TURN_EVENT]
@@ -36,7 +36,7 @@ class TestRunner(unittest.TestCase):
         level.set_map([[LevelTile()], [LevelTile()]])
         for x in [0, 1]:
             o = GameObject(x, level.log, x, 0, 'test', faction=x, ai=TestMonster(level),
-                           fighter=Fighter(max_hp=1, defense=0, power=1, xp=0, death_function=level.remove_object))
+                           fighter=Fighter(1, 1, defense=0, power=1, xp=0, death_function=level.remove_object))
             level.add_faction(x, {})
             level.add_object(o)
         run_level(level)

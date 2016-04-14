@@ -17,9 +17,9 @@ class TestEquipment(unittest.TestCase):
         self.sword = GameObject(self.test_id, self.level.log, None, None, 'sword',
                                 item=Equipment(slot=self.test_slot, effects=[self.effect]))
         self.slot_object = GameObject('9', self.level.log, None, None, 'has slot',
-                                      fighter=Fighter(10, 10, 10, 0, equipment_slots=[self.test_slot]))
+                                      fighter=Fighter(10, 10, 10, 10, 0, equipment_slots=[self.test_slot]))
         self.no_slot_object = GameObject('8', self.level.log, None, None, 'does not have slot',
-                                         fighter=Fighter(10, 10, 10, 0, equipment_slots=[]))
+                                         fighter=Fighter(10, 10, 10, 10, 0, equipment_slots=[]))
 
     def test_can_equip_and_unequip(self):
         self.sword.item.use(self.slot_object, self.slot_object, self.level)
@@ -59,12 +59,12 @@ class TestThrowingItem(unittest.TestCase):
         self.inventory = Inventory(10, [self.throwing])
 
         self.target = GameObject('0', self.level.log, 0, 0, 'test', faction='0',
-                                 fighter=Fighter(max_hp=9999, defense=0, power=0, xp=0,
+                                 fighter=Fighter(9999, 9999, defense=0, power=0, xp=0,
                                                  death_function=self.level.remove_object))
         self.level.add_object(self.target)
 
         self.user = GameObject('0', self.level.log, 4, 0, 'test', faction='1', inventory=self.inventory,
-                               fighter=Fighter(max_hp=9999, defense=0, power=0, xp=0,
+                               fighter=Fighter(9999, 9999, defense=0, power=0, xp=0,
                                                death_function=self.level.remove_object))
 
     def test_is_consumed_on_use(self):

@@ -95,6 +95,7 @@
           "faction": "1",
           "fighter": {
             "max_hp": 10,
+            "max_stamina": 100,
             "hp": 10,
             "defense": 0,
             "power": 1,
@@ -111,6 +112,7 @@
           "faction": "1",
           "fighter": {
             "max_hp": 10,
+            "max_stamina": 100,
             "hp": 10,
             "defense": 0,
             "power": 1,
@@ -127,6 +129,7 @@
           "faction": "1",
           "fighter": {
             "max_hp": 10,
+            "max_stamina": 100,
             "hp": 10,
             "defense": 0,
             "power": 1,
@@ -148,6 +151,7 @@
           "name": "beluga",
           "fighter": {
             "max_hp": 10,
+            "max_stamina": 100,
             "hp": 10,
             "defense": 0,
             "power": 1,
@@ -164,6 +168,7 @@
           "faction": "2",
           "fighter": {
             "max_hp": 10,
+            "max_stamina": 100,
             "hp": 10,
             "defense": 0,
             "power": 1,
@@ -180,6 +185,7 @@
           "faction": "2",
           "fighter": {
             "max_hp": 10,
+            "max_stamina": 100,
             "hp": 10,
             "defense": 0,
             "power": 1,

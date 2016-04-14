@@ -6,7 +6,7 @@ from hunting.level.log import LevelLog
 
 class TestFighter(unittest.TestCase):
     def setUp(self):
-        self.dodger = Fighter(max_hp=100, defense=0, power=0, xp=0, dodge=0)
+        self.dodger = Fighter(max_hp=100, max_stamina=100, defense=0, power=0, xp=0, dodge=0)
         GameObject('1', LevelLog(), None, None, 'test', fighter=self.dodger)
 
     @mock.patch('random.randint')
@@ -20,20 +20,20 @@ class TestFighter(unittest.TestCase):
         rand_fn.return_value = 40
         self.dodger.receive_attack('', 0, 11)
         self.assertEqual(self.dodger.hp, 95)
-        self.dodger.hp = 100
+        self.dodger.heal(5)
 
         # Hits
         rand_fn.return_value = 57
         self.dodger.receive_attack('', 0, 11)
         self.assertEqual(self.dodger.hp, 89)
-        self.dodger.hp = 100
+        self.dodger.heal(11)
 
         # Crits
         rand_fn.return_value = 130
         self.dodger.receive_attack('', 0, 10)
         self.assertEqual(self.dodger.hp, 85)
-        self.dodger.hp = 100
+        self.dodger.heal(15)
 
     def test_minimum_speed_is_one(self):
-        self.assertEqual(Fighter(1, 1, 1, 1, speed=-5).speed, 1)
-        self.assertEqual(Fighter(1, 1, 1, 1, speed=0).speed, 1)
+        self.assertEqual(Fighter(1, 1, 1, 1, 1, speed=-5).speed, 1)
+        self.assertEqual(Fighter(1, 1, 1, 1, 1, speed=0).speed, 1)

@@ -17,6 +17,7 @@
           "faction": "heroes",
           "fighter": {
             "max_hp": 9999,
+            "max_stamina": 9999,
             "hp": 9999,
             "defense": 9999,
             "accuracy": 0,
@@ -39,6 +40,7 @@
           "faction": "zeroes",
           "fighter": {
             "max_hp": 1,
+            "max_stamina": 1,
             "hp": 1,
             "defense": 0,
             "power": 1,

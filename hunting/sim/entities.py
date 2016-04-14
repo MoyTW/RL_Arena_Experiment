@@ -96,17 +96,22 @@ class ChangeableProperty:
 
 
 class Fighter:
-    def __init__(self, max_hp, defense, power, xp, accuracy=0, dodge=0, speed=100, death_function=None, inventory=None,
-                 equipment_slots=None, hp=None):
+    def __init__(self, max_hp, max_stamina, defense, power, xp, accuracy=0, dodge=0, speed=100, death_function=None,
+                 inventory=None, equipment_slots=None, hp=None, stamina=None):
         self.owner = None
 
         self.effect_list = []
 
         self._max_hp = ChangeableProperty(c.PROPERTY_MAX_HP, max_hp, self.effect_list)
         if hp is None:
-            self.hp = max_hp
+            self._hp = max_hp
         else:
-            self.hp = hp
+            self._hp = hp
+        self._max_stamina = ChangeableProperty(c.PROPERTY_MAX_STAMINA, max_stamina, self.effect_list)
+        if stamina is None:
+            self._stamina = max_stamina
+        else:
+            self._stamina = max_stamina
 
         self._defense = ChangeableProperty(c.PROPERTY_DEFENSE, defense, self.effect_list)
         self._power = ChangeableProperty(c.PROPERTY_POWER, power, self.effect_list, min_value=0)
@@ -128,6 +133,18 @@ class Fighter:
     @property
     def max_hp(self):
         return self._max_hp.value
+
+    @property
+    def hp(self):
+        return self._hp
+
+    @property
+    def max_stamina(self):
+        return self._max_stamina
+
+    @property
+    def stamina(self):
+        return self._stamina
 
     @property
     def defense(self):
@@ -184,7 +201,7 @@ class Fighter:
         owner = self.owner
 
         if damage > 0:
-            self.hp -= damage
+            self._hp -= damage
             owner.log.log_take_damage(owner.oid, damage)
 
         if self.hp <= 0:
@@ -195,9 +212,9 @@ class Fighter:
                 function(owner)
 
     def heal(self, amount):
-        self.hp += amount
+        self._hp += amount
         if self.hp > self.max_hp:
-            self.hp = self.max_hp
+            self._hp = self.max_hp
 
     def add_effect(self, effect):
         self.effect_list.append(effect)
