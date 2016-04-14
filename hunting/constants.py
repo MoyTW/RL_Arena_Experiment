@@ -53,6 +53,12 @@ PROPERTY_SPEED = 'speed'
 PROPERTY_ACCURACY = 'accuracy'
 PROPERTY_DODGE = 'dodge'
 
+# Skill constants
+SKILL_PASSIVE = 'passive'
+SKILL_TOGGLE = 'toggle'
+SKILL_ACTIVE = 'active'
+SKILL_POWER_STRIKE = 'power_strike'
+
 # Accuracy constants (using PoE's values for a placeholder)
 HIT_MISS_MAX = 15
 HIT_GRAZE_MAX = 50
