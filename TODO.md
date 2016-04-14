@@ -1,5 +1,8 @@
 # TODO (not ordered in priority or effort)
 ## General
+* POST JSON level payloads to server
+* Server has the capability or storing maps
+* Actual JSON schema for maps
 * Encumbrance/Weight Limits
 * Usable skills (stances, special attacks)
 * Pathfinding
@@ -10,7 +13,6 @@
 * Ranged combat
 * Traps
 * Allow fleeing from battle
-* Return final status of entities after exit
 * Starting placement variation
 
 ## AI behaviours
@@ -25,3 +27,4 @@
 * Stat Buffs
 * Stat-enhancing equipment (Armor & Weapons)
 * Accuracy
+* Return final status of entities after exit
