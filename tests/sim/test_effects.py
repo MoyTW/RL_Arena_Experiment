@@ -8,8 +8,8 @@ class TestPropertyEffect(unittest.TestCase):
         self.fighter = Fighter(100, 100, 100, 100, 0, speed=100)
         self.obj = GameObject('1', LevelLog(), None, None, 'test', fighter=self.fighter)
 
-    def test_effect_timer(self):
-        temp_buff = PropertyEffect(c.PROPERTY_MAX_HP, value=100, timer=50)
+    def test_effect_duration(self):
+        temp_buff = PropertyEffect(c.PROPERTY_MAX_HP, value=100, duration=50)
         self.fighter.add_effect(temp_buff)
         self.fighter.pass_time(50)
         self.assertEqual(self.fighter.max_hp, 200)
