@@ -17,6 +17,13 @@ class TestPropertyEffect(unittest.TestCase):
         self.fighter.pass_time(1)
         self.assertEqual(self.fighter.max_hp, 100)
 
+    def test_duration_is_none_by_default(self):
+        perm_buff = PropertyEffect(c.PROPERTY_MAX_HP, value=5)
+        self.assertEqual(None, perm_buff.duration)
+
+        temp_buff = PropertyEffect(c.PROPERTY_MAX_HP, value=5, duration=10)
+        self.assertEqual(10, temp_buff.duration)
+
     def test_add_remove_power(self):
         power_buff = PropertyEffect(c.PROPERTY_POWER, value=100)
 
