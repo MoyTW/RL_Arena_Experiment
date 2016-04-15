@@ -172,6 +172,11 @@ class Fighter:
 
     def pass_time(self, time):
         self._time_until_turn -= time
+        for e in self.effect_list:
+            if e.is_temporary:
+                e.pass_time(time)
+                if e.is_expired:
+                    self.effect_list.remove(e)
 
     def end_turn(self):
         self._time_until_turn = self.speed
