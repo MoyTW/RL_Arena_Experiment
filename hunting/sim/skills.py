@@ -1,4 +1,6 @@
 import hunting.constants as c
+from hunting.sim.entities import GameObject
+from hunting.sim.effects import PropertyEffect
 
 
 class Skill:
@@ -40,6 +42,13 @@ class ActiveSkill(Skill):
     def _can_use(self, user, target):
         raise NotImplementedError()
 
+    def use(self, user, target):
+        if self.can_use(user, target):
+            user.fighter.remove_stamina(self.stamina_cost)
+            self._use(user, target)
+        else:
+            raise ValueError('attempting to use unusable skill, something with the AI broke!')
+
     def _use(self, user, target):
         raise NotImplementedError()
 
@@ -51,8 +60,13 @@ class PowerStrike(ActiveSkill):
         self.accuracy_malus = accuracy_malus
         self.power_bonus = power_bonus
 
-    def _can_use(self, user, target):
-        pass
+    def _can_use(self, user: GameObject, target: GameObject):
+        return user.is_adjacent(target)
 
-    def _use(self, user, target):
-        pass
+    # TODO: Allow composite effects
+    def _use(self, user: GameObject, target: GameObject):
+        power_strike_power = PropertyEffect(c.PROPERTY_POWER, self.power_bonus, duration=0)
+        power_strike_accuracy = PropertyEffect(c.PROPERTY_ACCURACY, self.accuracy_malus, duration=0)
+        user.fighter.add_effect(power_strike_power)
+        user.fighter.add_effect(power_strike_accuracy)
+        user.fighter.attack(target)

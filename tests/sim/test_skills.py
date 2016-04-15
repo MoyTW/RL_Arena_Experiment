@@ -34,6 +34,6 @@ class TestPowerStrike(unittest.TestCase):
 
     def test_effect_is_removed(self):
         self.power_strike.use(self.attacker, self.defender)
-        self.assertEqual(len(self.attacker.fighter.effect_list), 1)
+        self.assertEqual(len(self.attacker.fighter.effect_list), 2)
         self.attacker.fighter.pass_time(1)
         self.assertEqual(len(self.attacker.fighter.effect_list), 0)

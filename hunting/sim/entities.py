@@ -70,6 +70,9 @@ class GameObject(object):
         dy = other.y - self.y
         return math.sqrt(dx ** 2 + dy ** 2)
 
+    def is_adjacent(self, other):
+        return self.distance_to(other) <= 1.5
+
     def distance(self, x, y):
         return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
 
@@ -97,7 +100,7 @@ class ChangeableProperty:
 
 class Fighter:
     def __init__(self, max_hp, max_stamina, defense, power, xp, accuracy=0, dodge=0, speed=100, death_function=None,
-                 inventory=None, equipment_slots=None, hp=None, stamina=None):
+                 skills=None, inventory=None, equipment_slots=None, hp=None, stamina=None):
         self.owner = None
 
         self.effect_list = []
@@ -123,6 +126,10 @@ class Fighter:
         self._time_until_turn = self.speed
         self.death_function = death_function
         self.inventory = inventory
+        if skills is None:
+            self._skills = []
+        else:
+            self._skills = skills
         if equipment_slots is not None:
             self.equipment_slots = {slot: None for slot in equipment_slots}
         else:
@@ -175,8 +182,8 @@ class Fighter:
         for e in self.effect_list:
             if e.is_temporary:
                 e.pass_time(time)
-                if e.is_expired:
-                    self.effect_list.remove(e)
+        for e in [e for e in self.effect_list if e.is_expired]:
+            self.effect_list.remove(e)
 
     def end_turn(self):
         self._time_until_turn = self.speed
