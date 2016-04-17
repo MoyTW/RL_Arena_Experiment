@@ -2,9 +2,9 @@ import json
 import hunting.sim.entities as entities
 
 
-def remove_none_keys(d: dict):
+def remove_unused_keys(d: dict):
     """ Mutates a dictionary to remove keys which map to None """
-    empties = [k for k in d if d[k] is None]
+    empties = [k for k in d if d[k] is None or d[k] == []]
     for e in empties:
         d.pop(e)
 
@@ -20,7 +20,7 @@ class GameObjectEncoder(json.JSONEncoder):
             if d['ai'] is not None:
                 d['ai'] = o.ai.__class__.__name__
             d.pop('blocks', None)
-            remove_none_keys(d)
+            remove_unused_keys(d)
 
             return d
         elif isinstance(o, entities.Fighter):
@@ -43,7 +43,7 @@ class GameObjectEncoder(json.JSONEncoder):
             stamina = d.pop('_stamina')
             d['stamina'] = stamina
 
-            remove_none_keys(d)
+            remove_unused_keys(d)
 
             return d
         elif isinstance(o, entities.ChangeableProperty):
