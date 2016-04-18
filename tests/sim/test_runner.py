@@ -15,8 +15,8 @@ class TestRunner(unittest.TestCase):
         level = LevelMap()
         level.add_faction(None, {})
         level.add_object(GameObject('1', level.log, 0, 0, 'slow', fighter=Fighter(1, 1, 1, 1, 1, speed=30),
-                                    ai=DummyAI(level)))
-        level.add_object(GameObject('2', level.log, 0, 0, 'fast', fighter=Fighter(1, 1, 1, 1, 1), ai=DummyAI(level)))
+                                    ai=DummyAI()))
+        level.add_object(GameObject('2', level.log, 0, 0, 'fast', fighter=Fighter(1, 1, 1, 1, 1), ai=DummyAI()))
         for _ in range(4):
             run_turn(level)
         start_events = [e[OBJ_ID] for e in level.log.events if e[EVENT_TYPE] == BEGIN_TURN_EVENT]

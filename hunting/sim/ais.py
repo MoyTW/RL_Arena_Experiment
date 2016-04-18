@@ -9,25 +9,25 @@ OBJECTIVE_FLEE = 'flee'
 
 
 class Objective:
-    def __init__(self, objective):
-        self.objective = objective
+    def __init__(self, objective_name):
+        self.objective_name = objective_name
 
 
 class ObjectiveEliminate(Objective):
-    def __init__(self, target, objective=OBJECTIVE_ELIMINATE):
-        super().__init__(objective=objective)
+    def __init__(self, target, objective_name=OBJECTIVE_ELIMINATE):
+        super().__init__(objective_name=objective_name)
         self.target = target
 
 
 class ObjectiveProtect(Objective):
-    def __init__(self, target, objective=OBJECTIVE_PROTECT):
-        super().__init__(objective=objective)
+    def __init__(self, target, objective_name=OBJECTIVE_PROTECT):
+        super().__init__(objective_name=objective_name)
         self.target = target
 
 
 class ObjectiveFortify(Objective):
-    def __init__(self, x, y, radius, enemy_direction, friendly_direction, objective=OBJECTIVE_FORTIFY):
-        super().__init__(objective=objective)
+    def __init__(self, x, y, radius, enemy_direction, friendly_direction, objective_name=OBJECTIVE_FORTIFY):
+        super().__init__(objective_name=objective_name)
         self.x = x
         self.y = y
         self.radius = radius
@@ -36,8 +36,8 @@ class ObjectiveFortify(Objective):
 
 
 class ObjectiveEscape(Objective):
-    def __init__(self, objective=OBJECTIVE_FLEE):
-        super().__init__(objective=objective)
+    def __init__(self, objective_name=OBJECTIVE_FLEE):
+        super().__init__(objective_name=objective_name)
 
 
 class Behaviour:
@@ -101,23 +101,29 @@ class BehaviourUseThrowingItems(Behaviour):
 
 
 class MonsterAI(object):
-    def __init__(self, level):
+    def __init__(self, level, objectives_to_behaviours):
         self.level = level
+        self.objectives_to_behaviours = objectives_to_behaviours
         self.owner = None
         self.objective = None
+
+    def execute_objective(self):
+        if self.objective is not None:
+            behaviours = self.objectives_to_behaviours[self.objective.objective_name]
+            for b in behaviours:
+                if b.can_execute():
+                    b.execute()
+                    break
 
     def take_turn(self):
         self.owner.log.log_begin_turn(self.owner.oid)
         self.assess_objective()
-        self._take_turn()
+        self.execute_objective()
         self.owner.log.log_end_turn(self.owner.oid)
         self.owner.fighter.end_turn()
 
     def assess_objective(self):
         raise NotImplementedError()
-
-    def _take_turn(self):
-        raise NotImplementedError('Subclass this before usage please.')
 
     @property
     def target(self):
@@ -125,18 +131,20 @@ class MonsterAI(object):
 
 
 class DummyAI(MonsterAI):
-    def assess_objective(self):
-        pass
+    def __init__(self):
+        super().__init__(level=None, objectives_to_behaviours=None)
 
-    def _take_turn(self):
+    def assess_objective(self):
         pass
 
 
 class TestMonster(MonsterAI):
     def __init__(self, level):
-        super().__init__(level)
-        self.eliminate_behaviours = [BehaviourBasicMelee(self), BehaviourUseThrowingItems(self),
-                                     BehaviourCloseDistance(self)]
+        objectives_to_behaviours = {
+            OBJECTIVE_ELIMINATE: [BehaviourBasicMelee(self), BehaviourUseThrowingItems(self),
+                                  BehaviourCloseDistance(self)]
+        }
+        super().__init__(level, objectives_to_behaviours)
 
     def assess_objective(self):
         enemies = self.level.get_objects_outside_faction(self.owner.faction)
@@ -146,10 +154,3 @@ class TestMonster(MonsterAI):
             closest_distance = min(distances)
             closest_enemy = distances[closest_distance]
             self.objective = ObjectiveEliminate(target=closest_enemy)
-
-    def _take_turn(self):
-        if isinstance(self.objective, ObjectiveEliminate):
-            for b in self.eliminate_behaviours:
-                if b.can_execute():
-                    b.execute()
-                    break
