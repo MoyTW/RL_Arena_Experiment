@@ -1,13 +1,14 @@
+import json
 import unittest
+import unittest.mock as mock
+
+import hunting.level.parser as parser
 import hunting.resources as resources
 from hunting.constants import *
 from hunting.level.map import LevelMap, LevelTile
-from hunting.sim.ais import TestMonster, DummyAI
+from hunting.sim.ai.core import TestMonster, DummyAI
 from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.runner import run_level, run_turn
-import hunting.level.parser as parser
-import json
-import unittest.mock as mock
 
 
 class TestRunner(unittest.TestCase):

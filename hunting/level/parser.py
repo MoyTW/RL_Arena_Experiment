@@ -1,11 +1,11 @@
 import json
 
+import hunting.sim.items as items
 from hunting.constants import *
 from hunting.level.map import LevelTile, LevelMap
-from hunting.sim.ais import TestMonster
-from hunting.sim.entities import GameObject, Fighter
+from hunting.sim.ai.core import TestMonster
 from hunting.sim.effects import PropertyEffect
-import hunting.sim.items as items
+from hunting.sim.entities import GameObject, Fighter
 
 
 def parse_level(file):
