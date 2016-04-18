@@ -28,6 +28,8 @@ class LevelMap:
         if self._map_set:
             raise ValueError('Cannot set map twice!')
         else:
+            self.width = len(level_tiles)
+            self.height = len(level_tiles[0])
             self._map = level_tiles
             self._map_set = True
 
@@ -76,7 +78,10 @@ class LevelMap:
     def get_objects_outside_faction(self, faction):
         return [o for o in self._all_objects if o.faction is not None and o.faction != faction]
 
+    # TODO: Have some concept of 'edge of map' that is not 'blocked'?
     def is_blocked(self, x, y):
+        if x < 0 or y < 0 or x >= self.width or y >= self.height:
+            return True
         if self._map[x][y].blocks:
             return True
         for o in self._all_objects:

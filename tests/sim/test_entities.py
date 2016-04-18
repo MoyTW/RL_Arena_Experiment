@@ -1,7 +1,27 @@
 import unittest
 import unittest.mock as mock
 from hunting.sim.entities import *
+from hunting.level.map import LevelMap, LevelTile
 from hunting.level.log import LevelLog
+
+
+class TestGameObject(unittest.TestCase):
+    def setUp(self):
+        self.level_map = LevelMap()
+        self.level_map.set_map([[LevelTile() for _ in range(0, 5)] for _ in range(0, 5)])
+
+    def test_movable_squares(self):
+        eight_options = GameObject('1', self.level_map.log, 2, 2, 'eight')
+        options = eight_options.movable_squares(self.level_map)
+        self.assertEqual([[1, 1], [1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2], [3, 3]], options)
+
+        three_options = GameObject('2', self.level_map.log, 0, 0, 'three')
+        options = three_options.movable_squares(self.level_map)
+        self.assertEqual([[0, 1], [1, 0], [1, 1]], options)
+
+        five_options = GameObject('3', self.level_map.log, 4, 2, 'five')
+        options = five_options.movable_squares(self.level_map)
+        self.assertEqual([[3, 1], [3, 2], [3, 3], [4, 1], [4, 3]], options)
 
 
 class TestFighter(unittest.TestCase):

@@ -29,6 +29,9 @@ class GameObject(object):
         if self.item:
             self.item.owner = self
 
+    def can_move(self, dx, dy, level_map):
+        return not level_map.is_blocked(self.x + dx, self.y + dy)
+
     def move(self, dx, dy, level_map):
         """
         Port to [x+dx][y+dy].
@@ -39,12 +42,10 @@ class GameObject(object):
         """
         old_x = self.x
         old_y = self.y
-        new_x = self.x + dx
-        new_y = self.y + dy
-        if not level_map.is_blocked(new_x, new_y):
+        if self.can_move(dx, dy, level_map):
             self.x += dx
             self.y += dy
-            self.log.log_movement(self.oid, old_x, old_y, new_x, new_y)
+            self.log.log_movement(self.oid, old_x, old_y, self.x, self.y)
             return True
         else:
             return False
@@ -57,6 +58,14 @@ class GameObject(object):
         dx = int(round(dx / distance))
         dy = int(round(dy / distance))
         return self.move(dx, dy, game_map)
+
+    def movable_squares(self, game_map):
+        movables = []
+        for x in range(-1, 2):
+            for y in range(-1, 2):
+                if (not (x == 0 and y == 0)) and self.can_move(x, y, game_map):
+                    movables.append([self.x + x, self.y + y])
+        return movables
 
 #    def path_towards(self, target_x, target_y, game_map, objects, fov_map):
 #        path = libtcod.path_new_using_map(fov_map)
