@@ -3,7 +3,7 @@ import json
 import hunting.sim.items as items
 from hunting.constants import *
 from hunting.level.map import LevelTile, LevelMap
-from hunting.sim.ai.core import TestMonster
+from hunting.sim.ai.ais import TestMonster
 from hunting.sim.effects import PropertyEffect
 from hunting.sim.entities import GameObject, Fighter
 

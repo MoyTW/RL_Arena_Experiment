@@ -66,3 +66,9 @@ HIT_HIT_MAX = 100
 
 # Effect constants
 EFFECT_TYPE_PROPERTY = 'property effect'
+
+# AI constants
+OBJECTIVE_ELIMINATE = 'eliminate'
+OBJECTIVE_PROTECT = 'protect'
+OBJECTIVE_FORTIFY = 'fortify'
+OBJECTIVE_FLEE = 'flee'

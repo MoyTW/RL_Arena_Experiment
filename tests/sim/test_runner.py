@@ -6,7 +6,7 @@ import hunting.level.parser as parser
 import hunting.resources as resources
 from hunting.constants import *
 from hunting.level.map import LevelMap, LevelTile
-from hunting.sim.ai.core import TestMonster, DummyAI
+from hunting.sim.ai.ais import TestMonster, DummyAI
 from hunting.sim.entities import GameObject, Fighter
 from hunting.sim.runner import run_level, run_turn
 
