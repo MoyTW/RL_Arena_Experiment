@@ -14,8 +14,8 @@ class DummyAI(MonsterAI):
 class TestMonster(MonsterAI):
     def __init__(self, level):
         objectives_to_behaviours = {
-            c.OBJECTIVE_ELIMINATE: [behaviours.BehaviourBasicMelee(self), behaviours.BehaviourUseThrowingItems(self),
-                                    behaviours.BehaviourCloseDistance(self)]
+            c.OBJECTIVE_ELIMINATE: [behaviours.BasicMelee(self), behaviours.UseAnyThrowingItem(self),
+                                    behaviours.CloseDistance(self)]
         }
         super().__init__(level, objectives_to_behaviours)
 

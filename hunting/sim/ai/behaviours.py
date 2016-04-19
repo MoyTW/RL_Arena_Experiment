@@ -14,7 +14,7 @@ class Behaviour:
         raise NotImplementedError()
 
 
-class BehaviourCloseDistance(Behaviour):
+class CloseDistance(Behaviour):
     def can_execute(self):
         return not self.ai.owner.is_adjacent(self.ai.target)
 
@@ -23,7 +23,7 @@ class BehaviourCloseDistance(Behaviour):
         self.ai.owner.move_towards(target.x, target.y, self.ai.level)
 
 
-class BehaviourBasicMelee(Behaviour):
+class BasicMelee(Behaviour):
     def can_execute(self):
         return self.ai.owner.is_adjacent(self.ai.target)
 
@@ -31,7 +31,7 @@ class BehaviourBasicMelee(Behaviour):
         self.ai.owner.fighter.attack(self.ai.target)  # TODO: I don't really like this degree of chaining.
 
 
-class BehaviourUseActiveSkill(Behaviour):
+class UseActiveSkill(Behaviour):
     def __init__(self, ai, skill: skills.ActiveSkill):
         super().__init__(ai)
         self.skill = skill
@@ -43,7 +43,7 @@ class BehaviourUseActiveSkill(Behaviour):
         self.skill.use(self.ai.owner, self.ai.target)
 
 
-class BehaviourUseThrowingItems(Behaviour):
+class UseAnyThrowingItem(Behaviour):
     def is_usable_throwing_item(self, item: GameObject):
         i = item.item
         return i.item_type == c.ITEM_THROWING and i.can_use(self.ai.owner, self.ai.target, self.ai.level)
