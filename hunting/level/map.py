@@ -17,19 +17,27 @@ class LevelTile:
 class LevelMap:
     def __init__(self):
         self.log = LevelLog()
-        self.width = None
-        self.height = None
+        self._width = None
+        self._height = None
         self._all_objects = []
         self._map_set = False
         self._map = None
         self._factions = {}
 
+    @property
+    def width(self):
+        return self._width
+
+    @property
+    def height(self):
+        return self._height
+
     def set_map(self, level_tiles):
         if self._map_set:
             raise ValueError('Cannot set map twice!')
         else:
-            self.width = len(level_tiles)
-            self.height = len(level_tiles[0])
+            self._width = len(level_tiles)
+            self._height = len(level_tiles[0])
             self._map = level_tiles
             self._map_set = True
 
@@ -80,7 +88,7 @@ class LevelMap:
 
     # TODO: Have some concept of 'edge of map' that is not 'blocked'?
     def is_blocked(self, x, y):
-        if x < 0 or y < 0 or x >= self.width or y >= self.height:
+        if x < 0 or y < 0 or x >= self._width or y >= self._height:
             return True
         if self._map[x][y].blocks:
             return True
@@ -105,7 +113,7 @@ class LevelMap:
         return self._map[index]
 
     def finalize(self):
-        if not (self.width and self.height and self._map):
+        if not (self._width and self._height and self._map):
             raise ValueError('Level has not been fully populated!')
         elif len(self._all_objects) == 0:
             raise ValueError('There are no objects, something is wrong!')

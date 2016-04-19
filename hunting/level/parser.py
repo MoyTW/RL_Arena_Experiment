@@ -74,8 +74,6 @@ def parse_level(file):
         parsed = json.load(f, object_hook=decode_fn)
 
         # Map info
-        level.width = parsed['width']
-        level.height = parsed['height']
         processed_map = [[LevelTile(bool(t[0]), bool(t[1])) for t in r] for r in parsed['map']]
         level.set_map(processed_map)
 
