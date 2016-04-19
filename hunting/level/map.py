@@ -23,6 +23,7 @@ class LevelMap:
         self._map_set = False
         self._map = None
         self._factions = {}
+        self._pathfinder = None  # type: tdl.map.AStar
 
     @property
     def width(self):
@@ -39,6 +40,15 @@ class LevelMap:
             self._width = len(level_tiles)
             self._height = len(level_tiles[0])
             self._map = level_tiles
+
+            def cost_fn(x, y):
+                blocked = self.is_blocked(x, y)
+                if blocked:
+                    return 0
+                else:
+                    return 1
+            self._pathfinder = tdl.map.AStar(self._width, self._height, cost_fn)
+
             self._map_set = True
 
     def pass_time(self, time):
@@ -88,14 +98,15 @@ class LevelMap:
 
     # TODO: Have some concept of 'edge of map' that is not 'blocked'?
     def is_blocked(self, x, y):
-        if x < 0 or y < 0 or x >= self._width or y >= self._height:
-            return True
-        if self._map[x][y].blocks:
+        if x < 0 or y < 0 or x >= self._width or y >= self._height or self._map[x][y].blocks:
             return True
         for o in self._all_objects:
             if o.x == x and o.y == y:
                 return True
         return False
+
+    def a_star_path(self, x0, y0, x1, y1):
+        return self._pathfinder.get_path(x0, y0, x1, y1)
 
     def has_los(self, x0, y0, x1, y1):
         # The TDL Bresenham includes the origin point and end points, necessitating the pop
