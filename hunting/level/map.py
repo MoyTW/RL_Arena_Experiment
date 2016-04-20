@@ -15,15 +15,17 @@ class LevelTile:
 
 
 class LevelMap:
-    def __init__(self):
+    def __init__(self, level_tiles=None):
         self.log = LevelLog()
-        self._width = None
-        self._height = None
+        self._width = None  # type: int
+        self._height = None  # type: int
         self._all_objects = []
         self._map_set = False
         self._map = None
         self._factions = {}
-        self._pathfinder = None  # type: tdl.map.AStar
+
+        if level_tiles is not None:
+            self.set_map(level_tiles)
 
     @property
     def width(self):
