@@ -11,13 +11,13 @@ def remove_unused_keys(d: dict):
 
 class GameObjectEncoder(json.JSONEncoder):
     def default(self, o):
-        d = o.__dict__
+        d = o.__dict__  # type: dict
         d.pop('owner', None)
 
         if isinstance(o, entities.GameObject):
             d.pop('log', None)
             # TODO: Clunky and awkard; don't really want to rely on *class names* of all things. Should be a mapping!
-            if d['ai'] is not None:
+            if d.get('ai', None) is not None:
                 d['ai'] = o.ai.__class__.__name__
             d.pop('blocks', None)
             remove_unused_keys(d)
