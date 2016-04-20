@@ -78,7 +78,7 @@ def parse_level(file):
         level.set_map(processed_map)
 
         # Faction info
-        for faction, faction_info in parsed['factions'].items():
+        for faction, faction_info in sorted(parsed['factions'].items()):
             faction_objects = faction_info.pop('objects')
             level.add_faction(faction, faction_info)
             for obj in faction_objects:
