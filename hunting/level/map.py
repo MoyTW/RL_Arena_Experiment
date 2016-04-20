@@ -42,16 +42,27 @@ class LevelMap:
             self._width = len(level_tiles)
             self._height = len(level_tiles[0])
             self._map = level_tiles
-
-            def cost_fn(x, y):
-                blocked = self.is_blocked(x, y)
-                if blocked:
-                    return 0
-                else:
-                    return 1
-            self._pathfinder = tdl.map.AStar(self._width, self._height, cost_fn)
-
             self._map_set = True
+
+    def a_star_path(self, x0, y0, x1, y1, force_pathable_endpoint=True):
+        """Draw a A* path from the start coordinates to the end coordinates.
+
+        :param x0: Starting x position.
+        :param y0: Starting y position.
+        :param x1: Ending x position. Need not be pathable.
+        :param y1: Ending y position. Need not be pathable.
+        :param force_pathable_endpoint: If True, treats the ending coordinates as pathable regardless of the actual status of
+        the coordinates.
+        :return: A vector of (x, y) pairs to the nearest adjacent square to (x1, y1) from (x0, y0). If there is no way
+        to reach a square adjacent to (x1, y1) it will return an empty vector.
+        """
+        def cost_fn(x, y):
+            if (not self.is_blocked(x, y)) or (force_pathable_endpoint is True and x == x1 and y == y1):
+                return 1
+            else:
+                return 0
+        finder = tdl.map.AStar(self._width, self._height, cost_fn)
+        return finder.get_path(x0, y0, x1, y1)
 
     def pass_time(self, time):
         fighters = [o for o in self._all_objects if o.fighter is not None]
@@ -106,9 +117,6 @@ class LevelMap:
             if o.x == x and o.y == y:
                 return True
         return False
-
-    def a_star_path(self, x0, y0, x1, y1):
-        return self._pathfinder.get_path(x0, y0, x1, y1)
 
     def has_los(self, x0, y0, x1, y1):
         # The TDL Bresenham includes the origin point and end points, necessitating the pop

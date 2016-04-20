@@ -5,7 +5,7 @@
 * Actual JSON schema for maps
 * Encumbrance/Weight Limits
 * Usable skills (stances, special attacks)
-* Pathfinding
+* Different pathfinding strategies
 * Damage ranges
 * Damage types (slash, pierce, bludgeon, fire)
 * Wounds

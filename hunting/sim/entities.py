@@ -51,28 +51,18 @@ class GameObject(object):
             return False
 
     def move_towards(self, target_x, target_y, game_map):
-        dx = target_x - self.x
-        dy = target_y - self.y
-        distance = math.sqrt(dx ** 2 + dy ** 2)
-
-        dx = int(round(dx / distance))
-        dy = int(round(dy / distance))
+        (next_x, next_y) = game_map.a_star_path(self.x, self.y, target_x, target_y)[0]
+        dx = next_x - self.x
+        dy = next_y - self.y
         return self.move(dx, dy, game_map)
 
-    def movable_squares(self, game_map):
+    def movable_squares(self, game_map, x0=None, y0=None):
         movables = []
         for x in range(-1, 2):
             for y in range(-1, 2):
                 if (not (x == 0 and y == 0)) and self.can_move(x, y, game_map):
                     movables.append([self.x + x, self.y + y])
         return movables
-
-#    def path_towards(self, target_x, target_y, game_map, objects, fov_map):
-#        path = libtcod.path_new_using_map(fov_map)
-#        libtcod.path_compute(path, self.x, self.y, target_x, target_y)
-#        (x, y) = libtcod.path_walk(path, False)
-#        if x is not None:
-#            self.move_towards(x, y, game_map, objects)
 
     def distance_to(self, other):
         dx = other.x - self.x
