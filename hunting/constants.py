@@ -1,3 +1,7 @@
+# UI constants
+SCREEN_WIDTH = 80
+SCREEN_HEIGHT = 50
+
 # Event constants
 EVENT_TYPE = 'event type'
 
