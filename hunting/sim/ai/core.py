@@ -37,7 +37,7 @@ class MonsterAI(object):
     def __init__(self, level, objectives_to_behaviours):
         self.level = level
         self.objectives_to_behaviours = objectives_to_behaviours
-        self.owner = None
+        self.owner = None  # type: GameObject
         self.objective = None
 
     def execute_objective(self):

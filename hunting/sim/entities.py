@@ -56,7 +56,7 @@ class GameObject(object):
         dy = next_y - self.y
         return self.move(dx, dy, game_map)
 
-    def movable_squares(self, game_map, x0=None, y0=None):
+    def movable_squares(self, game_map):
         movables = []
         for x in range(-1, 2):
             for y in range(-1, 2):
