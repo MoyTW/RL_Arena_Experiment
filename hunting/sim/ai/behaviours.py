@@ -23,6 +23,10 @@ class CloseDistance(Behaviour):
         self.ai.owner.move_towards(target.x, target.y, self.ai.level)
 
 
+class OpenDistance(Behaviour):
+    pass
+
+
 class BasicMelee(Behaviour):
     def can_execute(self):
         return self.ai.owner.is_adjacent(self.ai.target)

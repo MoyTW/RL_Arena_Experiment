@@ -28,6 +28,12 @@ class ObjectiveFortify(Objective):
         self.friendly_direction = friendly_direction
 
 
+class ObjectiveKite(Objective):
+    def __init__(self, target, objective_name=c.OBJECTIVE_KITE):
+        super().__init__(objective_name=objective_name)
+        self.target = target
+
+
 class ObjectiveEscape(Objective):
     def __init__(self, objective_name=c.OBJECTIVE_FLEE):
         super().__init__(objective_name=objective_name)

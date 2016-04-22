@@ -1,4 +1,4 @@
-from hunting.sim.ai.core import MonsterAI, ObjectiveEliminate
+from hunting.sim.ai.core import MonsterAI, ObjectiveEliminate, ObjectiveKite
 import hunting.constants as c
 import hunting.sim.ai.behaviours as behaviours
 
@@ -9,6 +9,23 @@ class DummyAI(MonsterAI):
 
     def assess_objective(self):
         pass
+
+
+class RunnerMonster(MonsterAI):
+    def __init__(self, level):
+        objectives_to_behaviours = {
+            c.OBJECTIVE_KITE: [behaviours.OpenDistance(self), behaviours.BasicMelee(self)]
+        }
+        super().__init__(level, objectives_to_behaviours)
+
+    def assess_objective(self):
+        enemies = self.level.get_objects_outside_faction(self.owner.faction)
+
+        if len(enemies) > 0:
+            distances = {self.owner.distance_to(e): e for e in enemies}
+            closest_distance = min(distances)
+            closest_enemy = distances[closest_distance]
+            self.objective = ObjectiveKite(closest_enemy)
 
 
 class TestMonster(MonsterAI):
