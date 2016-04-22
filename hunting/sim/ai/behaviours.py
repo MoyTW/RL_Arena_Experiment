@@ -1,4 +1,7 @@
+import random
 from hunting.sim.entities import GameObject
+from hunting.sim.ai.core import MonsterAI
+from hunting.level.map import LevelMap
 import hunting.sim.skills as skills
 import hunting.constants as c
 
@@ -24,7 +27,46 @@ class CloseDistance(Behaviour):
 
 
 class OpenDistance(Behaviour):
-    pass
+    def furthest_path(self, depth=None):
+        """ Uses the dumbest possible algorithm to find a path away from a monster (scan literally every square). This
+        will obviously have to be replaced. It's horrifying, really.
+
+        :param depth: How many steps you would like the search to reach.
+        :return: A list of (x, y) pairs indicating the furthest path.
+        """
+        level = self.ai.level  # type: LevelMap
+        owner = self.ai.owner
+        furthest = []
+        furthest_distance = -1
+
+        # TODO: Dear God.
+        level.remove_object(owner)
+        for x in range(level.width):
+            for y in range(level.height):
+                if len(level.a_star_path(owner.x, owner.y, x, y, False)) == 0:
+                    pass
+                else:
+                    dist = len(level.a_star_path(x, y, self.ai.target.x, self.ai.target.y))
+                    if dist == furthest_distance:
+                        furthest.append([x, y])
+                    elif dist > furthest_distance:
+                        furthest_distance = dist
+                        furthest.clear()
+                        furthest.append([x, y])
+        level.add_object(owner)
+
+        if len(furthest) > 0:
+            furthest_point = random.choice(furthest)
+            return level.a_star_path(owner.x, owner.y, furthest_point[0], furthest_point[1])[0]
+        else:
+            return None
+
+    def can_execute(self):
+        self.next = self.furthest_path()
+        return self.next
+
+    def execute(self):
+        self.ai.owner.move_towards(self.next[0], self.next[1], self.ai.level)
 
 
 class BasicMelee(Behaviour):
