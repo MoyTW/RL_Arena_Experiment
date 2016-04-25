@@ -1,10 +1,5 @@
 {
-  "width": 2,
-  "height": 2,
-  "map": [
-    [[0, 0], [0, 0]],
-    [[0, 0], [0, 0]]
-  ],
+  "map": "..\n..",
   "factions": {
     "heroes": {
       "save": true,

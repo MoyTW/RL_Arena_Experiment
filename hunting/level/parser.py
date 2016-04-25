@@ -8,6 +8,27 @@ from hunting.sim.effects import PropertyEffect
 from hunting.sim.entities import GameObject, Fighter
 
 
+def parse_map(map_string):
+    rows = map_string.splitlines()
+
+    map_tiles = [[None for _ in rows] for _ in rows[0]]
+    x = 0
+    y = 0
+    for line in rows:
+        for i in line:
+            if i == '.':
+                map_tiles[x][y] = LevelTile(False, False)
+            elif i == '#':
+                map_tiles[x][y] = LevelTile(True, True)
+            else:
+                raise ValueError('Cannot parse character:', i)
+            x += 1
+        x = 0
+        y += 1
+
+    return map_tiles
+
+
 def parse_level(file):
     with open(file, 'r') as f:
         level = LevelMap()
@@ -74,8 +95,7 @@ def parse_level(file):
         parsed = json.load(f, object_hook=decode_fn)
 
         # Map info
-        processed_map = [[LevelTile(bool(t[0]), bool(t[1])) for t in r] for r in parsed['map']]
-        level.set_map(processed_map)
+        level.set_map(parse_map(parsed['map']))
 
         # Faction info
         for faction, faction_info in sorted(parsed['factions'].items()):

@@ -55,15 +55,10 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
         level = parser.parse_level('resources/test_level.json')
         runner.run_level(level)
 
-        main_width = 80
-        main_height = 60
-        level_width = 80
-        level_height = 50
-
-        main_console = tdl.init(main_width, main_height, 'TDL Test')
+        main_console = tdl.init(level.width, level.height, 'TDL Test')
 
         scratch_level = parser.parse_level('resources/test_level.json')
-        renderer = Renderer(main_console, level_width, level_height)
+        renderer = Renderer(main_console, level.width, level.height)
         renderer.render_all(level=scratch_level)
 
         for event in level.log.events:
