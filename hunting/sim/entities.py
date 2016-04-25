@@ -29,6 +29,10 @@ class GameObject(object):
         if self.item:
             self.item.owner = self
 
+    def set_coordinates(self, x, y):
+        self.x = x
+        self.y = y
+
     def can_move(self, dx, dy, level_map):
         return not level_map.is_blocked(self.x + dx, self.y + dy)
 

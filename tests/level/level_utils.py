@@ -1,9 +1,6 @@
+import hunting.level.parser as parser
 from hunting.level.map import LevelMap, LevelTile
 
-def generate_5x3_long_c():
-    level_map = LevelMap([[LevelTile() for _ in range(0, 3)] for _ in range(0, 5)])
 
-    for x in range(1, 5):
-        level_map[x][1].blocks = True
-
-    return level_map
+def set_level_to_string(level: LevelMap, map_string: str):
+    level.set_map(parser.parse_map(map_string))
