@@ -13,15 +13,15 @@ class TestGameObject(unittest.TestCase):
     def test_movable_squares(self):
         eight_options = GameObject('1', self.level_map.log, 2, 2, 'eight')
         options = eight_options.movable_squares(self.level_map)
-        self.assertEqual([[1, 1], [1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2], [3, 3]], options)
+        self.assertEqual([(1, 1), (1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2), (3, 3)], options)
 
         three_options = GameObject('2', self.level_map.log, 0, 0, 'three')
         options = three_options.movable_squares(self.level_map)
-        self.assertEqual([[0, 1], [1, 0], [1, 1]], options)
+        self.assertEqual([(0, 1), (1, 0), (1, 1)], options)
 
         five_options = GameObject('3', self.level_map.log, 4, 2, 'five')
         options = five_options.movable_squares(self.level_map)
-        self.assertEqual([[3, 1], [3, 2], [3, 3], [4, 1], [4, 3]], options)
+        self.assertEqual([(3, 1), (3, 2), (3, 3), (4, 1), (4, 3)], options)
 
 
 class TestFighter(unittest.TestCase):

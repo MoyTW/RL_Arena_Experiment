@@ -119,8 +119,23 @@ class LevelMap:
         return False
 
     def get_adjacent_squares(self, x, y, remove_blocked=True):
-        return [[x + x1, y + y1] for x1, y1 in itertools.product(range(-1, 2), range(-1, 2))
+        return [(x + x1, y + y1) for x1, y1 in itertools.product(range(-1, 2), range(-1, 2))
                 if not (remove_blocked and self.is_blocked(x + x1, y + y1)) and not (x1 == 0 and y1 == 0)]
+
+    def build_flood_fill_cost_map(self, x, y):
+        cost_map = {(x, y): 0}
+        nodes = [(x, y)]
+        while len(nodes) > 0:
+            next_nodes = []
+            for node in nodes:
+                next_cost = cost_map[node] + 1
+                adjacent = self.get_adjacent_squares(node[0], node[1])
+                for square in adjacent:
+                    if square not in cost_map:
+                        cost_map[square] = next_cost
+                        next_nodes.append(square)
+            nodes = next_nodes
+        return cost_map
 
     def has_los(self, x0, y0, x1, y1):
         # The TDL Bresenham includes the origin point and end points, necessitating the pop
