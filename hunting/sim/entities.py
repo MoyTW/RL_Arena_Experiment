@@ -61,12 +61,7 @@ class GameObject(object):
         return self.move(dx, dy, game_map)
 
     def movable_squares(self, game_map):
-        movables = []
-        for x in range(-1, 2):
-            for y in range(-1, 2):
-                if (not (x == 0 and y == 0)) and self.can_move(x, y, game_map):
-                    movables.append([self.x + x, self.y + y])
-        return movables
+        return game_map.get_adjacent_squares(self.x, self.y)
 
     def distance_to(self, other):
         dx = other.x - self.x

@@ -1,5 +1,5 @@
 import tdl
-
+import itertools
 from hunting.level.log import LevelLog
 
 
@@ -117,6 +117,10 @@ class LevelMap:
             if o.x == x and o.y == y:
                 return True
         return False
+
+    def get_adjacent_squares(self, x, y, remove_blocked=True):
+        return [[x + x1, y + y1] for x1, y1 in itertools.product(range(-1, 2), range(-1, 2))
+                if not (remove_blocked and self.is_blocked(x + x1, y + y1)) and not (x1 == 0 and y1 == 0)]
 
     def has_los(self, x0, y0, x1, y1):
         # The TDL Bresenham includes the origin point and end points, necessitating the pop
