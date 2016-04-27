@@ -4,6 +4,7 @@ import tests.level.level_utils as utils
 import hunting.sim.runner as runner
 import hunting.sim.ai.ais as ais
 from hunting.sim.entities import GameObject, Fighter
+import hunting.constants as c
 
 
 class TestOpenDistance(unittest.TestCase):
@@ -17,6 +18,17 @@ class TestOpenDistance(unittest.TestCase):
                                 ai=ais.TestMonster(self.level))
         self.level.add_faction('2', {})
         self.level.add_object(self.scary)
+
+    def test_builds_flood_fill_cost_map(self):
+        utils.set_level_to_string(self.level, ".....\n"
+                                              ".####\n"
+                                              ".....\n")
+        # If you ever have another pathfinding algorithm (you will) actually definte a Pathfinder class or something!
+        open_distance = self.runner.ai.objectives_to_behaviours[c.OBJECTIVE_KITE][0]  # DUMB
+        self.runner.set_coordinates(0, 0)
+        self.assertEqual({(0, 0): 0, (1, 0): 1, (2, 0): 2, (3, 0): 3, (4, 0): 4, (0, 1): 1, (0, 2): 2, (1, 2): 2,
+                          (2, 2): 3, (3, 2): 4, (4, 2): 5},
+                         open_distance.build_cost_map())
 
     def test_flees_basic(self):
         utils.set_level_to_string(self.level, ".....\n"
