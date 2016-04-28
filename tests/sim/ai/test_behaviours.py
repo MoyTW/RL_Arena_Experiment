@@ -4,7 +4,6 @@ import tests.level.level_utils as utils
 import hunting.sim.runner as runner
 import hunting.sim.ai.ais as ais
 from hunting.sim.entities import GameObject, Fighter
-import hunting.constants as c
 
 
 class TestOpenDistance(unittest.TestCase):
@@ -23,11 +22,21 @@ class TestOpenDistance(unittest.TestCase):
         utils.set_level_to_string(self.level, ".....\n"
                                               ".####\n"
                                               ".....\n")
-        self.runner.set_coordinates(3, 2)
+        self.runner.set_coordinates(2, 2)
         self.scary.set_coordinates(4, 2)
-        for i in range(7):
+        for i in range(6):
             runner.run_turn(self.level)
         self.assertEqual((4, 0), (self.runner.x, self.runner.y))
+
+    def test_fights_if_engaged(self):
+        utils.set_level_to_string(self.level, ".....\n"
+                                              ".####\n"
+                                              ".....\n")
+        self.runner.set_coordinates(3, 2)
+        self.scary.set_coordinates(4, 2)
+        for i in range(2):
+            runner.run_turn(self.level)
+        self.assertEqual((3, 2), (self.runner.x, self.runner.y))
 
     def test_flees_longest_path(self):
         utils.set_level_to_string(self.level, "###.\n"
@@ -57,15 +66,16 @@ class TestOpenDistance(unittest.TestCase):
         self.assertEqual((0, 4), (self.runner.x, self.runner.y))
 
     def test_takes_shortest_path_to_destination(self):
-        utils.set_level_to_string(self.level, ".........#\n"
-                                              ".#######.#\n"
-                                              "#...####.#\n"
-                                              "####.###.#\n"
-                                              "#####..#.#\n"
-                                              "#######..#\n"
-                                              "#########.")
+        utils.set_level_to_string(self.level, ".........##\n"
+                                              ".#####.#.##\n"
+                                              "#...###..##\n"
+                                              "####.###.##\n"
+                                              "#####..#.##\n"
+                                              "#######..##\n"
+                                              "#########..")
         self.runner.set_coordinates(8, 5)
-        self.scary.set_coordinates(9, 6)
+        self.scary.set_coordinates(10, 6)
         for i in range(9):
             runner.run_turn(self.level)
-        self.assertEqual((0, 0), (self.runner.x, self.runner.y))
+            print(self.runner.x, self.runner.y)
+        self.assertEqual((1, 0), (self.runner.x, self.runner.y))
