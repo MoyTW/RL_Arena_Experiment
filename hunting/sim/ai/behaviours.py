@@ -27,43 +27,40 @@ class CloseDistance(Behaviour):
 
 
 class OpenDistance(Behaviour):
-    def furthest_path(self, depth=None):
-        """ Uses the dumbest possible algorithm to find a path away from a monster (scan literally every square). This
-        will obviously have to be replaced. It's horrifying, really.
+    def furthest_path(self, min_dist=1):
+        """ Gets the shortest path to the furthest square from the target, and returns either the (x, y) coordinates or,
+         None if it cannot kite.
 
-        :param depth: How many steps you would like the search to reach.
-        :return: A list of (x, y) pairs indicating the furthest path.
+        :param min_dist: The minimum distance between the owner and target. If the target enters this distance, the
+        owner will stop kiting.
+        :return: Either the first (x, y) step to the furthest square from the target, or None if there is no further
+        path to run or the target has already reached min_dist squares of the owner.
         """
         level = self.ai.level  # type: LevelMap
         owner = self.ai.owner
-        furthest = []
-        furthest_distance = -1
+        target = self.ai.target
 
-        # TODO: Dear God.
-        level.remove_object(owner)
-        for x in range(level.width):
-            for y in range(level.height):
-                if len(level.a_star_path(owner.x, owner.y, x, y, False)) == 0:
-                    pass
-                else:
-                    dist = len(level.a_star_path(x, y, self.ai.target.x, self.ai.target.y))
-                    if dist == furthest_distance:
-                        furthest.append([x, y])
-                    elif dist > furthest_distance:
-                        furthest_distance = dist
-                        furthest.clear()
-                        furthest.append([x, y])
-        level.add_object(owner)
+        if (target.x, target.y) in level.get_adjacent_squares(owner.x, owner.y, remove_blocked=False):
+            return None
 
-        if len(furthest) > 0:
-            furthest_point = random.choice(furthest)
-            return level.a_star_path(owner.x, owner.y, furthest_point[0], furthest_point[1])[0]
+        owner_cost_map = level.build_flood_fill_cost_map(owner.x, owner.y)
+        target_cost_map = level.build_flood_fill_cost_map(target.x, target.y)
+        viable = [k for k, v in owner_cost_map.items()
+                  if k not in target_cost_map or target_cost_map[k] - owner_cost_map[k] > min_dist]
+        end = max(viable, key=lambda x: owner_cost_map[x])
+
+        path = level.a_star_path(owner.x, owner.y, end[0], end[1])
+        if len(path) > 0:
+            return path[0]
         else:
             return None
 
     def can_execute(self):
         self.next = self.furthest_path()
-        return self.next
+        if self.next is not None:
+            return True
+        else:
+            return False
 
     def execute(self):
         self.ai.owner.move_towards(self.next[0], self.next[1], self.ai.level)
