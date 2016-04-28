@@ -77,5 +77,4 @@ class TestOpenDistance(unittest.TestCase):
         self.scary.set_coordinates(10, 6)
         for i in range(9):
             runner.run_turn(self.level)
-            print(self.runner.x, self.runner.y)
         self.assertEqual((1, 0), (self.runner.x, self.runner.y))
