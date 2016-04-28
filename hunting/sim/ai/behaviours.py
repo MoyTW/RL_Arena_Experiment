@@ -27,7 +27,12 @@ class CloseDistance(Behaviour):
 
 
 class OpenDistance(Behaviour):
-    def furthest_path(self, min_dist=1):
+    def __init__(self, ai, min_dist=1, max_dist=None):
+        super().__init__(ai=ai)
+        self.min_dist = min_dist
+        self.max_dist = max_dist
+
+    def furthest_path(self):
         """ Gets the shortest path to the furthest square from the target, and returns either the (x, y) coordinates or,
          None if it cannot kite.
 
@@ -46,7 +51,7 @@ class OpenDistance(Behaviour):
         owner_cost_map = level.build_flood_fill_cost_map(owner.x, owner.y)
         target_cost_map = level.build_flood_fill_cost_map(target.x, target.y)
         viable = [k for k, v in owner_cost_map.items()
-                  if k not in target_cost_map or target_cost_map[k] - owner_cost_map[k] > min_dist]
+                  if k not in target_cost_map or target_cost_map[k] - owner_cost_map[k] > self.min_dist]
         end = max(viable, key=lambda x: owner_cost_map[x])
 
         path = level.a_star_path(owner.x, owner.y, end[0], end[1])

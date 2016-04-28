@@ -12,9 +12,9 @@ class DummyAI(MonsterAI):
 
 
 class RunnerMonster(MonsterAI):
-    def __init__(self, level):
+    def __init__(self, level, max_dist=5):
         objectives_to_behaviours = {
-            c.OBJECTIVE_KITE: [behaviours.OpenDistance(self), behaviours.BasicMelee(self)]
+            c.OBJECTIVE_KITE: [behaviours.OpenDistance(self, max_dist=max_dist), behaviours.BasicMelee(self)]
         }
         super().__init__(level, objectives_to_behaviours)
 

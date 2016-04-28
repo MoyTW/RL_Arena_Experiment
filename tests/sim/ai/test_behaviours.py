@@ -10,7 +10,7 @@ class TestOpenDistance(unittest.TestCase):
     def setUp(self):
         self.level = level.LevelMap()
         self.runner = GameObject('1', self.level.log, None, None, 'runner', faction='1',
-                                 fighter=Fighter(100, 100, 5, 5, 100), ai=ais.RunnerMonster(self.level))
+                                 fighter=Fighter(100, 100, 5, 5, 100), ai=ais.RunnerMonster(self.level, max_dist=5))
         self.level.add_faction('1', {})
         self.level.add_object(self.runner)
         self.scary = GameObject('2', self.level.log, None, None, 'scary', faction='2', fighter=Fighter(5, 100, 0, 1, 1),
@@ -78,3 +78,11 @@ class TestOpenDistance(unittest.TestCase):
         for i in range(9):
             runner.run_turn(self.level)
         self.assertEqual((1, 0), (self.runner.x, self.runner.y))
+
+    def test_does_not_kite_if_past_max_dist(self):
+        utils.set_level_to_string(self.level, ".........................")
+        self.runner.set_coordinates(12, 0)
+        self.scary.set_coordinates(0, 0)
+        for i in range(3):
+            runner.run_turn(self.level)
+        self.assertEqual((12, 0), (self.runner.x, self.runner.y))
