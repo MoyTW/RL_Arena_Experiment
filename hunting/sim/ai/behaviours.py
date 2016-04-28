@@ -45,7 +45,8 @@ class OpenDistance(Behaviour):
         owner = self.ai.owner
         target = self.ai.target
 
-        if (target.x, target.y) in level.get_adjacent_squares(owner.x, owner.y, remove_blocked=False):
+        current_dist = len(level.a_star_path(target.x, target.y, owner.x, owner.y))
+        if current_dist <= self.min_dist or current_dist > self.max_dist:
             return None
 
         owner_cost_map = level.build_flood_fill_cost_map(owner.x, owner.y)
