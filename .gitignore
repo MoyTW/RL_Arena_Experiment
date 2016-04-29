@@ -37,8 +37,8 @@ target/
 # dotenv
 .env
 
-# Save game file
-save_game
-
 # PyCharm stuff
 .idea/*
+
+# Project-specific
+hunting/resources/files.py

@@ -3,7 +3,7 @@ import requests
 import threading
 import json
 import hunting.server as server
-import hunting.resources as resources
+import hunting.resources.files as res_files
 import hunting.utils as utils
 import unittest.mock as mock
 
@@ -42,6 +42,6 @@ class TestRunEndpoint(unittest.TestCase):
     def test_run_contents_simple(self, _):
         response = requests.get(self.url('run/test/hero_versus_zero.json'))
         parsed_response = utils.sort_dicts(response.json())
-        with open(resources.get_full_path('test/results/hero_versus_zero.json')) as f:
+        with open(res_files.test_results_hero_versus_zero_json) as f:
             expected = utils.sort_dicts(json.load(f))
         self.assertEqual(parsed_response, expected)

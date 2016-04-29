@@ -3,7 +3,7 @@ import unittest
 import unittest.mock as mock
 
 import hunting.level.parser as parser
-import hunting.resources as resources
+import hunting.resources.files as res_files
 from hunting.constants import *
 from hunting.level.map import LevelMap, LevelTile
 from hunting.sim.ai.ais import TestMonster, DummyAI
@@ -49,8 +49,8 @@ class TestRunner(unittest.TestCase):
     # This is not a unit test! However I'm not sure where to put it. So here it is.
     @mock.patch('random.randint', return_value=75)
     def test_level_json(self, _):
-        level = parser.parse_level(resources.test_level_json)
+        level = parser.parse_level(res_files.test_test_level_json)
         run_level(level)
 
-        with open(resources.test_level_log_json, 'r') as f:
+        with open(res_files.test_test_level_log_json, 'r') as f:
             self.assertEqual(level.log.events, json.load(f))
