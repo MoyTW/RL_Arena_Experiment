@@ -76,9 +76,9 @@ def parse_level(file):
                 else:
                     item_component = None
 
-                game_object = GameObject(d['oid'], log, d.get('x'), d.get('y'), name=d['name'],
-                                         faction=d.get('faction'), blocks=blocks, fighter=fighter_component,
-                                         ai=ai_component, inventory=inventory_component, item=item_component)
+                game_object = GameObject(d['oid'], log, d.get('x'), d.get('y'), name=d['name'],  blocks=blocks,
+                                         fighter=fighter_component, ai=ai_component, inventory=inventory_component,
+                                         item=item_component)
 
                 # If it has an inventory and equipped items, equip the items
                 if game_object.inventory is not None:  # TODO: This is frankly silly, especially the boolean flipping!
@@ -102,6 +102,7 @@ def parse_level(file):
             faction_objects = faction_info.pop('objects')
             level.add_faction(faction, faction_info)
             for obj in faction_objects:
+                obj.faction = faction
                 level.add_object(obj)
 
         # Complete

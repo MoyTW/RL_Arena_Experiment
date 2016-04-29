@@ -9,7 +9,6 @@
                     "x": 11,
                     "y": 11,
                     "name": "beluga",
-                    "faction": "1",
                     "fighter": {
                         "max_hp": 10,
                         "max_stamina": 100,
@@ -26,7 +25,6 @@
                     "x": 25,
                     "y": 9,
                     "name": "beluga",
-                    "faction": "1",
                     "fighter": {
                         "max_hp": 10,
                         "max_stamina": 100,
@@ -43,7 +41,6 @@
                     "x": 3,
                     "y": 13,
                     "name": "beluga",
-                    "faction": "1",
                     "fighter": {
                         "max_hp": 10,
                         "max_stamina": 100,
@@ -64,7 +61,6 @@
                     "oid": "6acb0783-403f-4288-98a7-582d0416608a",
                     "x": 49,
                     "y": 48,
-                    "faction": "2",
                     "name": "beluga",
                     "fighter": {
                         "max_hp": 10,
@@ -82,7 +78,6 @@
                     "x": 39,
                     "y": 49,
                     "name": "beluga",
-                    "faction": "2",
                     "fighter": {
                         "max_hp": 10,
                         "max_stamina": 100,
@@ -99,7 +94,6 @@
                     "x": 21,
                     "y": 25,
                     "name": "beluga",
-                    "faction": "2",
                     "fighter": {
                         "max_hp": 10,
                         "max_stamina": 100,

@@ -16,6 +16,7 @@ class GameObjectEncoder(json.JSONEncoder):
 
         if isinstance(o, entities.GameObject):
             d.pop('log', None)
+            d.pop('faction', None)
             # TODO: Clunky and awkard; don't really want to rely on *class names* of all things. Should be a mapping!
             if d.get('ai', None) is not None:
                 d['ai'] = o.ai.__class__.__name__

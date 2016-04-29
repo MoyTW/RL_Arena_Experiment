@@ -7,7 +7,6 @@
 	"x": 0,
 	"y": 0,
 	"name": "hero",
-	"faction": "heroes",
 	"fighter": {
 	  "max_hp": 9999,
           "max_stamina": 9999,
