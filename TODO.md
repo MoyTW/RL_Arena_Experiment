@@ -1,3 +1,5 @@
+# CURRENT: Add example enemies, maps
+
 # TODO (not ordered in priority or effort)
 ## General
 * POST JSON level payloads to server
