@@ -1,12 +1,18 @@
 {
   "map": "..\n..",
+  "deploy_info": {
+    "heroes": {
+      "strategy": "eager",
+      "zones": [[0,0]]
+    },
+    "zeroes": {
+      "strategy": "eager",
+      "zones": [[1,1]]
+    }
+  },
   "factions": {
     "heroes": {
       "save": true,
-      "deploy_info": {
-        "strategy": "eager",
-        "zones": [[0,0]]
-      },
       "objects": [
         {
           "oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
@@ -27,10 +33,6 @@
     },
     "zeroes": {
       "save": false,
-      "deploy_info": {
-        "strategy": "eager",
-        "zones": [[1,1]]
-      },
       "objects": [
         {
           "oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
