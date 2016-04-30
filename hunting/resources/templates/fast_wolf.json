@@ -1,0 +1,15 @@
+{
+  "oid": "TEST_TEMPLATE_FAST_WOLF",
+  "name": "Fast Wolf",
+  "fighter": {
+    "max_hp": 80,
+    "max_stamina": 120,
+    "hp": 80,
+    "defense": 0,
+    "accuracy": 15,
+    "power": 12,
+    "xp": 100,
+    "speed": 80
+  },
+  "ai": "TestMonster"
+}

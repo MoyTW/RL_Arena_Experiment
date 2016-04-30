@@ -1,0 +1,15 @@
+{
+  "oid": "TEST_TEMPLATE_GOW",
+  "name": "God of War",
+  "fighter": {
+    "max_hp": 9999,
+    "max_stamina": 9999,
+    "hp": 9999,
+    "defense": 9999,
+    "accuracy": 9999,
+    "power": 9999,
+    "xp": 30,
+    "speed": 1
+  },
+  "ai": "TestMonster"
+}

@@ -1,0 +1,90 @@
+{
+  "oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
+  "name": "beluga",
+  "fighter": {
+    "max_hp": 125,
+    "max_stamina": 120,
+    "hp": 125,
+    "defense": 0,
+    "power": 10,
+    "accuracy": 25,
+    "xp": 100,
+    "speed": 100,
+    "equipment_slots": [
+      "right hand",
+      "left hand",
+      "body",
+      "head"
+    ]
+  },
+  "ai": "TestMonster",
+  "inventory": {
+    "max_size": 10,
+    "carried_items": [
+      {
+        "oid": "ebac6a81-bfda-4488-82ca-4af02d5497b7",
+        "name": "Plate Armor",
+        "item": {
+          "item_type": "equipment",
+          "slot": "body",
+          "is_equipped": true,
+          "effects": [
+            {
+              "effect_type": "property effect",
+              "property_type": "defense",
+              "value": 8
+            }
+          ]
+        }
+      },
+      {
+        "oid": "45c6c974-644c-40d7-82eb-b91c1377560b",
+        "name": "Knight Helmet",
+        "item": {
+          "item_type": "equipment",
+          "slot": "left hand",
+          "is_equipped": true,
+          "effects": [
+            {
+              "effect_type": "property effect",
+              "property_type": "defense",
+              "value": 3
+            }
+          ]
+        }
+      },
+      {
+        "oid": "8da550cb-6afb-4ab4-b70e-656b0c0bcc39",
+        "name": "Heavy shield",
+        "item": {
+          "item_type": "equipment",
+          "slot": "left hand",
+          "is_equipped": true,
+          "effects": [
+            {
+              "effect_type": "property effect",
+              "property_type": "defense",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "oid": "01b016da-298a-49a5-ad93-042f07e8e12b",
+        "name": "Arming Sword",
+        "item": {
+          "item_type": "equipment",
+          "slot": "left hand",
+          "is_equipped": true,
+          "effects": [
+            {
+              "effect_type": "property effect",
+              "property_type": "power",
+              "value": 8
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

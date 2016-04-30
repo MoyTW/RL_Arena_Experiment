@@ -1,0 +1,15 @@
+{
+  "oid": "TEST_TEMPLATE_SLOW_WOLF",
+  "name": "Slow Wolf",
+  "fighter": {
+    "max_hp": 120,
+    "max_stamina": 120,
+    "hp": 120,
+    "defense": 0,
+    "accuracy": 5,
+    "power": 18,
+    "xp": 100,
+    "speed": 115
+  },
+  "ai": "TestMonster"
+}
