@@ -29,6 +29,13 @@ def parse_map(map_string):
     return map_tiles
 
 
+def do_deploy(obj, deploy_state: dict):
+    if deploy_state['strategy'] == 'eager':
+        (x, y) = deploy_state['zones'].pop(0)
+        obj.x = x
+        obj.y = y
+
+
 def parse_level(file):
     with open(file, 'r') as f:
         level = LevelMap()
@@ -101,9 +108,13 @@ def parse_level(file):
         for faction, faction_info in sorted(parsed['factions'].items()):
             faction_objects = faction_info.pop('objects')
             level.add_faction(faction, faction_info)
+
+            deploy_info = parsed['deploy_info'][faction]
+
             for obj in faction_objects:
                 obj.faction = faction
                 level.add_object(obj)
+                do_deploy(obj, deploy_info)
 
         # Complete
         level.finalize()
