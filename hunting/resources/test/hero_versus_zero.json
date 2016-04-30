@@ -3,11 +3,13 @@
   "factions": {
     "heroes": {
       "save": true,
+      "deploy_info": {
+        "strategy": "eager",
+        "zones": [[0,0]]
+      },
       "objects": [
         {
           "oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
-          "x": 0,
-          "y": 0,
           "name": "hero",
           "fighter": {
             "max_hp": 9999,
@@ -25,11 +27,13 @@
     },
     "zeroes": {
       "save": false,
+      "deploy_info": {
+        "strategy": "eager",
+        "zones": [[1,1]]
+      },
       "objects": [
         {
           "oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-          "x": 1,
-          "y": 1,
           "name": "zero",
           "fighter": {
             "max_hp": 1,

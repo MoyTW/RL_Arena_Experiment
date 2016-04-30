@@ -3,11 +3,13 @@
     "factions": {
         "1": {
             "save": false,
+            "deploy_info": {
+                "strategy": "eager",
+                "zones": [[11,11], [25,9], [3,13]]
+            },
             "objects": [
                 {
                     "oid": "2348adb9-43f2-419a-8fca-9fd8966714a5",
-                    "x": 11,
-                    "y": 11,
                     "name": "beluga",
                     "fighter": {
                         "max_hp": 10,
@@ -22,8 +24,6 @@
                 },
                 {
                     "oid": "79b0f581-8d78-43f6-bf5e-e81bc7a5e81a",
-                    "x": 25,
-                    "y": 9,
                     "name": "beluga",
                     "fighter": {
                         "max_hp": 10,
@@ -38,8 +38,6 @@
                 },
                 {
                     "oid": "f7159cd7-6ccf-433c-a594-813e66bc2c91",
-                    "x": 3,
-                    "y": 13,
                     "name": "beluga",
                     "fighter": {
                         "max_hp": 10,
@@ -56,11 +54,13 @@
         },
         "2": {
             "save": true,
+            "deploy_info": {
+                "strategy": "eager",
+                "zones": [[49,48], [39,49], [21,25]]
+            },
             "objects": [
                 {
                     "oid": "6acb0783-403f-4288-98a7-582d0416608a",
-                    "x": 49,
-                    "y": 48,
                     "name": "beluga",
                     "fighter": {
                         "max_hp": 10,
@@ -75,8 +75,6 @@
                 },
                 {
                     "oid": "187544a8-7e08-476d-9330-7ec5632c46f8",
-                    "x": 39,
-                    "y": 49,
                     "name": "beluga",
                     "fighter": {
                         "max_hp": 10,
@@ -91,8 +89,6 @@
                 },
                 {
                     "oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-                    "x": 21,
-                    "y": 25,
                     "name": "beluga",
                     "fighter": {
                         "max_hp": 10,
