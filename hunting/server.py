@@ -51,13 +51,14 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
 
         self.wfile.write(bytes("I don't know what that is!", UTF_8))
 
-    def test_vis(self):
-        level = parser.parse_level('resources/test_level.json')
+    def test_vis(self, file_path):
+        full_path = resources.get_full_path(file_path)
+        level = parser.parse_level(full_path)
         runner.run_level(level)
 
         main_console = tdl.init(level.width, level.height, 'TDL Test')
 
-        scratch_level = parser.parse_level('resources/test_level.json')
+        scratch_level = parser.parse_level(full_path)
         renderer = Renderer(main_console, level.width, level.height)
         renderer.render_all(level=scratch_level)
 
@@ -102,8 +103,8 @@ class HelloWorldHandler(http.server.BaseHTTPRequestHandler):
             self.goodbye()
         elif self.path == '/hello':
             self.hello_world()
-        elif self.path == '/test_vis':
-            self.test_vis()
+        elif self.path.startswith('/test_vis/'):
+            self.test_vis(self.path[10:])
         elif self.path.startswith('/run/'):
             self.run_file(self.path[5:])
         else:

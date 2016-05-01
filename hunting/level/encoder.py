@@ -15,8 +15,8 @@ class GameObjectEncoder(json.JSONEncoder):
         d.pop('owner', None)
 
         if isinstance(o, entities.GameObject):
-            d.pop('x')
-            d.pop('y')
+            d.pop('x', None)
+            d.pop('y', None)
             d.pop('log', None)
             d.pop('faction', None)
             # TODO: Clunky and awkard; don't really want to rely on *class names* of all things. Should be a mapping!
