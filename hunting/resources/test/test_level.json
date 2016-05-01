@@ -110,13 +110,6 @@
             "max_size": 10,
             "carried_items": [
               {
-                "oid": "0b0c25b8-f0e8-474c-a622-2b83076c7574",
-                "name": "test item",
-                "item": {
-                  "item_type": "test"
-                }
-              },
-              {
                 "oid": "59681866-5195-4f9d-9372-a4a49dc32636",
                 "name": "test throwing item",
                 "item": {

@@ -40,7 +40,6 @@ EFFECT_TYPE = 'effect type'
 PROPERTY_TYPE = 'property type'
 
 # Item constants
-ITEM_TEST = 'test'
 ITEM_THROWING = 'throwing'
 ITEM_EQUIPMENT = 'equipment'
 

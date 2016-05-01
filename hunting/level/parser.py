@@ -72,9 +72,7 @@ def parse_level(file):
 
                 if 'item' in d:
                     item = d['item']  # type: dict
-                    if item['item_type'] == ITEM_TEST:
-                        item_component = items.TestItem(**item)
-                    elif item['item_type'] == ITEM_THROWING:
+                    if item['item_type'] == ITEM_THROWING:
                         item_component = items.ThrowingItem(**item)
                     elif item['item_type'] == ITEM_EQUIPMENT:
                         item_component = items.Equipment(**item)

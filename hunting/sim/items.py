@@ -101,17 +101,6 @@ class Equipment(Item):
                 target.fighter.remove_effect(effect)
 
 
-class TestItem(Item):
-    def __init__(self, item_type):
-        super().__init__(item_type=item_type)
-
-    def _use(self, user: GameObject, target: GameObject, level_map):
-        target.fighter.heal(10)
-
-    def can_use(self, user: GameObject, target: GameObject, level_map):
-        return False
-
-
 class ThrowingItem(Item):
     def __init__(self, item_power, item_range, item_accuracy=0, item_type=ITEM_THROWING):
         if item_type != ITEM_THROWING:  # TODO: Very awkward! Maybe wrap in factory function?
