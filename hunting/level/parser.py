@@ -1,6 +1,7 @@
 import json
 
-import hunting.sim.items as items
+import hunting.sim.items.core as items
+import hunting.sim.items.equipment as equipment
 from hunting.constants import *
 from hunting.level.map import LevelTile, LevelMap
 from hunting.sim.ai.ais import TestMonster
@@ -75,7 +76,7 @@ def parse_level(file):
                     if item['item_type'] == ITEM_THROWING:
                         item_component = items.ThrowingItem(**item)
                     elif item['item_type'] == ITEM_EQUIPMENT:
-                        item_component = items.Equipment(**item)
+                        item_component = equipment.Equipment(**item)
                     else:
                         item_component = None
                 else:

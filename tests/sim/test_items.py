@@ -1,10 +1,12 @@
 import unittest
+import unittest.mock as mock
+
+from hunting.constants import *
 from hunting.level.map import LevelMap, LevelTile
 from hunting.sim.effects import PropertyEffect
 from hunting.sim.entities import GameObject, Fighter
-from hunting.sim.items import Equipment, ThrowingItem, Inventory
-from hunting.constants import *
-import unittest.mock as mock
+from hunting.sim.items.core import ThrowingItem, Inventory
+import hunting.sim.items.equipment as equipment
 
 
 class TestEquipment(unittest.TestCase):
@@ -15,7 +17,7 @@ class TestEquipment(unittest.TestCase):
         self.test_slot = 'test slot'
         self.effect = PropertyEffect(property_type=PROPERTY_POWER, value=10)
         self.sword = GameObject(self.test_id, self.level.log, None, None, 'sword',
-                                item=Equipment(slot=self.test_slot, effects=[self.effect]))
+                                item=equipment.Equipment(slot=self.test_slot, effects=[self.effect]))
         self.slot_object = GameObject('9', self.level.log, None, None, 'has slot',
                                       fighter=Fighter(10, 10, 10, 10, 0, equipment_slots=[self.test_slot]))
         self.no_slot_object = GameObject('8', self.level.log, None, None, 'does not have slot',
@@ -31,7 +33,8 @@ class TestEquipment(unittest.TestCase):
         self.assertEqual({self.test_slot: None}, self.slot_object.fighter.equipment_slots)
 
     def test_cannot_equip_if_slot_occupied(self):
-        slot_holder = GameObject('x', self.level.log, None, None, 'take slot', item=Equipment(self.test_slot, []))
+        slot_holder = GameObject('x', self.level.log, None, None, 'take slot',
+                                 item=equipment.Equipment(self.test_slot, []))
         slot_holder.item.use(self.slot_object, self.slot_object, self.level)
         self.assertFalse(self.sword.item.can_use(self.slot_object, self.slot_object, self.level))
 
