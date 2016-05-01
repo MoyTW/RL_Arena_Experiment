@@ -1,0 +1,145 @@
+{
+  "map": "##############################\n#####....................#####\n####......................####\n###........................###\n##..........................##\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n#............................#\n##..........................##\n###........................###\n####......................####\n#####....................#####\n##############################",
+  "deploy_info": {
+    "1": {
+      "strategy": "eager",
+      "zones": [[10,2], [11,2], [12,2], [13,2], [14,2], [15,2], [16,2], [17,2], [18,2], [19,2], [10,3], [11,3], [12,3], [13,3], [14,3], [15,3], [16,3], [17,3], [18,3], [19,3]]
+    },
+    "2": {
+      "strategy": "eager",
+      "zones": [[10,26], [11,26], [12,26], [13,26], [14,26], [15,26], [16,26], [17,26], [18,26], [19,26], [10,27], [11,27], [12,27], [13,27], [14,27], [15,27], [16,27], [17,27], [18,27], [19,27]]
+    }
+  },
+  "factions": {
+    "1": {
+      "save": true,
+      "objects": [
+        {
+          "oid": "TEST_TEMPLATE_PLATE_KNIGHT",
+          "name": "Knight",
+          "fighter": {
+            "max_hp": 125,
+            "max_stamina": 120,
+            "hp": 125,
+            "defense": 0,
+            "power": 10,
+            "accuracy": 25,
+            "xp": 100,
+            "speed": 100,
+            "equipment_slots": [
+              "right hand",
+              "left hand",
+              "body",
+              "head"
+            ]
+          },
+          "ai": "TestMonster",
+          "inventory": {
+            "max_size": 10,
+            "carried_items": [
+              {
+                "oid": "TEST_TEMPLATE_PLATE_KNIGHT_ARMOR",
+                "name": "Plate Armor",
+                "item": {
+                  "item_type": "equipment",
+                  "slot": "body",
+                  "is_equipped": true,
+                  "effects": [
+                    {
+                      "effect_type": "property effect",
+                      "property_type": "defense",
+                      "value": 8
+                    }
+                  ]
+                }
+              },
+              {
+                "oid": "TEST_TEMPLATE_PLATE_KNIGHT_HELMET",
+                "name": "Knight Helmet",
+                "item": {
+                  "item_type": "equipment",
+                  "slot": "head",
+                  "is_equipped": true,
+                  "effects": [
+                    {
+                      "effect_type": "property effect",
+                      "property_type": "defense",
+                      "value": 3
+                    }
+                  ]
+                }
+              },
+              {
+                "oid": "TEST_TEMPLATE_PLATE_KNIGHT_HEAVY_SHIELD",
+                "name": "Heavy shield",
+                "item": {
+                  "item_type": "equipment",
+                  "slot": "left hand",
+                  "is_equipped": true,
+                  "effects": [
+                    {
+                      "effect_type": "property effect",
+                      "property_type": "defense",
+                      "value": 5
+                    }
+                  ]
+                }
+              },
+              {
+                "oid": "TEST_TEMPLATE_PLATE_KNIGHT_ARMING_SWORD",
+                "name": "Arming Sword",
+                "item": {
+                  "item_type": "equipment",
+                  "slot": "right hand",
+                  "is_equipped": true,
+                  "effects": [
+                    {
+                      "effect_type": "property effect",
+                      "property_type": "power",
+                      "value": 8
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "2": {
+      "save": true,
+      "objects": [
+        {
+          "oid": "TEST_TEMPLATE_FAST_WOLF",
+          "name": "Fast Wolf",
+          "fighter": {
+            "max_hp": 80,
+            "max_stamina": 120,
+            "hp": 80,
+            "defense": 0,
+            "accuracy": 15,
+            "power": 12,
+            "xp": 100,
+            "speed": 80
+          },
+          "ai": "TestMonster"
+        },
+        {
+          "oid": "TEST_TEMPLATE_SLOW_WOLF",
+          "name": "Slow Wolf",
+          "fighter": {
+            "max_hp": 120,
+            "max_stamina": 120,
+            "hp": 120,
+            "defense": 0,
+            "accuracy": 5,
+            "power": 18,
+            "xp": 100,
+            "speed": 115
+          },
+          "ai": "TestMonster"
+        }
+      ]
+    }
+  }
+}

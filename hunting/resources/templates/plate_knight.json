@@ -1,6 +1,6 @@
 {
-  "oid": "675bfccb-2e37-4019-85b1-31bf770da1b4",
-  "name": "beluga",
+  "oid": "TEST_TEMPLATE_PLATE_KNIGHT",
+  "name": "Knight",
   "fighter": {
     "max_hp": 125,
     "max_stamina": 120,
@@ -22,7 +22,7 @@
     "max_size": 10,
     "carried_items": [
       {
-        "oid": "ebac6a81-bfda-4488-82ca-4af02d5497b7",
+        "oid": "TEST_TEMPLATE_PLATE_KNIGHT_ARMOR",
         "name": "Plate Armor",
         "item": {
           "item_type": "equipment",
@@ -38,11 +38,11 @@
         }
       },
       {
-        "oid": "45c6c974-644c-40d7-82eb-b91c1377560b",
+        "oid": "TEST_TEMPLATE_PLATE_KNIGHT_HELMET",
         "name": "Knight Helmet",
         "item": {
           "item_type": "equipment",
-          "slot": "left hand",
+          "slot": "head",
           "is_equipped": true,
           "effects": [
             {
@@ -54,7 +54,7 @@
         }
       },
       {
-        "oid": "8da550cb-6afb-4ab4-b70e-656b0c0bcc39",
+        "oid": "TEST_TEMPLATE_PLATE_KNIGHT_HEAVY_SHIELD",
         "name": "Heavy shield",
         "item": {
           "item_type": "equipment",
@@ -70,11 +70,11 @@
         }
       },
       {
-        "oid": "01b016da-298a-49a5-ad93-042f07e8e12b",
+        "oid": "TEST_TEMPLATE_PLATE_KNIGHT_ARMING_SWORD",
         "name": "Arming Sword",
         "item": {
           "item_type": "equipment",
-          "slot": "left hand",
+          "slot": "right hand",
           "is_equipped": true,
           "effects": [
             {
