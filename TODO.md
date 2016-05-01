@@ -1,4 +1,7 @@
-# CURRENT: Add example enemies, maps
+# CURRENT: Ranged combat
+* Ranged weaponry (bow, crossbow, gun)
+* Ammunition for ranged weaponry
+* 'Natural' ranged attacks (like the dinosaur spit from JP)
 
 # TODO (not ordered in priority or effort)
 ## General
@@ -12,7 +15,6 @@
 * Damage types (slash, pierce, bludgeon, fire)
 * Wounds
 * AoE items
-* Ranged combat
 * Traps
 * Allow fleeing from battle
 * Starting placement variation
