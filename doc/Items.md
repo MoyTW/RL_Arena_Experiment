@@ -144,3 +144,23 @@ In order for an item to be *rigged*, there must be a *mount
 point* on the person that is compatible with that specific
 item. The *mount point* is attached to a piece of equipment which
 then must be *worn*.
+
+# So I'm holding my sword. What now?
+
+What actually happens when you hold an item? Let's say you hold a
+sword. What does that actually mean, in game terms? Do you get a
+bonus to your attack? Does it change your attack type?  Does it
+replace your default attack with a sword moveset (like in...wait
+for it...DARK SOULS?) Does it simply enable all sword-related
+skills for the character, and give bonuses depending on its
+power?
+
+Armor is a little more straightforward. When you wear armor, it
+makes you harder to kill. It doesn't change any of your movesets
+or actions or anything.
+
+What happens when you hold a grenade? Well, now all of your
+actions are basically replaced with "Throw this thing!" and your
+basic attack should be disabled, because hitting somebody
+physically with a grenade is not the brightest. I guess it would
+lead to a hilarious death log, but...
