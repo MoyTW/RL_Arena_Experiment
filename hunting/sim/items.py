@@ -87,7 +87,7 @@ class Equipment(Item):
 
     def _use(self, user, target, level_map):
         if not self.can_use(user, target, level_map):
-            raise ValueError('Cannot equip this equipment! ', self, target)
+            raise ValueError('Cannot equip this equipment! ', self.owner.name, target.name)
 
         if self.can_equip(target):
             self.is_equipped = True
